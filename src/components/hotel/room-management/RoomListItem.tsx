@@ -2,7 +2,8 @@ import { motion } from 'framer-motion';
 import { 
   Eye,
   Edit,
-  MoreHorizontal
+  MoreHorizontal,
+  Bed
 } from 'lucide-react';
 import { GlassCard } from '@/components/ui/glass-card';
 import { Button } from '@/components/ui/button';
@@ -39,21 +40,31 @@ export function RoomListItem({
         onClick={onClick}
       >
         <div className="flex items-center gap-6">
-          <img 
-            src={room.images[0]} 
-            alt={room.type}
-            className="w-20 h-20 object-cover rounded-lg"
-          />
+          <div className="relative">
+            <img 
+              src={room.images[0]} 
+              alt={room.type}
+              className="w-20 h-20 object-cover rounded-xl border border-white/20"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-xl" />
+          </div>
           
-          <div className="flex-1 grid grid-cols-6 gap-4 items-center">
-            <div>
-              <p className="font-semibold">Room {room.roomNumber}</p>
-              <p className="text-sm text-muted-foreground">Floor {room.floor}</p>
+          <div className="flex-1 grid grid-cols-8 gap-3 items-center">
+            <div className="space-y-1">
+              <p className="font-bold text-white">#{room.roomNumber}</p>
+              <p className="text-sm text-cyan-300 font-medium">Floor {room.floor}</p>
             </div>
             
-            <div>
-              <p className="font-medium">{room.type}</p>
-              <p className="text-sm text-muted-foreground capitalize">{room.category}</p>
+            <div className="space-y-1">
+              <p className="font-bold text-white">{room.type}</p>
+              <div className="flex items-center gap-1">
+                <span className="px-2 py-1 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 text-cyan-300 text-xs font-medium rounded-full border border-cyan-400/30 capitalize">
+                  {room.category}
+                </span>
+                <span className="px-2 py-1 bg-gradient-to-r from-emerald-500/20 to-green-500/20 text-emerald-300 text-xs font-medium rounded-full border border-emerald-400/30 capitalize">
+                  {room.view} view
+                </span>
+              </div>
             </div>
             
             <div className={cn(
@@ -65,15 +76,33 @@ export function RoomListItem({
             </div>
             
             <div className="text-center">
-              <p className="font-semibold">{room.maxOccupancy}</p>
-              <p className="text-xs text-muted-foreground">Guests</p>
+              <p className="font-bold text-white text-lg">{room.area}m²</p>
+              <p className="text-xs text-gray-400 font-medium">Area</p>
             </div>
             
             <div className="text-center">
-              <p className="font-semibold text-emerald-600 dark:text-emerald-400">
+              <div className="flex items-center justify-center gap-1 mb-1">
+                <Bed className="w-4 h-4 text-purple-400" />
+                <span className="font-bold text-white text-sm">
+                  {room.beds.king > 0 && `${room.beds.king}K`}
+                  {room.beds.queen > 0 && `${room.beds.queen}Q`}
+                  {room.beds.single > 0 && `${room.beds.single}S`}
+                  {room.beds.sofa > 0 && ` +S`}
+                </span>
+              </div>
+              <p className="text-xs text-gray-400 font-medium">Beds</p>
+            </div>
+            
+            <div className="text-center">
+              <p className="font-bold text-white text-lg">{room.maxOccupancy}</p>
+              <p className="text-xs text-gray-400 font-medium">Guests</p>
+            </div>
+            
+            <div className="text-center">
+              <p className="font-bold text-emerald-400 text-lg">
                 {formatCurrency(room.currentRate)}
               </p>
-              <p className="text-xs text-muted-foreground">per night</p>
+              <p className="text-xs text-emerald-200 font-medium">per night</p>
             </div>
             
             <div className="flex items-center justify-end gap-2">

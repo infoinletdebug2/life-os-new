@@ -21,6 +21,21 @@ import CreateEventPage from './pages/event-ticketing/CreateEventPage';
 import CreateVenuePage from './pages/event-ticketing/CreateVenuePage';
 import CreateCategoryPage from './pages/event-ticketing/CreateCategoryPage';
 import CreateTicketPage from './pages/event-ticketing/CreateTicketPage';
+import AddRoom from './pages/hotel/AddRoom';
+import AddCustomer from './pages/hotel/AddCustomer';
+import RoomDetails from './pages/hotel/RoomDetails';
+import RoomTypes from './pages/hotel/RoomTypes';
+import RoomCategories from './pages/hotel/RoomCategories';
+import AddCategory from './pages/hotel/AddCategory';
+import AddRoomType from './pages/hotel/AddRoomType';
+import NewBooking from './pages/hotel/NewBooking';
+import BookingDetails from './pages/hotel/BookingDetails';
+import EditBooking from './pages/hotel/EditBooking';
+import Reservations from './pages/hotel/Reservations';
+import CheckIns from './pages/hotel/CheckIns';
+import CheckOuts from './pages/hotel/CheckOuts';
+import Agreements from './pages/hotel/Agreements';
+import BookingPayments from './pages/hotel/BookingPayments';
 
 const messages = {
   en: enMessages,
@@ -49,8 +64,23 @@ function App() {
             <Route path="/hotel/edit/:id" element={<HotelForm />} />
             <Route path="/hotel/:id/rooms" element={<RoomManagement />} />
             <Route path="/hotel/rooms" element={<RoomManagement />} />
+            <Route path="/hotel/rooms/add" element={<AddRoom />} />
+            <Route path="/hotel/rooms/:id" element={<RoomDetails />} />
+            <Route path="/hotel/rooms/types" element={<RoomTypes />} />
+            <Route path="/hotel/rooms/types/add" element={<AddRoomType />} />
+            <Route path="/hotel/rooms/categories" element={<RoomCategories />} />
+            <Route path="/hotel/rooms/categories/add" element={<AddCategory />} />
             <Route path="/hotel/bookings" element={<BookingManagement />} />
+            <Route path="/hotel/bookings/new" element={<NewBooking />} />
+            <Route path="/hotel/bookings/:id" element={<BookingDetails />} />
+            <Route path="/hotel/bookings/:id/edit" element={<EditBooking />} />
+            <Route path="/hotel/bookings/reservations" element={<Reservations />} />
+            <Route path="/hotel/bookings/check-ins" element={<CheckIns />} />
+            <Route path="/hotel/bookings/check-outs" element={<CheckOuts />} />
+            <Route path="/hotel/bookings/agreements" element={<Agreements />} />
+            <Route path="/hotel/bookings/payments" element={<BookingPayments />} />
             <Route path="/hotel/guests" element={<GuestManagement />} />
+            <Route path="/hotel/guests/add" element={<AddCustomer />} />
 
             {/* Event Ticketing Routes */}
             <Route path="/travel/event-ticketing/events" element={<EventsPage />} />
@@ -65,7 +95,7 @@ function App() {
         </BrowserRouter>
       </IntlProvider>
     </ThemeProvider>
-  );  
+  );
 }
 
 export default App;

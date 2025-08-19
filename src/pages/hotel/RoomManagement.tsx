@@ -1,12 +1,14 @@
 import { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import { 
   Plus,
   Download,
   Upload,
-  Bed
+  Bed,
+  Eye
 } from 'lucide-react';
-import { DashboardLayout } from '@/components/workspace/dashboard-layout';
+import { RoomManagementLayout } from '@/components/hotel/room-management/RoomManagementLayout';
 import { Button } from '@/components/ui/button';
 import { 
   RoomCard,
@@ -30,6 +32,7 @@ import {
 } from '@/components/hotel/room-management/utils';
 
 export default function RoomManagement() {
+  const navigate = useNavigate();
   const [rooms] = useState<ExtendedRoom[]>(mockRooms);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -68,40 +71,41 @@ export default function RoomManagement() {
   };
 
   const handleRoomClick = (room: ExtendedRoom) => {
-    setSelectedRoom(room);
-    setShowRoomDetails(true);
+    navigate(`/hotel/rooms/${room.id}`);
   };
 
   return (
-    <DashboardLayout currentView="rooms" selectedCategory="travel">
-      <div className="flex-1 overflow-y-auto">
-        <div className="p-6 space-y-6">
-          {/* Header */}
-          <div className="flex items-center justify-between">
-            <div>
-              <h1 className="text-2xl font-bold bg-gradient-to-r from-cyan-600 to-emerald-600 bg-clip-text text-transparent">
-                Room & Inventory Management
-              </h1>
-              <p className="text-muted-foreground mt-1">
-                Monitor and manage your property's room inventory
-              </p>
-            </div>
-            
-            <div className="flex items-center gap-3">
-              <Button variant="outline" size="sm" className="gap-2">
-                <Upload className="w-4 h-4" />
-                Import
-              </Button>
-              <Button variant="outline" size="sm" className="gap-2">
-                <Download className="w-4 h-4" />
-                Export
-              </Button>
-              <Button variant="gradient" size="sm" className="gap-2">
-                <Plus className="w-4 h-4" />
-                Add Room
-              </Button>
-            </div>
+    <RoomManagementLayout>
+      <div className="p-8 space-y-8 max-w-7xl mx-auto">
+        {/* Header */}
+        <div className="flex items-center justify-between">
+          <div>
+            <h1 className="text-3xl font-bold bg-gradient-to-r from-cyan-600 to-emerald-600 bg-clip-text text-transparent">
+              Room Overview
+            </h1>
+            <p className="text-gray-400 mt-1">
+              Manage all rooms, pricing, and availability
+            </p>
           </div>
+          
+          <div className="flex items-center gap-3">
+            <Button variant="outline" size="sm" className="gap-2">
+              <Upload className="w-4 h-4" />
+              Import
+            </Button>
+            <Button variant="outline" size="sm" className="gap-2">
+              <Download className="w-4 h-4" />
+              Export
+            </Button>
+            <Button 
+              onClick={() => navigate('/hotel/rooms/add')}
+              className="gap-2 bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600"
+            >
+              <Plus className="w-4 h-4" />
+              Add Room
+            </Button>
+          </div>
+        </div>
 
           {/* Stats Overview */}
           <RoomStats stats={stats} />
@@ -133,18 +137,24 @@ export default function RoomManagement() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+                className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8"
               >
-                {filteredRooms.map((room) => (
-                  <RoomCard 
-                    key={room.id} 
-                    room={room}
-                    onClick={() => handleRoomClick(room)}
-                    getStatusColor={getStatusColor}
-                    getStatusIcon={getStatusIcon}
-                    getAmenityIcon={getAmenityIcon}
-                    formatCurrency={formatCurrency}
-                  />
+                {filteredRooms.map((room, index) => (
+                  <motion.div
+                    key={room.id}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                  >
+                    <RoomCard 
+                      room={room}
+                      onClick={() => handleRoomClick(room)}
+                      getStatusColor={getStatusColor}
+                      getStatusIcon={getStatusIcon}
+                      getAmenityIcon={getAmenityIcon}
+                      formatCurrency={formatCurrency}
+                    />
+                  </motion.div>
                 ))}
               </motion.div>
             ) : (
@@ -181,25 +191,17 @@ export default function RoomManagement() {
               <p className="text-muted-foreground mb-4">
                 Try adjusting your search criteria or add a new room.
               </p>
-              <Button variant="gradient" className="gap-2">
+              <Button 
+                variant="gradient" 
+                className="gap-2"
+                onClick={() => navigate('/hotel/rooms/add'))
+              >
                 <Plus className="w-4 h-4" />
                 Add Room
               </Button>
             </motion.div>
           )}
         </div>
-      </div>
-
-      {/* Room Details Modal */}
-      <RoomDetailsModal
-        room={selectedRoom}
-        isOpen={showRoomDetails}
-        onClose={() => setShowRoomDetails(false)}
-        getStatusColor={getStatusColor}
-        getStatusIcon={getStatusIcon}
-        getAmenityIcon={getAmenityIcon}
-        formatCurrency={formatCurrency}
-      />
-    </DashboardLayout>
+    </RoomManagementLayout>
   );
 }

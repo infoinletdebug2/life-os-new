@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useIntl } from 'react-intl';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { cn } from '@/lib/utils';
-import { ChevronDown, ChevronRight, Shield, User, Hotel, BarChart3, Bed, Calendar, Users, Settings, Star, CreditCard, MapPin, Tag, Ticket } from 'lucide-react';
+import { ChevronDown, ChevronRight, Shield, User, BarChart3, Bed, Calendar, Users, Settings, Star, CreditCard, Plus, Tag, Grid3X3, Eye, CheckCircle, Clock, FileText, DollarSign } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 interface MenuItem {
@@ -40,33 +40,65 @@ export function LeftSidebar({ isCollapsed }: LeftSidebarProps) {
   const navigate = useNavigate();
   const location = useLocation();
   const [expandedSections, setExpandedSections] = useState<string[]>(['admin', 'user']);
+  const [expandedHotelSections, setExpandedHotelSections] = useState<string[]>(['rooms', 'bookings']);
   const [selectedItem, setSelectedItem] = useState<string>('');
+
+  // Room management sub-menu items
+  const roomSubMenuItems = [
+    { id: 'room-overview', label: 'Room Overview', icon: Bed, path: '/hotel/rooms' },
+    { id: 'add-room', label: 'Add Room', icon: Plus, path: '/hotel/rooms/add' },
+    { id: 'room-types', label: 'Room Types', icon: Tag, path: '/hotel/rooms/types' },
+    { id: 'room-categories', label: 'Categories', icon: Grid3X3, path: '/hotel/rooms/categories' },
+  ];
+
+  // Booking management sub-menu items
+  const bookingSubMenuItems = [
+    { id: 'booking-overview', label: 'All Bookings', icon: Calendar, path: '/hotel/bookings' },
+    { id: 'new-booking', label: 'New Booking', icon: Plus, path: '/hotel/bookings/new' },
+    { id: 'reservations', label: 'Reservations', icon: Clock, path: '/hotel/bookings/reservations' },
+    { id: 'check-ins', label: 'Check-ins', icon: CheckCircle, path: '/hotel/bookings/check-ins' },
+    { id: 'check-outs', label: 'Check-outs', icon: CheckCircle, path: '/hotel/bookings/check-outs' },
+    { id: 'agreements', label: 'Agreements', icon: FileText, path: '/hotel/bookings/agreements' },
+    { id: 'payments', label: 'Payments', icon: DollarSign, path: '/hotel/bookings/payments' },
+  ];
 
   // Hotel management menu items
   const hotelMenuItems = [
     { id: 'dashboard', label: 'Dashboard', icon: BarChart3, path: '/hotel/dashboard' },
-    { id: 'properties', label: 'Properties', icon: Hotel, path: '/hotel/properties' },
-    { id: 'rooms', label: 'Room Management', icon: Bed, path: '/hotel/rooms' },
-    { id: 'bookings', label: 'Bookings', icon: Calendar, path: '/hotel/bookings' },
-    { id: 'guests', label: 'Guest Management', icon: Users, path: '/hotel/guests' },
+    { 
+      id: 'rooms', 
+      label: 'Room Management', 
+      icon: Bed, 
+      path: '/hotel/rooms',
+      hasSubMenu: true,
+      subMenu: roomSubMenuItems
+    },
+    { 
+      id: 'bookings', 
+      label: 'Booking Management', 
+      icon: Calendar, 
+      path: '/hotel/bookings',
+      hasSubMenu: true,
+      subMenu: bookingSubMenuItems
+    },
+    { id: 'guests', label: 'Customer Management', icon: Users, path: '/hotel/guests' },
     { id: 'reviews', label: 'Reviews & Ratings', icon: Star, path: '/hotel/reviews' },
     { id: 'payments', label: 'Payments', icon: CreditCard, path: '/hotel/payments' },
-    { id: 'settings', label: 'Settings', icon: Settings, path: '/hotel/settings' },
-  ];
-
-  // Event ticketing menu items
-  const eventTicketingMenuItems = [
-    { id: 'events', label: 'Events', icon: Calendar, path: '/travel/event-ticketing/events' },
-    { id: 'venues', label: 'Venues', icon: MapPin, path: '/travel/event-ticketing/venues' },
-    { id: 'categories', label: 'Event Categories', icon: Tag, path: '/travel/event-ticketing/categories' },
-    { id: 'tickets', label: 'Event Tickets', icon: Ticket, path: '/travel/event-ticketing/tickets' },
+    { id: 'settings', label: 'Hotel Settings', icon: Settings, path: '/hotel/settings' },
   ];
 
   const isHotelRoute = location.pathname.startsWith('/hotel');
-  const isEventTicketingRoute = location.pathname.startsWith('/travel/event-ticketing');
 
   const toggleSection = (section: string) => {
     setExpandedSections(prev =>
+      prev.includes(section)
+        ? prev.filter(s => s !== section)
+        : [...prev, section]
+    );
+  };
+
+  const toggleHotelSection = (section: string) => {
+    setExpandedHotelSections(prev =>
       prev.includes(section)
         ? prev.filter(s => s !== section)
         : [...prev, section]
@@ -100,43 +132,71 @@ export function LeftSidebar({ isCollapsed }: LeftSidebarProps) {
     const IconComponent = item.icon;
     const isSelected = location.pathname === item.path || 
                      (item.path === '/hotel/dashboard' && location.pathname === '/hotel');
+    const isRoomRoute = location.pathname.startsWith('/hotel/rooms');
+    const isBookingRoute = location.pathname.startsWith('/hotel/bookings');
+    const isExpanded = expandedHotelSections.includes(item.id);
     
     return (
       <li key={item.id}>
-        <button
-          onClick={() => navigate(item.path)}
-          className={cn(
-            "w-full flex items-center gap-3 px-3 py-2 text-sm rounded-lg transition-all duration-200",
-            isSelected
-              ? "bg-primary text-primary-foreground shadow-md"
-              : "hover:bg-accent hover:text-accent-foreground"
+        <div className="flex items-center">
+          <button
+            onClick={() => item.hasSubMenu ? toggleHotelSection(item.id) : navigate(item.path)}
+            className={cn(
+              "flex-1 flex items-center gap-3 px-3 py-2 text-sm rounded-lg transition-all duration-200",
+              (isSelected || (item.id === 'rooms' && isRoomRoute) || (item.id === 'bookings' && isBookingRoute))
+                ? "bg-primary text-primary-foreground shadow-md"
+                : "hover:bg-accent hover:text-accent-foreground"
+            )}
+          >
+            {/* new */}
+            <IconComponent className="w-4 h-4" />
+            <span className="flex-1 text-left">{item.label}</span>
+            {item.hasSubMenu && (
+              <div className="ml-auto">
+                {isExpanded ? (
+                  <ChevronDown className="w-4 h-4 text-muted-foreground" />
+                ) : (
+                  <ChevronRight className="w-4 h-4 text-muted-foreground" />
+                )}
+              </div>
+            )}
+          </button>
+          {!item.hasSubMenu && (
+            <button
+              onClick={() => navigate(item.path)}
+              className="p-2 text-xs text-muted-foreground hover:text-foreground transition-colors"
+            >
+              <Eye className="w-3 h-3" />
+            </button>
           )}
-        >
-          <IconComponent className="w-4 h-4" />
-          <span>{item.label}</span>
-        </button>
-      </li>
-    );
-  };
-
-  const renderEventTicketingMenuItem = (item: any) => {
-    const IconComponent = item.icon;
-    const isSelected = location.pathname === item.path;
-    
-    return (
-      <li key={item.id}>
-        <button
-          onClick={() => navigate(item.path)}
-          className={cn(
-            "w-full flex items-center gap-3 px-3 py-2 text-sm rounded-lg transition-all duration-200",
-            isSelected
-              ? "bg-primary text-primary-foreground shadow-md"
-              : "hover:bg-accent hover:text-accent-foreground"
-          )}
-        >
-          <IconComponent className="w-4 h-4" />
-          <span>{item.label}</span>
-        </button>
+        </div>
+        
+        {/* Sub-menu items */}
+        {item.hasSubMenu && isExpanded && item.subMenu && (
+          <ul className="mt-2 ml-4 space-y-1 border-l border-border/30 pl-3">
+            {item.subMenu.map((subItem: any) => {
+              const SubIconComponent = subItem.icon;
+              const isSubSelected = location.pathname === subItem.path;
+              
+              return (
+                <li key={subItem.id}>
+                  <button
+                    onClick={() => navigate(subItem.path)}
+                    className={cn(
+                      "w-full flex items-center gap-2 px-2 py-1.5 text-xs rounded transition-all duration-200",
+                      isSubSelected
+                        ? "bg-primary/20 text-primary font-medium"
+                        : "text-muted-foreground hover:text-foreground hover:bg-accent/50"
+                    )}
+                  >
+                    <SubIconComponent className="w-3 h-3" />
+                    <span>{subItem.label}</span>
+                  </button>
+                </li>
+              );
+            })}
+          </ul>
+        )}
       </li>
     );
   };
@@ -148,7 +208,7 @@ export function LeftSidebar({ isCollapsed }: LeftSidebarProps) {
       {/* Header */}
       <div className="p-4 border-b border-white/5">
         <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider">
-          {isHotelRoute ? 'Hotel Management' : isEventTicketingRoute ? 'Event Ticketing' : 'System Controls'}
+          {isHotelRoute ? 'Hotel Management' : 'System Controls'}
         </h3>
       </div>
 
@@ -162,16 +222,6 @@ export function LeftSidebar({ isCollapsed }: LeftSidebarProps) {
             </h4>
             <ul className="space-y-1">
               {hotelMenuItems.map(item => renderHotelMenuItem(item))}
-            </ul>
-          </div>
-        ) : isEventTicketingRoute ? (
-          /* Event Ticketing Navigation */
-          <div>
-            <h4 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-3 px-3">
-              Event Management
-            </h4>
-            <ul className="space-y-1">
-              {eventTicketingMenuItems.map(item => renderEventTicketingMenuItem(item))}
             </ul>
           </div>
         ) : (

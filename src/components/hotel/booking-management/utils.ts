@@ -13,60 +13,72 @@ import {
 import { createElement } from 'react';
 import type { BookingStatusType, PaymentStatusType } from '@/types/hotel/booking/booking';
 
-export const getStatusColor = (status: BookingStatusType) => {
+// Extended status types to include 'requested' and 'rejected' from BookingManagement page
+export type ExtendedBookingStatus = BookingStatusType | 'requested' | 'rejected';
+export type ExtendedPaymentStatus = PaymentStatusType | 'refunded';
+
+export const getStatusColor = (status: ExtendedBookingStatus) => {
   switch (status) {
     case 'confirmed':
-      return 'text-green-600 dark:text-green-400 bg-green-500/10';
+      return 'bg-blue-500/20 text-blue-300 border-blue-400/30';
     case 'checked-in':
-      return 'text-blue-600 dark:text-blue-400 bg-blue-500/10';
+      return 'bg-green-500/20 text-green-300 border-green-400/30';
     case 'checked-out':
-      return 'text-gray-600 dark:text-gray-400 bg-gray-500/10';
+      return 'bg-gray-500/20 text-gray-300 border-gray-400/30';
     case 'pending':
-      return 'text-yellow-600 dark:text-yellow-400 bg-yellow-500/10';
+      return 'bg-yellow-500/20 text-yellow-300 border-yellow-400/30';
     case 'cancelled':
-      return 'text-red-600 dark:text-red-400 bg-red-500/10';
+      return 'bg-red-500/20 text-red-300 border-red-400/30';
+    case 'requested':
+      return 'bg-orange-500/20 text-orange-300 border-orange-400/30';
+    case 'rejected':
+      return 'bg-red-500/20 text-red-300 border-red-400/30';
     case 'no-show':
-      return 'text-orange-600 dark:text-orange-400 bg-orange-500/10';
+      return 'bg-orange-500/20 text-orange-300 border-orange-400/30';
     default:
-      return 'text-gray-600 dark:text-gray-400 bg-gray-500/10';
+      return 'bg-gray-500/20 text-gray-300 border-gray-400/30';
   }
 };
 
-export const getStatusIcon = (status: BookingStatusType) => {
+export const getStatusIcon = (status: ExtendedBookingStatus) => {
   const iconProps = { className: "w-4 h-4" };
   
   switch (status) {
     case 'confirmed':
       return createElement(CheckCircle, iconProps);
     case 'checked-in':
-      return createElement(UserCheck, iconProps);
+      return createElement(CheckCircle, iconProps);
     case 'checked-out':
-      return createElement(LogOut, iconProps);
+      return createElement(CheckCircle, iconProps);
     case 'pending':
       return createElement(Clock, iconProps);
     case 'cancelled':
+      return createElement(AlertTriangle, iconProps);
+    case 'requested':
+      return createElement(Clock, iconProps);
+    case 'rejected':
       return createElement(XCircle, iconProps);
     case 'no-show':
       return createElement(Ban, iconProps);
     default:
-      return createElement(AlertTriangle, iconProps);
+      return createElement(Clock, iconProps);
   }
 };
 
-export const getPaymentStatusColor = (status: PaymentStatusType) => {
+export const getPaymentStatusColor = (status: ExtendedPaymentStatus) => {
   switch (status) {
     case 'paid':
-      return 'text-green-600 dark:text-green-400 bg-green-500/10';
+      return 'bg-emerald-500/20 text-emerald-300 border-emerald-400/30';
     case 'partial':
-      return 'text-yellow-600 dark:text-yellow-400 bg-yellow-500/10';
+      return 'bg-orange-500/20 text-orange-300 border-orange-400/30';
     case 'pending':
-      return 'text-orange-600 dark:text-orange-400 bg-orange-500/10';
+      return 'bg-red-500/20 text-red-300 border-red-400/30';
     case 'failed':
-      return 'text-red-600 dark:text-red-400 bg-red-500/10';
+      return 'bg-red-500/20 text-red-300 border-red-400/30';
     case 'refunded':
-      return 'text-blue-600 dark:text-blue-400 bg-blue-500/10';
+      return 'bg-purple-500/20 text-purple-300 border-purple-400/30';
     default:
-      return 'text-gray-600 dark:text-gray-400 bg-gray-500/10';
+      return 'bg-gray-500/20 text-gray-300 border-gray-400/30';
   }
 };
 

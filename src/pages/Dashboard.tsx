@@ -1,14 +1,8 @@
 import { useParams, Navigate } from 'react-router-dom';
 import { DashboardLayout } from '../components/workspace/dashboard-layout';
-import EventTicketing from './EventTicketing';
 
 export default function Dashboard() {
   const { category, subcategory } = useParams();
-
-  // Redirect event-ticketing to the new event management system
-  if (category === 'travel' && subcategory === 'event-ticketing') {
-    return <Navigate to="/travel/event-ticketing/events" replace />;
-  }
 
   // Redirect hotel-booking to the new hotel management system
   if (category === 'travel' && subcategory === 'hotel-booking') {

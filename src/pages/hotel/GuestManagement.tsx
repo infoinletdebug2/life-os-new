@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import { 
   UserPlus,
   Download,
@@ -30,6 +31,7 @@ import {
 import type { ExtendedGuest } from '@/types/hotel/guest/guest';
 
 export default function GuestManagement() {
+  const navigate = useNavigate();
   const [guests] = useState<ExtendedGuest[]>(mockGuests);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedStatus, setSelectedStatus] = useState('all');
@@ -77,10 +79,10 @@ export default function GuestManagement() {
           <div className="flex items-center justify-between">
             <div>
               <h1 className="text-2xl font-bold bg-gradient-to-r from-cyan-600 to-emerald-600 bg-clip-text text-transparent">
-                Guest Management
+                Customer Management
               </h1>
               <p className="text-muted-foreground mt-1">
-                Manage guest profiles, preferences, and loyalty programs
+                Manage customer profiles, preferences, and relationships
               </p>
             </div>
             
@@ -93,9 +95,14 @@ export default function GuestManagement() {
                 <Download className="w-4 h-4" />
                 Export
               </Button>
-              <Button variant="gradient" size="sm" className="gap-2">
+              <Button 
+                variant="gradient" 
+                size="sm" 
+                className="gap-2"
+                onClick={() => navigate('/hotel/guests/add'))
+              >
                 <UserPlus className="w-4 h-4" />
-                Add Guest
+                Add Customer
               </Button>
             </div>
           </div>
@@ -139,9 +146,13 @@ export default function GuestManagement() {
               <p className="text-muted-foreground mb-4">
                 Try adjusting your search criteria or add a new guest.
               </p>
-              <Button variant="gradient" className="gap-2">
+              <Button 
+                variant="gradient" 
+                className="gap-2"
+                onClick={() => navigate('/hotel/guests/add')}
+              >
                 <UserPlus className="w-4 h-4" />
-                Add Guest
+                Add Customer
               </Button>
             </motion.div>
           )}

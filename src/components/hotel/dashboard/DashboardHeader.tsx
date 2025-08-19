@@ -19,10 +19,10 @@ export function DashboardHeader({
     <div className="flex items-center justify-between">
       <div>
         <h1 className="text-2xl font-bold bg-gradient-to-r from-cyan-600 to-emerald-600 bg-clip-text text-transparent">
-          Dashboard Overview
+          Hotel Dashboard
         </h1>
         <p className="text-muted-foreground mt-1">
-          Real-time insights and performance metrics
+          Real-time insights and performance metrics for your property
         </p>
       </div>
       

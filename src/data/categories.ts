@@ -28,8 +28,8 @@ export const categories: Category[] = [
       },
       {
         id: 'hotel-booking',
-        name: 'Hotel Booking Admin',
-        description: 'Complete hotel management system',
+        name: 'Hotel Management System',
+        description: 'Complete hotel management for single property',
         route: '/hotel'
       },
       {
