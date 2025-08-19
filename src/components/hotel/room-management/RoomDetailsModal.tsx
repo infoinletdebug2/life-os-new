@@ -117,7 +117,7 @@ export function RoomDetailsModal({
                       </div>
                     </div>
 
-                    <div className="border-t border-white/10 pt-4">
+                    <div className="border-t border-white/10 pt-5">
                       <h4 className="text-base font-bold text-white mb-3">Pricing</h4>
                       <div className="space-y-3 text-sm">
                         <div className="flex justify-between items-center py-2 border-b border-white/5">

@@ -171,7 +171,6 @@ export default function GuestManagement() {
         formatDate={formatDate}
         calculateAge={calculateAge}
       />
-
     </DashboardLayout>
   );
 }

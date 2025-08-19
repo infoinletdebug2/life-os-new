@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useIntl } from 'react-intl';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { cn } from '@/lib/utils';
-import { ChevronDown, ChevronRight, Shield, User, BarChart3, Bed, Calendar, Users, Settings, Star, CreditCard, Plus, Tag, Grid3X3, Eye, CheckCircle, Clock, FileText, DollarSign } from 'lucide-react';
+import { ChevronDown, ChevronRight, Shield, User, BarChart3, Bed, Calendar, Users, Settings, Star, CreditCard, Plus, Tag, Grid3X3, Eye, CheckCircle, Clock, FileText, DollarSign, CalendarDays, MapPin, Layers, Ticket } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 interface MenuItem {
@@ -87,7 +87,16 @@ export function LeftSidebar({ isCollapsed }: LeftSidebarProps) {
     { id: 'settings', label: 'Hotel Settings', icon: Settings, path: '/hotel/settings' },
   ];
 
+  // Event Ticketing menu items
+  const eventTicketingMenuItems = [
+    { id: 'events', label: 'Events', icon: CalendarDays, path: '/travel/event-ticketing/events', createPath: '/travel/event-ticketing/events/create' },
+    { id: 'venues', label: 'Venues', icon: MapPin, path: '/travel/event-ticketing/venues', createPath: '/travel/event-ticketing/venues/create' },
+    { id: 'categories', label: 'Categories', icon: Layers, path: '/travel/event-ticketing/categories', createPath: '/travel/event-ticketing/categories/create' },
+    { id: 'tickets', label: 'Tickets', icon: Ticket, path: '/travel/event-ticketing/tickets', createPath: '/travel/event-ticketing/tickets/create' },
+  ];
+
   const isHotelRoute = location.pathname.startsWith('/hotel');
+  const isEventTicketingRoute = location.pathname.includes('/event-ticketing');
 
   const toggleSection = (section: string) => {
     setExpandedSections(prev =>
@@ -161,7 +170,16 @@ export function LeftSidebar({ isCollapsed }: LeftSidebarProps) {
               </div>
             )}
           </button>
-          {!item.hasSubMenu && (
+          {!item.hasSubMenu && item.createPath && (
+            <button
+              onClick={() => navigate(item.createPath)}
+              className="p-2 text-xs text-muted-foreground hover:text-foreground transition-colors"
+              title="Create new"
+            >
+              <Plus className="w-3 h-3" />
+            </button>
+          )}
+          {!item.hasSubMenu && !item.createPath && (
             <button
               onClick={() => navigate(item.path)}
               className="p-2 text-xs text-muted-foreground hover:text-foreground transition-colors"
@@ -208,7 +226,7 @@ export function LeftSidebar({ isCollapsed }: LeftSidebarProps) {
       {/* Header */}
       <div className="p-4 border-b border-white/5">
         <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider">
-          {isHotelRoute ? 'Hotel Management' : 'System Controls'}
+          {isHotelRoute ? 'Hotel Management' : isEventTicketingRoute ? 'Event Ticketing' : 'System Controls'}
         </h3>
       </div>
 
@@ -222,6 +240,16 @@ export function LeftSidebar({ isCollapsed }: LeftSidebarProps) {
             </h4>
             <ul className="space-y-1">
               {hotelMenuItems.map(item => renderHotelMenuItem(item))}
+            </ul>
+          </div>
+        ) : isEventTicketingRoute ? (
+          /* Event Ticketing Navigation */
+          <div>
+            <h4 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-3 px-3">
+              Event Management
+            </h4>
+            <ul className="space-y-1">
+              {eventTicketingMenuItems.map(item => renderHotelMenuItem(item))}
             </ul>
           </div>
         ) : (

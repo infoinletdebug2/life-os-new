@@ -6,12 +6,21 @@ import enMessages from './locales/en.json';
 import jaMessages from './locales/ja.json';
 import Categories from './pages/Categories';
 import Dashboard from './pages/Dashboard';
+import TestDarkMode from './pages/TestDarkMode';
 import HotelDashboard from './pages/hotel/HotelDashboard';
 import HotelList from './pages/hotel/HotelList';
 import HotelForm from './pages/hotel/HotelForm';
 import RoomManagement from './pages/hotel/RoomManagement';
 import BookingManagement from './pages/hotel/BookingManagement';
 import GuestManagement from './pages/hotel/GuestManagement';
+import EventsPage from './pages/event-ticketing/EventsPage';
+import VenuesPage from './pages/event-ticketing/VenuesPage';
+import CategoriesPage from './pages/event-ticketing/CategoriesPage';
+import TicketsPage from './pages/event-ticketing/TicketsPage';
+import CreateEventPage from './pages/event-ticketing/CreateEventPage';
+import CreateVenuePage from './pages/event-ticketing/CreateVenuePage';
+import CreateCategoryPage from './pages/event-ticketing/CreateCategoryPage';
+import CreateTicketPage from './pages/event-ticketing/CreateTicketPage';
 import AddRoom from './pages/hotel/AddRoom';
 import AddCustomer from './pages/hotel/AddCustomer';
 import RoomDetails from './pages/hotel/RoomDetails';
@@ -43,6 +52,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Navigate to="/categories" replace />} />
             <Route path="/categories" element={<Categories />} />
+            <Route path="/test-dark" element={<TestDarkMode />} />
             <Route path="/:category/:subcategory" element={<Dashboard />} />
             
             {/* Hotel Management Routes */}
@@ -71,6 +81,17 @@ function App() {
             <Route path="/hotel/bookings/payments" element={<BookingPayments />} />
             <Route path="/hotel/guests" element={<GuestManagement />} />
             <Route path="/hotel/guests/add" element={<AddCustomer />} />
+
+            {/* Event Ticketing Routes */}
+            <Route path="/travel/event-ticketing" element={<Navigate to="/travel/event-ticketing/events" replace />} />
+            <Route path="/travel/event-ticketing/events" element={<EventsPage />} />
+            <Route path="/travel/event-ticketing/venues" element={<VenuesPage />} />
+            <Route path="/travel/event-ticketing/categories" element={<CategoriesPage />} />
+            <Route path="/travel/event-ticketing/tickets" element={<TicketsPage />} />
+            <Route path="/travel/event-ticketing/events/create" element={<CreateEventPage />} />
+            <Route path="/travel/event-ticketing/venues/create" element={<CreateVenuePage />} />
+            <Route path="/travel/event-ticketing/categories/create" element={<CreateCategoryPage />} />
+            <Route path="/travel/event-ticketing/tickets/create" element={<CreateTicketPage />} />
           </Routes>
         </BrowserRouter>
       </IntlProvider>
