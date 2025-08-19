@@ -108,7 +108,7 @@ export default function AddRoomType() {
             <Button
               variant="ghost"
               onClick={() => navigate('/hotel/rooms/types')}
-              className="hover:bg-white/10 text-gray-300 hover:text-white"
+              className="hover:bg-secondary/80 text-muted-foreground hover:text-foreground"
             >
               <ArrowLeft className="w-5 h-5" />
             </Button>
@@ -116,7 +116,7 @@ export default function AddRoomType() {
               <h1 className="text-3xl font-bold bg-gradient-to-r from-cyan-600 to-emerald-600 bg-clip-text text-transparent">
                 Add New Room Type
               </h1>
-              <p className="text-gray-400 mt-1">
+              <p className="text-muted-foreground mt-1">
                 Create a new room type configuration
               </p>
             </div>
@@ -124,7 +124,7 @@ export default function AddRoomType() {
         </div>
 
         {/* Form Content */}
-        <div className="bg-gray-800/20 backdrop-blur-xl border border-white/10 rounded-2xl p-8">
+        <div className="bg-secondary backdrop-blur-xl border border-white/10 rounded-2xl p-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -135,7 +135,7 @@ export default function AddRoomType() {
             <div className="space-y-6">
               <div className="flex items-center gap-2 mb-6">
                 <Tag className="w-5 h-5 text-cyan-400" />
-                <h3 className="text-lg font-bold text-white">Basic Information</h3>
+                <h3 className="text-lg font-bold text-foreground">Basic Information</h3>
               </div>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -146,7 +146,7 @@ export default function AddRoomType() {
                     placeholder="e.g., Deluxe Ocean View"
                     value={formData.name}
                     onChange={(e) => handleInputChange('name', e.target.value)}
-                    className="bg-gray-800/50 border-gray-600/50 text-white placeholder:text-gray-400 focus:border-cyan-500 focus:ring-cyan-500/20"
+                    className="bg-secondary border-input text-foreground placeholder:text-muted-foreground focus:border-ring focus:ring-ring/20"
                   />
                 </div>
                 
@@ -160,7 +160,7 @@ export default function AddRoomType() {
                     placeholder="150"
                     value={formData.basePrice}
                     onChange={(e) => handleInputChange('basePrice', e.target.value)}
-                    className="bg-gray-800/50 border-gray-600/50 text-white placeholder:text-gray-400 focus:border-cyan-500 focus:ring-cyan-500/20"
+                    className="bg-secondary border-input text-foreground placeholder:text-muted-foreground focus:border-ring focus:ring-ring/20"
                   />
                 </div>
 
@@ -173,7 +173,7 @@ export default function AddRoomType() {
                     max="10"
                     value={formData.maxOccupancy}
                     onChange={(e) => handleInputChange('maxOccupancy', e.target.value)}
-                    className="bg-gray-800/50 border-gray-600/50 text-white placeholder:text-gray-400 focus:border-cyan-500 focus:ring-cyan-500/20"
+                    className="bg-secondary border-input text-foreground placeholder:text-muted-foreground focus:border-ring focus:ring-ring/20"
                   />
                 </div>
 
@@ -186,7 +186,7 @@ export default function AddRoomType() {
                     placeholder="350"
                     value={formData.averageSize}
                     onChange={(e) => handleInputChange('averageSize', e.target.value)}
-                    className="bg-gray-800/50 border-gray-600/50 text-white placeholder:text-gray-400 focus:border-cyan-500 focus:ring-cyan-500/20"
+                    className="bg-secondary border-input text-foreground placeholder:text-muted-foreground focus:border-ring focus:ring-ring/20"
                   />
                 </div>
               </div>
@@ -198,7 +198,7 @@ export default function AddRoomType() {
                   placeholder="Describe the room type and its features..."
                   value={formData.description}
                   onChange={(e) => handleInputChange('description', e.target.value)}
-                  className="bg-gray-800/50 border-gray-600/50 text-white placeholder:text-gray-400 focus:border-cyan-500 focus:ring-cyan-500/20 min-h-[100px]"
+                  className="bg-secondary border-input text-foreground placeholder:text-muted-foreground focus:border-ring focus:ring-ring/20 min-h-[100px]"
                 />
               </div>
             </div>
@@ -207,7 +207,7 @@ export default function AddRoomType() {
             <div className="space-y-6">
               <div className="flex items-center gap-2 mb-6">
                 <Bed className="w-5 h-5 text-purple-400" />
-                <h3 className="text-lg font-bold text-white">Bed Configuration</h3>
+                <h3 className="text-lg font-bold text-foreground">Bed Configuration</h3>
               </div>
               
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -234,7 +234,7 @@ export default function AddRoomType() {
                         max="5"
                         value={formData.bedConfiguration[bedType.id]}
                         onChange={(e) => handleBedConfigChange(bedType.id, parseInt(e.target.value) || 0)}
-                        className="w-16 text-center bg-gray-800/50 border-gray-600/50 text-white"
+                        className="w-16 text-center bg-secondary border-input text-foreground"
                       />
                       <Button
                         type="button"
@@ -263,7 +263,7 @@ export default function AddRoomType() {
             <div className="space-y-6">
               <div className="flex items-center gap-2 mb-6">
                 <Star className="w-5 h-5 text-yellow-400" />
-                <h3 className="text-lg font-bold text-white">Default Amenities</h3>
+                <h3 className="text-lg font-bold text-foreground">Default Amenities</h3>
               </div>
               
               <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
@@ -276,7 +276,7 @@ export default function AddRoomType() {
                       "flex items-center gap-2 px-3 py-2 rounded-lg border transition-all duration-200 text-sm",
                       formData.defaultAmenities.includes(amenity)
                         ? "bg-cyan-500/20 border-cyan-500/50 text-cyan-300"
-                        : "bg-gray-800/30 border-gray-600/50 text-gray-300 hover:bg-gray-700/50 hover:border-gray-500/50 hover:text-white"
+                        : "bg-secondary border-input text-muted-foreground hover:bg-gray-700/50 hover:border-gray-500/50 hover:text-foreground"
                     )}
                   >
                     <span>{amenity}</span>
@@ -291,7 +291,7 @@ export default function AddRoomType() {
                   value={formData.customAmenities}
                   onChange={(e) => handleInputChange('customAmenities', e.target.value)}
                   placeholder="Butler Service, Private Chef, etc."
-                  className="bg-gray-800/50 border-gray-600/50 text-white placeholder:text-gray-400 focus:border-cyan-500 focus:ring-cyan-500/20"
+                  className="bg-secondary border-input text-foreground placeholder:text-muted-foreground focus:border-ring focus:ring-ring/20"
                 />
               </div>
             </div>
@@ -300,7 +300,7 @@ export default function AddRoomType() {
             <div className="space-y-6">
               <div className="flex items-center gap-2 mb-6">
                 <Home className="w-5 h-5 text-emerald-400" />
-                <h3 className="text-lg font-bold text-white">Key Features</h3>
+                <h3 className="text-lg font-bold text-foreground">Key Features</h3>
               </div>
               
               <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
@@ -313,7 +313,7 @@ export default function AddRoomType() {
                       "flex items-center gap-2 px-3 py-2 rounded-lg border transition-all duration-200 text-sm",
                       formData.features.includes(feature)
                         ? "bg-emerald-500/20 border-emerald-500/50 text-emerald-300"
-                        : "bg-gray-800/30 border-gray-600/50 text-gray-300 hover:bg-gray-700/50 hover:border-gray-500/50 hover:text-white"
+                        : "bg-secondary border-input text-muted-foreground hover:bg-gray-700/50 hover:border-gray-500/50 hover:text-foreground"
                     )}
                   >
                     <span>{feature}</span>
@@ -328,7 +328,7 @@ export default function AddRoomType() {
                   value={formData.customFeatures}
                   onChange={(e) => handleInputChange('customFeatures', e.target.value)}
                   placeholder="Private Terrace, Fireplace, etc."
-                  className="bg-gray-800/50 border-gray-600/50 text-white placeholder:text-gray-400 focus:border-cyan-500 focus:ring-cyan-500/20"
+                  className="bg-secondary border-input text-foreground placeholder:text-muted-foreground focus:border-ring focus:ring-ring/20"
                 />
               </div>
             </div>
@@ -337,7 +337,7 @@ export default function AddRoomType() {
             <div className="space-y-6">
               <div className="flex items-center gap-2 mb-6">
                 <Star className="w-5 h-5 text-yellow-400" />
-                <h3 className="text-lg font-bold text-white">Preview</h3>
+                <h3 className="text-lg font-bold text-foreground">Preview</h3>
               </div>
               
               {formData.name && (
@@ -347,7 +347,7 @@ export default function AddRoomType() {
                       <Tag className="w-5 h-5 text-cyan-400" />
                     </div>
                     <div>
-                      <h4 className="text-lg font-bold text-white">{formData.name}</h4>
+                      <h4 className="text-lg font-bold text-foreground">{formData.name}</h4>
                       <div className="flex items-center gap-2 mt-1">
                         {formData.basePrice && (
                           <span className="text-emerald-400 font-bold">${formData.basePrice}</span>
@@ -363,12 +363,12 @@ export default function AddRoomType() {
                   </div>
                   
                   {formData.description && (
-                    <p className="text-gray-300 text-sm mb-4">{formData.description}</p>
+                    <p className="text-muted-foreground text-sm mb-4">{formData.description}</p>
                   )}
                   
                   {totalBeds > 0 && (
                     <div className="mb-4">
-                      <h5 className="text-sm font-semibold text-gray-300 mb-2">Bed Configuration:</h5>
+                      <h5 className="text-sm font-semibold text-muted-foreground mb-2">Bed Configuration:</h5>
                       <div className="flex items-center gap-2 flex-wrap">
                         {Object.entries(formData.bedConfiguration).map(([type, count]) => 
                           count > 0 && (
@@ -383,7 +383,7 @@ export default function AddRoomType() {
                   
                   {formData.defaultAmenities.length > 0 && (
                     <div className="mb-4">
-                      <h5 className="text-sm font-semibold text-gray-300 mb-2">Amenities:</h5>
+                      <h5 className="text-sm font-semibold text-muted-foreground mb-2">Amenities:</h5>
                       <div className="flex items-center gap-1 flex-wrap">
                         {formData.defaultAmenities.slice(0, 4).map(amenity => (
                           <span key={amenity} className="px-2 py-1 bg-cyan-500/20 text-cyan-300 text-xs rounded-full">
@@ -391,7 +391,7 @@ export default function AddRoomType() {
                           </span>
                         ))}
                         {formData.defaultAmenities.length > 4 && (
-                          <span className="px-2 py-1 bg-gray-500/20 text-gray-400 text-xs rounded-full">
+                          <span className="px-2 py-1 bg-gray-500/20 text-muted-foreground text-xs rounded-full">
                             +{formData.defaultAmenities.length - 4} more
                           </span>
                         )}
@@ -405,11 +405,11 @@ export default function AddRoomType() {
         </div>
 
         {/* Footer */}
-        <div className="flex items-center justify-between bg-gray-800/30 backdrop-blur-xl border border-white/10 rounded-2xl p-6">
+        <div className="flex items-center justify-between bg-secondary backdrop-blur-xl border border-white/10 rounded-2xl p-6">
           <Button
             variant="ghost"
             onClick={() => navigate('/hotel/rooms/types')}
-            className="hover:bg-white/15 text-gray-300 hover:text-white px-6 py-3 rounded-xl transition-all duration-200"
+            className="hover:bg-secondary/80 text-muted-foreground hover:text-foreground px-6 py-3 rounded-xl transition-all duration-200"
           >
             Cancel
           </Button>
@@ -417,7 +417,7 @@ export default function AddRoomType() {
           <Button
             onClick={handleSave}
             disabled={!formData.name || !formData.basePrice}
-            className="gap-3 bg-gradient-to-r from-emerald-500 to-green-500 hover:from-emerald-600 hover:to-green-600 text-white font-semibold px-8 py-3 rounded-xl shadow-lg shadow-emerald-500/25 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="gap-3 bg-gradient-to-r from-emerald-500 to-green-500 hover:from-emerald-600 hover:to-green-600 text-foreground font-semibold px-8 py-3 rounded-xl shadow-lg shadow-emerald-500/25 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             <Save className="w-5 h-5" />
             Save Room Type

@@ -60,10 +60,7 @@ export function MainContent({
               className="pl-9 pr-3 py-1.5 bg-card border border-input rounded-lg text-sm w-48 focus:outline-none focus:ring-2 focus:ring-primary/20"
             />
           </div>
-          <Button variant="gradient" size="sm" className="gap-2">
-            <Plus className="w-4 h-4" />
-            {intl.formatMessage({ id: 'user.new' })}
-          </Button>
+     
           <Button variant="outline" size="sm" className="gap-2">
             <Bot className="w-4 h-4" />
             {intl.formatMessage({ id: 'user.askAI' })}

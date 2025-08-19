@@ -12,6 +12,7 @@ import HotelList from './pages/hotel/HotelList';
 import HotelForm from './pages/hotel/HotelForm';
 import RoomManagement from './pages/hotel/RoomManagement';
 import BookingManagement from './pages/hotel/BookingManagement';
+import BookingManagementNew from './pages/hotel/BookingManagementNew';
 import GuestManagement from './pages/hotel/GuestManagement';
 import EventsPage from './pages/event-ticketing/EventsPage';
 import VenuesPage from './pages/event-ticketing/VenuesPage';
@@ -70,7 +71,7 @@ function App() {
             <Route path="/hotel/rooms/types/add" element={<AddRoomType />} />
             <Route path="/hotel/rooms/categories" element={<RoomCategories />} />
             <Route path="/hotel/rooms/categories/add" element={<AddCategory />} />
-            <Route path="/hotel/bookings" element={<BookingManagement />} />
+            <Route path="/hotel/bookings" element={<BookingManagementNew />} />
             <Route path="/hotel/bookings/new" element={<NewBooking />} />
             <Route path="/hotel/bookings/:id" element={<BookingDetails />} />
             <Route path="/hotel/bookings/:id/edit" element={<EditBooking />} />

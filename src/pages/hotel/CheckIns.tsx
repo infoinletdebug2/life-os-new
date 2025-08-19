@@ -129,7 +129,7 @@ export default function CheckIns() {
       case 'late':
         return 'bg-red-500/20 text-red-300 border-red-400/30';
       default:
-        return 'bg-gray-500/20 text-gray-300 border-gray-400/30';
+        return 'bg-gray-500/20 text-muted-foreground border-gray-400/30';
     }
   };
 
@@ -157,7 +157,7 @@ export default function CheckIns() {
       case 'pending':
         return 'bg-red-500/20 text-red-300';
       default:
-        return 'bg-gray-500/20 text-gray-300';
+        return 'bg-gray-500/20 text-muted-foreground';
     }
   };
 
@@ -186,7 +186,7 @@ export default function CheckIns() {
             <h1 className="text-3xl font-bold bg-gradient-to-r from-cyan-600 to-emerald-600 bg-clip-text text-transparent">
               Today's Check-ins
             </h1>
-            <p className="text-gray-400 mt-1">
+            <p className="text-muted-foreground mt-1">
               {today} • Manage arrivals and room assignments
             </p>
           </div>
@@ -194,64 +194,64 @@ export default function CheckIns() {
 
         {/* Stats Overview */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div className="bg-gray-800/20 backdrop-blur-xl border border-white/10 rounded-2xl p-6">
+          <div className="bg-secondary backdrop-blur-xl border border-white/10 rounded-2xl p-6">
             <div className="flex items-center gap-3">
               <Calendar className="w-8 h-8 text-cyan-400" />
               <div>
-                <p className="text-2xl font-bold text-white">{stats.total}</p>
-                <p className="text-sm text-gray-400">Total Arrivals</p>
+                <p className="text-2xl font-bold text-foreground">{stats.total}</p>
+                <p className="text-sm text-muted-foreground">Total Arrivals</p>
               </div>
             </div>
           </div>
 
-          <div className="bg-gray-800/20 backdrop-blur-xl border border-white/10 rounded-2xl p-6">
+          <div className="bg-secondary backdrop-blur-xl border border-white/10 rounded-2xl p-6">
             <div className="flex items-center gap-3">
               <CheckCircle className="w-8 h-8 text-green-400" />
               <div>
-                <p className="text-2xl font-bold text-white">{stats.ready}</p>
-                <p className="text-sm text-gray-400">Ready for Check-in</p>
+                <p className="text-2xl font-bold text-foreground">{stats.ready}</p>
+                <p className="text-sm text-muted-foreground">Ready for Check-in</p>
               </div>
             </div>
           </div>
 
-          <div className="bg-gray-800/20 backdrop-blur-xl border border-white/10 rounded-2xl p-6">
+          <div className="bg-secondary backdrop-blur-xl border border-white/10 rounded-2xl p-6">
             <div className="flex items-center gap-3">
               <CheckCircle2 className="w-8 h-8 text-blue-400" />
               <div>
-                <p className="text-2xl font-bold text-white">{stats.checkedIn}</p>
-                <p className="text-sm text-gray-400">Checked In</p>
+                <p className="text-2xl font-bold text-foreground">{stats.checkedIn}</p>
+                <p className="text-sm text-muted-foreground">Checked In</p>
               </div>
             </div>
           </div>
 
-          <div className="bg-gray-800/20 backdrop-blur-xl border border-white/10 rounded-2xl p-6">
+          <div className="bg-secondary backdrop-blur-xl border border-white/10 rounded-2xl p-6">
             <div className="flex items-center gap-3">
               <Clock className="w-8 h-8 text-yellow-400" />
               <div>
-                <p className="text-2xl font-bold text-white">{stats.pending}</p>
-                <p className="text-sm text-gray-400">Pending</p>
+                <p className="text-2xl font-bold text-foreground">{stats.pending}</p>
+                <p className="text-sm text-muted-foreground">Pending</p>
               </div>
             </div>
           </div>
         </div>
 
         {/* Filters & Search */}
-        <div className="bg-gray-800/30 backdrop-blur-xl border border-white/10 rounded-2xl p-6">
+        <div className="bg-secondary backdrop-blur-xl border border-white/10 rounded-2xl p-6">
           <div className="flex items-center gap-4 flex-wrap">
             <div className="relative flex-1 min-w-64">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
               <Input
                 placeholder="Search by booking, guest name, or room..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-10 bg-gray-800/50 border-gray-600/50 text-white placeholder:text-gray-400 focus:border-cyan-500"
+                className="pl-10 bg-secondary border-input text-foreground placeholder:text-muted-foreground focus:border-ring"
               />
             </div>
             
             <select
               value={selectedStatus}
               onChange={(e) => setSelectedStatus(e.target.value)}
-              className="px-4 py-2 bg-gray-800/50 border border-gray-600/50 rounded-lg text-sm text-white focus:outline-none focus:ring-2 focus:ring-cyan-500/30 focus:border-cyan-500"
+              className="px-4 py-2 bg-secondary border border-input rounded-lg text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring/30 focus:border-ring"
             >
               <option value="all">All Status</option>
               <option value="pending">Pending</option>
@@ -277,7 +277,7 @@ export default function CheckIns() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ delay: index * 0.05 }}
-                className="bg-gray-800/20 backdrop-blur-xl border border-white/10 rounded-2xl p-6 hover:border-white/20 transition-all duration-300 cursor-pointer"
+                className="bg-secondary backdrop-blur-xl border border-white/10 rounded-2xl p-6 hover:border-white/20 transition-all duration-300 cursor-pointer"
                 onClick={() => handleBookingClick(booking)}
               >
                 <div className="flex items-center justify-between">
@@ -293,8 +293,8 @@ export default function CheckIns() {
 
                     {/* Guest Info */}
                     <div className="space-y-1">
-                      <h3 className="font-bold text-white text-lg">{booking.guestName}</h3>
-                      <div className="flex items-center gap-4 text-sm text-gray-400">
+                      <h3 className="font-bold text-foreground text-lg">{booking.guestName}</h3>
+                      <div className="flex items-center gap-4 text-sm text-muted-foreground">
                         <span className="flex items-center gap-1">
                           <Mail className="w-3 h-3" />
                           {booking.guestEmail}
@@ -308,8 +308,8 @@ export default function CheckIns() {
 
                     {/* Booking Details */}
                     <div className="space-y-1">
-                      <p className="font-semibold text-white">#{booking.bookingNumber}</p>
-                      <p className="text-sm text-gray-400">
+                      <p className="font-semibold text-foreground">#{booking.bookingNumber}</p>
+                      <p className="text-sm text-muted-foreground">
                         Room #{booking.roomNumber} • {booking.roomType}
                       </p>
                     </div>
@@ -317,7 +317,7 @@ export default function CheckIns() {
                     {/* Guest Count */}
                     <div className="flex items-center gap-2 px-3 py-1 bg-gray-700/30 rounded-lg">
                       <Users className="w-4 h-4 text-cyan-400" />
-                      <span className="text-white text-sm">
+                      <span className="text-foreground text-sm">
                         {booking.guests.adults + booking.guests.children} guests
                       </span>
                     </div>
@@ -339,8 +339,8 @@ export default function CheckIns() {
                   <div className="flex items-center gap-3">
                     {booking.estimatedArrival && (
                       <div className="text-center">
-                        <p className="text-xs text-gray-400">ETA</p>
-                        <p className="text-white font-medium">{booking.estimatedArrival}</p>
+                        <p className="text-xs text-muted-foreground">ETA</p>
+                        <p className="text-foreground font-medium">{booking.estimatedArrival}</p>
                       </div>
                     )}
 
@@ -391,7 +391,7 @@ export default function CheckIns() {
                       <AlertTriangle className="w-4 h-4 text-yellow-400 mt-0.5" />
                       <div>
                         <p className="text-sm text-yellow-400 font-medium">Special Requests:</p>
-                        <p className="text-sm text-gray-300 mt-1">{booking.specialRequests}</p>
+                        <p className="text-sm text-muted-foreground mt-1">{booking.specialRequests}</p>
                       </div>
                     </div>
                   </div>

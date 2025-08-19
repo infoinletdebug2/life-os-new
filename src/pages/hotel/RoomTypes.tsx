@@ -184,7 +184,7 @@ export default function RoomTypes() {
             <h1 className="text-3xl font-bold bg-gradient-to-r from-cyan-600 to-emerald-600 bg-clip-text text-transparent">
               Room Types
             </h1>
-            <p className="text-gray-400 mt-1">
+            <p className="text-muted-foreground mt-1">
               Manage and configure different room type categories
             </p>
           </div>
@@ -201,15 +201,15 @@ export default function RoomTypes() {
         </div>
 
         {/* Search and Filters */}
-        <div className="bg-gray-800/30 backdrop-blur-xl border border-white/10 rounded-2xl p-6">
+        <div className="bg-secondary backdrop-blur-xl border border-white/10 rounded-2xl p-6">
           <div className="flex items-center gap-4">
             <div className="relative flex-1">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
               <Input
                 placeholder="Search room types..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-10 bg-gray-800/50 border-gray-600/50 text-white placeholder:text-gray-400 focus:border-cyan-500"
+                className="pl-10 bg-secondary border-input text-foreground placeholder:text-muted-foreground focus:border-ring"
               />
             </div>
             <Button variant="outline" className="gap-2">
@@ -227,7 +227,7 @@ export default function RoomTypes() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
-              className="bg-gray-800/20 backdrop-blur-xl border border-white/10 rounded-2xl p-6 hover:border-white/20 transition-all duration-300"
+              className="bg-secondary backdrop-blur-xl border border-white/10 rounded-2xl p-6 hover:border-white/20 transition-all duration-300"
             >
               <div className="flex items-start justify-between mb-4">
                 <div className="flex items-center gap-3">
@@ -235,16 +235,16 @@ export default function RoomTypes() {
                     <Tag className="w-5 h-5 text-cyan-400" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-bold text-white">{roomType.name}</h3>
+                    <h3 className="text-lg font-bold text-foreground">{roomType.name}</h3>
                     <div className="flex items-center gap-2 mt-1">
                       <span className={`px-2 py-1 rounded-full text-xs font-medium ${
                         roomType.active 
                           ? 'bg-green-500/20 text-green-400' 
-                          : 'bg-gray-500/20 text-gray-400'
+                          : 'bg-gray-500/20 text-muted-foreground'
                       }`}>
                         {roomType.active ? 'Active' : 'Inactive'}
                       </span>
-                      <span className="text-xs text-gray-400">{roomType.roomCount} rooms</span>
+                      <span className="text-xs text-muted-foreground">{roomType.roomCount} rooms</span>
                     </div>
                   </div>
                 </div>
@@ -254,7 +254,7 @@ export default function RoomTypes() {
                     variant="ghost"
                     size="sm"
                     onClick={() => handleEdit(roomType)}
-                    className="text-gray-400 hover:text-white"
+                    className="text-muted-foreground hover:text-foreground"
                   >
                     <Edit className="w-4 h-4" />
                   </Button>
@@ -262,38 +262,38 @@ export default function RoomTypes() {
                     variant="ghost"
                     size="sm"
                     onClick={() => handleDelete(roomType.id)}
-                    className="text-gray-400 hover:text-red-400"
+                    className="text-muted-foreground hover:text-red-400"
                   >
                     <Trash2 className="w-4 h-4" />
                   </Button>
                 </div>
               </div>
 
-              <p className="text-gray-300 text-sm mb-6 line-clamp-2">
+              <p className="text-muted-foreground text-sm mb-6 line-clamp-2">
                 {roomType.description}
               </p>
 
               <div className="grid grid-cols-3 gap-4 mb-6">
                 <div className="text-center p-3 bg-gray-700/30 rounded-lg">
                   <DollarSign className="w-4 h-4 text-emerald-400 mx-auto mb-1" />
-                  <p className="text-lg font-bold text-white">${roomType.basePrice}</p>
-                  <p className="text-xs text-gray-400">Base Price</p>
+                  <p className="text-lg font-bold text-foreground">${roomType.basePrice}</p>
+                  <p className="text-xs text-muted-foreground">Base Price</p>
                 </div>
                 <div className="text-center p-3 bg-gray-700/30 rounded-lg">
                   <Users className="w-4 h-4 text-blue-400 mx-auto mb-1" />
-                  <p className="text-lg font-bold text-white">{roomType.maxOccupancy}</p>
-                  <p className="text-xs text-gray-400">Max Guests</p>
+                  <p className="text-lg font-bold text-foreground">{roomType.maxOccupancy}</p>
+                  <p className="text-xs text-muted-foreground">Max Guests</p>
                 </div>
                 <div className="text-center p-3 bg-gray-700/30 rounded-lg">
                   <Home className="w-4 h-4 text-purple-400 mx-auto mb-1" />
-                  <p className="text-lg font-bold text-white">{roomType.averageSize}</p>
-                  <p className="text-xs text-gray-400">Avg Size</p>
+                  <p className="text-lg font-bold text-foreground">{roomType.averageSize}</p>
+                  <p className="text-xs text-muted-foreground">Avg Size</p>
                 </div>
               </div>
 
               <div className="space-y-3">
                 <div>
-                  <h4 className="text-sm font-semibold text-gray-300 mb-2">Default Amenities</h4>
+                  <h4 className="text-sm font-semibold text-muted-foreground mb-2">Default Amenities</h4>
                   <div className="flex flex-wrap gap-1">
                     {roomType.defaultAmenities.slice(0, 3).map((amenity, idx) => (
                       <span key={idx} className="px-2 py-1 bg-cyan-500/20 text-cyan-300 text-xs rounded-full">
@@ -301,7 +301,7 @@ export default function RoomTypes() {
                       </span>
                     ))}
                     {roomType.defaultAmenities.length > 3 && (
-                      <span className="px-2 py-1 bg-gray-500/20 text-gray-400 text-xs rounded-full">
+                      <span className="px-2 py-1 bg-gray-500/20 text-muted-foreground text-xs rounded-full">
                         +{roomType.defaultAmenities.length - 3}
                       </span>
                     )}
@@ -309,7 +309,7 @@ export default function RoomTypes() {
                 </div>
 
                 <div>
-                  <h4 className="text-sm font-semibold text-gray-300 mb-2">Key Features</h4>
+                  <h4 className="text-sm font-semibold text-muted-foreground mb-2">Key Features</h4>
                   <div className="flex flex-wrap gap-1">
                     {roomType.features.slice(0, 2).map((feature, idx) => (
                       <span key={idx} className="px-2 py-1 bg-emerald-500/20 text-emerald-300 text-xs rounded-full">
@@ -317,7 +317,7 @@ export default function RoomTypes() {
                       </span>
                     ))}
                     {roomType.features.length > 2 && (
-                      <span className="px-2 py-1 bg-gray-500/20 text-gray-400 text-xs rounded-full">
+                      <span className="px-2 py-1 bg-gray-500/20 text-muted-foreground text-xs rounded-full">
                         +{roomType.features.length - 2}
                       </span>
                     )}
@@ -326,14 +326,14 @@ export default function RoomTypes() {
               </div>
 
               <div className="mt-6 pt-4 border-t border-white/10 flex items-center justify-between">
-                <span className="text-xs text-gray-400">
+                <span className="text-xs text-muted-foreground">
                   Created: {new Date(roomType.createdAt).toLocaleDateString()}
                 </span>
                 <Button
                   variant="outline"
                   size="sm"
                   onClick={() => toggleActive(roomType.id)}
-                  className={roomType.active ? 'border-green-500/50 text-green-400' : 'border-gray-500/50 text-gray-400'}
+                  className={roomType.active ? 'border-green-500/50 text-green-400' : 'border-gray-500/50 text-muted-foreground'}
                 >
                   {roomType.active ? 'Deactivate' : 'Activate'}
                 </Button>
@@ -350,7 +350,7 @@ export default function RoomTypes() {
               animate={{ opacity: 1, scale: 1 }}
               className="w-full max-w-2xl bg-gray-900/95 backdrop-blur-xl border border-white/20 rounded-2xl p-8"
             >
-              <h2 className="text-2xl font-bold text-white mb-6">
+              <h2 className="text-2xl font-bold text-foreground mb-6">
                 {editingType ? 'Edit Room Type' : 'Add New Room Type'}
               </h2>
 
@@ -363,7 +363,7 @@ export default function RoomTypes() {
                       value={formData.name}
                       onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
                       placeholder="e.g., Deluxe Ocean View"
-                      className="bg-gray-800/50 border-gray-600/50 text-white"
+                      className="bg-secondary border-input text-foreground"
                     />
                   </div>
                   <div className="space-y-2">
@@ -374,7 +374,7 @@ export default function RoomTypes() {
                       value={formData.basePrice}
                       onChange={(e) => setFormData(prev => ({ ...prev, basePrice: e.target.value }))}
                       placeholder="150"
-                      className="bg-gray-800/50 border-gray-600/50 text-white"
+                      className="bg-secondary border-input text-foreground"
                     />
                   </div>
                 </div>
@@ -386,7 +386,7 @@ export default function RoomTypes() {
                     value={formData.description}
                     onChange={(e) => setFormData(prev => ({ ...prev, description: e.target.value }))}
                     placeholder="Describe the room type and its features..."
-                    className="bg-gray-800/50 border-gray-600/50 text-white min-h-[100px]"
+                    className="bg-secondary border-input text-foreground min-h-[100px]"
                   />
                 </div>
 
@@ -398,7 +398,7 @@ export default function RoomTypes() {
                     value={formData.maxOccupancy}
                     onChange={(e) => setFormData(prev => ({ ...prev, maxOccupancy: e.target.value }))}
                     placeholder="2"
-                    className="bg-gray-800/50 border-gray-600/50 text-white"
+                    className="bg-secondary border-input text-foreground"
                   />
                 </div>
 
@@ -409,7 +409,7 @@ export default function RoomTypes() {
                     value={formData.defaultAmenities}
                     onChange={(e) => setFormData(prev => ({ ...prev, defaultAmenities: e.target.value }))}
                     placeholder="WiFi, Air Conditioning, TV, Mini Fridge"
-                    className="bg-gray-800/50 border-gray-600/50 text-white"
+                    className="bg-secondary border-input text-foreground"
                   />
                 </div>
 
@@ -420,7 +420,7 @@ export default function RoomTypes() {
                     value={formData.features}
                     onChange={(e) => setFormData(prev => ({ ...prev, features: e.target.value }))}
                     placeholder="Ocean View, Balcony, Premium Bedding"
-                    className="bg-gray-800/50 border-gray-600/50 text-white"
+                    className="bg-secondary border-input text-foreground"
                   />
                 </div>
               </div>
@@ -429,7 +429,7 @@ export default function RoomTypes() {
                 <Button
                   variant="ghost"
                   onClick={() => setShowAddForm(false)}
-                  className="text-gray-400 hover:text-white"
+                  className="text-muted-foreground hover:text-foreground"
                 >
                   Cancel
                 </Button>

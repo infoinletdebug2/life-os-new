@@ -4,14 +4,18 @@ import type { Booking } from '@/types/hotel';
 export interface ExtendedBooking extends Booking {
   guestName?: string;
   guestEmail?: string;
+  guestPhone?: string;
   roomNumber?: string;
   roomType?: string;
+  roomCategory?: string;
   paymentMethod?: string;
   channelCommission?: number;
   netRevenue?: number;
-  bookingNumber?: string; // Similar to confirmationNumber but for display
+  bookingNumber?: string;
   paidAmount?: number;
   notes?: string;
+  specialRequests?: string[];
+  addOns?: BookingAddOn[];
 }
 
 // UI Booking type that matches the BookingManagement page structure
@@ -20,22 +24,42 @@ export interface UIBooking {
   bookingNumber: string;
   guestName: string;
   guestEmail: string;
+  guestPhone?: string;
   roomNumber: string;
   roomType: string;
+  roomCategory?: string;
   checkIn: string;
   checkOut: string;
   nights: number;
   guests: {
     adults: number;
     children: number;
+    infants?: number;
   };
   status: ExtendedBookingStatusType;
   totalAmount: number;
   paidAmount: number;
   paymentStatus: PaymentStatusType;
+  paymentMethod?: string;
   source: string;
   createdAt: string;
+  updatedAt?: string;
   notes?: string;
+  specialRequests?: string[];
+  addOns?: BookingAddOn[];
+  checkInTime?: string;
+  checkOutTime?: string;
+  actualCheckIn?: string;
+  actualCheckOut?: string;
+}
+
+// Booking Add-on type
+export interface BookingAddOn {
+  id: string;
+  name: string;
+  price: number;
+  quantity: number;
+  category: 'meal' | 'service' | 'amenity' | 'transport' | 'other';
 }
 
 // Booking status type
@@ -59,7 +83,38 @@ export interface BookingStats {
   requested: number;
   confirmed: number;
   checkedIn: number;
+  checkedOut: number;
   pending: number;
+  cancelled: number;
+  todayCheckIns: number;
+  todayCheckOuts: number;
+  tomorrowCheckIns: number;
+  tomorrowCheckOuts: number;
   totalRevenue: number;
   paidRevenue: number;
+  pendingRevenue: number;
+  occupancyRate: number;
+}
+
+// Room availability type
+export interface RoomAvailability {
+  roomId: string;
+  roomNumber: string;
+  roomType: string;
+  roomCategory: string;
+  isAvailable: boolean;
+  currentBooking?: string;
+  nextAvailable?: string;
+  price: number;
+}
+
+// Room category availability
+export interface CategoryAvailability {
+  category: string;
+  total: number;
+  available: number;
+  occupied: number;
+  maintenance: number;
+  occupancyRate: number;
+  averagePrice: number;
 }

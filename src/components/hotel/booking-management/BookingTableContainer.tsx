@@ -1,7 +1,39 @@
 import { useState, useEffect } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import { UIBooking } from '@/types/hotel/booking/booking';
+// Local UIBooking type definition
+interface UIBooking {
+  id: string;
+  bookingNumber: string;
+  guestName: string;
+  guestEmail: string;
+  guestPhone?: string;
+  roomNumber: string;
+  roomType: string;
+  roomCategory?: string;
+  checkIn: string;
+  checkOut: string;
+  nights: number;
+  guests: {
+    adults: number;
+    children: number;
+    infants?: number;
+  };
+  status: 'requested' | 'confirmed' | 'pending' | 'checked-in' | 'checked-out' | 'cancelled' | 'rejected';
+  totalAmount: number;
+  paidAmount: number;
+  paymentStatus: 'pending' | 'partial' | 'paid' | 'refunded' | 'failed';
+  paymentMethod?: string;
+  source: string;
+  createdAt: string;
+  updatedAt?: string;
+  notes?: string;
+  specialRequests?: string[];
+  checkInTime?: string;
+  checkOutTime?: string;
+  actualCheckIn?: string;
+  actualCheckOut?: string;
+}
 import { BookingTableRow } from './BookingTableRow';
 import { BookingEmptyState } from './BookingEmptyState';
 

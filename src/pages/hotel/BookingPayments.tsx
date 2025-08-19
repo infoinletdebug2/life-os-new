@@ -166,7 +166,7 @@ export default function BookingPayments() {
       case 'pending': return 'bg-yellow-500/20 text-yellow-300 border-yellow-400/30';
       case 'processing': return 'bg-blue-500/20 text-blue-300 border-blue-400/30';
       case 'failed': return 'bg-red-500/20 text-red-300 border-red-400/30';
-      default: return 'bg-gray-500/20 text-gray-300 border-gray-400/30';
+      default: return 'bg-gray-500/20 text-muted-foreground border-gray-400/30';
     }
   };
 
@@ -175,7 +175,7 @@ export default function BookingPayments() {
       case 'payment': return 'bg-emerald-500/20 text-emerald-300 border-emerald-400/30';
       case 'refund': return 'bg-orange-500/20 text-orange-300 border-orange-400/30';
       case 'charge': return 'bg-purple-500/20 text-purple-300 border-purple-400/30';
-      default: return 'bg-gray-500/20 text-gray-300 border-gray-400/30';
+      default: return 'bg-gray-500/20 text-muted-foreground border-gray-400/30';
     }
   };
 
@@ -184,7 +184,7 @@ export default function BookingPayments() {
       case 'payment': return <ArrowUpRight className="w-4 h-4 text-emerald-400" />;
       case 'refund': return <ArrowDownRight className="w-4 h-4 text-orange-400" />;
       case 'charge': return <Plus className="w-4 h-4 text-purple-400" />;
-      default: return <DollarSign className="w-4 h-4 text-gray-400" />;
+      default: return <DollarSign className="w-4 h-4 text-muted-foreground" />;
     }
   };
 
@@ -232,7 +232,7 @@ export default function BookingPayments() {
             <h1 className="text-3xl font-bold bg-gradient-to-r from-cyan-600 to-emerald-600 bg-clip-text text-transparent">
               Payment Management
             </h1>
-            <p className="text-gray-400 mt-1">Process payments, refunds, and financial transactions</p>
+            <p className="text-muted-foreground mt-1">Process payments, refunds, and financial transactions</p>
           </div>
           <Button className="gap-2 bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600">
             <Plus className="w-4 h-4" />
@@ -242,84 +242,84 @@ export default function BookingPayments() {
 
         {/* Stats Overview */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6">
-          <div className="bg-gray-800/20 backdrop-blur-xl border border-white/10 rounded-2xl p-6">
+          <div className="bg-secondary backdrop-blur-xl border border-white/10 rounded-2xl p-6">
             <div className="flex items-center gap-3">
               <ArrowUpRight className="w-8 h-8 text-emerald-400" />
               <div>
-                <p className="text-2xl font-bold text-white">{stats.totalPayments}</p>
-                <p className="text-sm text-gray-400">Total Payments</p>
+                <p className="text-2xl font-bold text-foreground">{stats.totalPayments}</p>
+                <p className="text-sm text-muted-foreground">Total Payments</p>
               </div>
             </div>
           </div>
 
-          <div className="bg-gray-800/20 backdrop-blur-xl border border-white/10 rounded-2xl p-6">
+          <div className="bg-secondary backdrop-blur-xl border border-white/10 rounded-2xl p-6">
             <div className="flex items-center gap-3">
               <ArrowDownRight className="w-8 h-8 text-orange-400" />
               <div>
-                <p className="text-2xl font-bold text-white">{stats.totalRefunds}</p>
-                <p className="text-sm text-gray-400">Refunds</p>
+                <p className="text-2xl font-bold text-foreground">{stats.totalRefunds}</p>
+                <p className="text-sm text-muted-foreground">Refunds</p>
               </div>
             </div>
           </div>
 
-          <div className="bg-gray-800/20 backdrop-blur-xl border border-white/10 rounded-2xl p-6">
+          <div className="bg-secondary backdrop-blur-xl border border-white/10 rounded-2xl p-6">
             <div className="flex items-center gap-3">
               <Plus className="w-8 h-8 text-purple-400" />
               <div>
-                <p className="text-2xl font-bold text-white">{stats.totalCharges}</p>
-                <p className="text-sm text-gray-400">Add'l Charges</p>
+                <p className="text-2xl font-bold text-foreground">{stats.totalCharges}</p>
+                <p className="text-sm text-muted-foreground">Add'l Charges</p>
               </div>
             </div>
           </div>
 
-          <div className="bg-gray-800/20 backdrop-blur-xl border border-white/10 rounded-2xl p-6">
+          <div className="bg-secondary backdrop-blur-xl border border-white/10 rounded-2xl p-6">
             <div className="flex items-center gap-3">
               <DollarSign className="w-8 h-8 text-green-400" />
               <div>
-                <p className="text-2xl font-bold text-white">{formatCurrency(stats.completedRevenue)}</p>
-                <p className="text-sm text-gray-400">Completed Revenue</p>
+                <p className="text-2xl font-bold text-foreground">{formatCurrency(stats.completedRevenue)}</p>
+                <p className="text-sm text-muted-foreground">Completed Revenue</p>
               </div>
             </div>
           </div>
 
-          <div className="bg-gray-800/20 backdrop-blur-xl border border-white/10 rounded-2xl p-6">
+          <div className="bg-secondary backdrop-blur-xl border border-white/10 rounded-2xl p-6">
             <div className="flex items-center gap-3">
               <Clock className="w-8 h-8 text-yellow-400" />
               <div>
-                <p className="text-2xl font-bold text-white">{formatCurrency(stats.pendingAmount)}</p>
-                <p className="text-sm text-gray-400">Pending Amount</p>
+                <p className="text-2xl font-bold text-foreground">{formatCurrency(stats.pendingAmount)}</p>
+                <p className="text-sm text-muted-foreground">Pending Amount</p>
               </div>
             </div>
           </div>
 
-          <div className="bg-gray-800/20 backdrop-blur-xl border border-white/10 rounded-2xl p-6">
+          <div className="bg-secondary backdrop-blur-xl border border-white/10 rounded-2xl p-6">
             <div className="flex items-center gap-3">
               <AlertCircle className="w-8 h-8 text-red-400" />
               <div>
-                <p className="text-2xl font-bold text-white">{stats.failedTransactions}</p>
-                <p className="text-sm text-gray-400">Failed</p>
+                <p className="text-2xl font-bold text-foreground">{stats.failedTransactions}</p>
+                <p className="text-sm text-muted-foreground">Failed</p>
               </div>
             </div>
           </div>
         </div>
 
         {/* Filters & Search */}
-        <div className="bg-gray-800/30 backdrop-blur-xl border border-white/10 rounded-2xl p-6">
+        <div className="bg-secondary backdrop-blur-xl border border-white/10 rounded-2xl p-6">
           <div className="flex items-center gap-4 flex-wrap">
             <div className="relative flex-1 min-w-64">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
               <Input
                 placeholder="Search by booking, guest, reference, or description..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-10 bg-gray-800/50 border-gray-600/50 text-white placeholder:text-gray-400 focus:border-cyan-500"
+                className="pl-10 bg-secondary border-input text-foreground placeholder:text-muted-foreground focus:border-ring"
               />
             </div>
             
             <select
               value={selectedStatus}
               onChange={(e) => setSelectedStatus(e.target.value)}
-              className="px-4 py-2 bg-gray-800/50 border border-gray-600/50 rounded-lg text-sm text-white focus:outline-none focus:ring-2 focus:ring-cyan-500/30 focus:border-cyan-500"
+              className="px-4 py-2 bg-secondary border border-input rounded-lg text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring/30 focus:border-ring"
             >
               {statusOptions.map(option => (
                 <option key={option.value} value={option.value}>
@@ -331,7 +331,7 @@ export default function BookingPayments() {
             <select
               value={selectedType}
               onChange={(e) => setSelectedType(e.target.value)}
-              className="px-4 py-2 bg-gray-800/50 border border-gray-600/50 rounded-lg text-sm text-white focus:outline-none focus:ring-2 focus:ring-cyan-500/30 focus:border-cyan-500"
+              className="px-4 py-2 bg-secondary border border-input rounded-lg text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring/30 focus:border-ring"
             >
               {typeOptions.map(option => (
                 <option key={option.value} value={option.value}>
@@ -343,7 +343,7 @@ export default function BookingPayments() {
             <select
               value={selectedMethod}
               onChange={(e) => setSelectedMethod(e.target.value)}
-              className="px-4 py-2 bg-gray-800/50 border border-gray-600/50 rounded-lg text-sm text-white focus:outline-none focus:ring-2 focus:ring-cyan-500/30 focus:border-cyan-500"
+              className="px-4 py-2 bg-secondary border border-input rounded-lg text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring/30 focus:border-ring"
             >
               {methodOptions.map(option => (
                 <option key={option.value} value={option.value}>
@@ -360,19 +360,19 @@ export default function BookingPayments() {
         </div>
 
         {/* Payments Table */}
-        <div className="bg-gray-800/20 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden">
+        <div className="bg-secondary backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead className="bg-gray-700/30 border-b border-white/10">
                 <tr>
-                  <th className="text-left p-4 text-sm font-semibold text-gray-300">Transaction</th>
-                  <th className="text-left p-4 text-sm font-semibold text-gray-300">Guest/Booking</th>
-                  <th className="text-left p-4 text-sm font-semibold text-gray-300">Type</th>
-                  <th className="text-left p-4 text-sm font-semibold text-gray-300">Amount</th>
-                  <th className="text-left p-4 text-sm font-semibold text-gray-300">Method</th>
-                  <th className="text-left p-4 text-sm font-semibold text-gray-300">Status</th>
-                  <th className="text-left p-4 text-sm font-semibold text-gray-300">Date</th>
-                  <th className="text-left p-4 text-sm font-semibold text-gray-300">Actions</th>
+                  <th className="text-left p-4 text-sm font-semibold text-muted-foreground">Transaction</th>
+                  <th className="text-left p-4 text-sm font-semibold text-muted-foreground">Guest/Booking</th>
+                  <th className="text-left p-4 text-sm font-semibold text-muted-foreground">Type</th>
+                  <th className="text-left p-4 text-sm font-semibold text-muted-foreground">Amount</th>
+                  <th className="text-left p-4 text-sm font-semibold text-muted-foreground">Method</th>
+                  <th className="text-left p-4 text-sm font-semibold text-muted-foreground">Status</th>
+                  <th className="text-left p-4 text-sm font-semibold text-muted-foreground">Date</th>
+                  <th className="text-left p-4 text-sm font-semibold text-muted-foreground">Actions</th>
                 </tr>
               </thead>
               <tbody>
@@ -384,21 +384,21 @@ export default function BookingPayments() {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -20 }}
                       transition={{ delay: index * 0.05 }}
-                      className="border-b border-white/5 hover:bg-white/5 transition-colors"
+                      className="border-b border-white/5 hover:bg-secondary/80 transition-colors"
                     >
                       <td className="p-4">
                         <div className="flex items-center gap-3">
                           {getTransactionIcon(payment.transactionType)}
                           <div>
-                            <p className="font-bold text-white">{payment.reference}</p>
-                            <p className="text-xs text-gray-400">{payment.description}</p>
+                            <p className="font-bold text-foreground">{payment.reference}</p>
+                            <p className="text-xs text-muted-foreground">{payment.description}</p>
                           </div>
                         </div>
                       </td>
                       <td className="p-4">
                         <div className="space-y-1">
-                          <p className="font-semibold text-white">{payment.guestName}</p>
-                          <p className="text-xs text-gray-400">#{payment.bookingNumber}</p>
+                          <p className="font-semibold text-foreground">{payment.guestName}</p>
+                          <p className="text-xs text-muted-foreground">#{payment.bookingNumber}</p>
                           {payment.roomNumber && (
                             <p className="text-xs text-cyan-400">Room {payment.roomNumber}</p>
                           )}
@@ -422,7 +422,7 @@ export default function BookingPayments() {
                         </p>
                       </td>
                       <td className="p-4">
-                        <p className="text-sm text-gray-300">{getMethodDisplay(payment.method)}</p>
+                        <p className="text-sm text-muted-foreground">{getMethodDisplay(payment.method)}</p>
                       </td>
                       <td className="p-4">
                         <div className={cn(
@@ -433,7 +433,7 @@ export default function BookingPayments() {
                         </div>
                       </td>
                       <td className="p-4">
-                        <p className="text-sm text-white">{formatDate(payment.date)}</p>
+                        <p className="text-sm text-foreground">{formatDate(payment.date)}</p>
                       </td>
                       <td className="p-4">
                         <div className="flex items-center gap-2">

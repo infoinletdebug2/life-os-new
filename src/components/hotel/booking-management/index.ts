@@ -9,4 +9,8 @@ export { BookingTableRow } from './BookingTableRow';
 export { BookingActionMenu } from './BookingActionMenu';
 export { BookingEmptyState } from './BookingEmptyState';
 export { BookingTableContainer } from './BookingTableContainer';
+export { BookingDashboard } from './BookingDashboard';
+export { BookingAdvancedFilters } from './BookingAdvancedFilters';
+export { RoomAvailabilityWidget } from './RoomAvailabilityWidget';
+export { BookingQuickActions } from './BookingQuickActions';
 export * from './utils';

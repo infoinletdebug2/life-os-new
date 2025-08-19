@@ -16,7 +16,7 @@ export default function Reservations() {
             <h1 className="text-3xl font-bold bg-gradient-to-r from-cyan-600 to-emerald-600 bg-clip-text text-transparent">
               Reservations
             </h1>
-            <p className="text-gray-400 mt-1">Manage future bookings and reservations</p>
+            <p className="text-muted-foreground mt-1">Manage future bookings and reservations</p>
           </div>
           <Button 
             onClick={() => navigate('/hotel/bookings/new')}
@@ -27,10 +27,10 @@ export default function Reservations() {
           </Button>
         </div>
 
-        <div className="bg-gray-800/20 backdrop-blur-xl border border-white/10 rounded-2xl p-8 text-center">
+        <div className="bg-secondary backdrop-blur-xl border border-white/10 rounded-2xl p-8 text-center">
           <Clock className="w-16 h-16 text-cyan-400 mx-auto mb-4" />
-          <h3 className="text-xl font-bold text-white mb-2">Future Reservations</h3>
-          <p className="text-gray-400 mb-6">
+          <h3 className="text-xl font-bold text-foreground mb-2">Future Reservations</h3>
+          <p className="text-muted-foreground mb-6">
             This page will display all future reservations with calendar view and management tools.
           </p>
           <Button onClick={() => navigate('/hotel/bookings')}>

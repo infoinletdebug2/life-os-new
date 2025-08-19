@@ -164,7 +164,7 @@ export default function AddRoom() {
   const renderStep1 = () => (
     <div className="space-y-8">
       <div>
-        <h3 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
+        <h3 className="text-lg font-bold text-foreground mb-6 flex items-center gap-2">
           <BedDouble className="w-5 h-5 text-cyan-400" />
           Room Details
         </h3>
@@ -177,7 +177,7 @@ export default function AddRoom() {
               placeholder="e.g., 101, A12"
               value={formData.number}
               onChange={(e) => handleInputChange('number', e.target.value)}
-              className="bg-gray-800/50 border-gray-600/50 text-white placeholder:text-gray-400 focus:border-cyan-500 focus:ring-cyan-500/20"
+              className="bg-secondary border-input text-foreground placeholder:text-muted-foreground focus:border-ring focus:ring-ring"
             />
           </div>
           
@@ -187,7 +187,7 @@ export default function AddRoom() {
               id="roomType"
               value={formData.type}
               onChange={(e) => handleInputChange('type', e.target.value)}
-              className="w-full px-3 py-2 bg-gray-800/50 border border-gray-600/50 rounded-lg text-sm text-white focus:outline-none focus:ring-2 focus:ring-cyan-500/30 focus:border-cyan-500"
+              className="w-full px-3 py-2 bg-secondary border border-input rounded-lg text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-ring"
             >
               {roomTypes.map(type => (
                 <option key={type.value} value={type.value}>
@@ -204,7 +204,7 @@ export default function AddRoom() {
               placeholder="e.g., 1, 2, Ground"
               value={formData.floor}
               onChange={(e) => handleInputChange('floor', e.target.value)}
-              className="bg-gray-800/50 border-gray-600/50 text-white placeholder:text-gray-400 focus:border-cyan-500 focus:ring-cyan-500/20"
+              className="bg-secondary border-input text-foreground placeholder:text-muted-foreground focus:border-ring focus:ring-ring"
             />
           </div>
 
@@ -217,7 +217,7 @@ export default function AddRoom() {
               max="10"
               value={formData.capacity}
               onChange={(e) => handleInputChange('capacity', parseInt(e.target.value) || 1)}
-              className="bg-gray-800/50 border-gray-600/50 text-white placeholder:text-gray-400 focus:border-cyan-500 focus:ring-cyan-500/20"
+              className="bg-secondary border-input text-foreground placeholder:text-muted-foreground focus:border-ring focus:ring-ring"
             />
           </div>
 
@@ -227,7 +227,7 @@ export default function AddRoom() {
               id="bedType"
               value={formData.bedType}
               onChange={(e) => handleInputChange('bedType', e.target.value)}
-              className="w-full px-3 py-2 bg-gray-800/50 border border-gray-600/50 rounded-lg text-sm text-white focus:outline-none focus:ring-2 focus:ring-cyan-500/30 focus:border-cyan-500"
+              className="w-full px-3 py-2 bg-secondary border border-input rounded-lg text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-ring"
             >
               <option value="single">Single Bed</option>
               <option value="twin">Twin Beds</option>
@@ -245,7 +245,7 @@ export default function AddRoom() {
               placeholder="e.g., 350"
               value={formData.size}
               onChange={(e) => handleInputChange('size', e.target.value)}
-              className="bg-gray-800/50 border-gray-600/50 text-white placeholder:text-gray-400 focus:border-cyan-500 focus:ring-cyan-500/20"
+              className="bg-secondary border-input text-foreground placeholder:text-muted-foreground focus:border-ring focus:ring-ring"
             />
           </div>
         </div>
@@ -258,7 +258,7 @@ export default function AddRoom() {
           placeholder="Describe the room features, view, and special characteristics..."
           value={formData.description}
           onChange={(e) => handleInputChange('description', e.target.value)}
-          className="bg-gray-800/50 border-gray-600/50 text-white placeholder:text-gray-400 focus:border-cyan-500 focus:ring-cyan-500/20 min-h-[100px]"
+          className="bg-secondary border-input text-foreground placeholder:text-muted-foreground focus:border-ring focus:ring-ring min-h-[100px]"
         />
       </div>
 
@@ -277,8 +277,8 @@ export default function AddRoom() {
                 className={cn(
                   "flex items-center gap-2 px-3 py-2 rounded-lg border transition-all duration-200",
                   isSelected
-                    ? "bg-cyan-500/20 border-cyan-500/50 text-cyan-300"
-                    : "bg-gray-800/30 border-gray-600/50 text-gray-300 hover:bg-gray-700/50 hover:border-gray-500/50 hover:text-white"
+                    ? "bg-primary/20 border-primary/50 text-primary"
+                    : "bg-secondary/50 border-border text-muted-foreground hover:bg-secondary hover:border-input hover:text-foreground"
                 )}
               >
                 <IconComponent className="w-4 h-4" />
@@ -296,7 +296,7 @@ export default function AddRoom() {
       <div className="space-y-6">
         <div className="flex items-center gap-2">
           <DollarSign className="w-5 h-5 text-emerald-500" />
-          <h3 className="text-lg font-bold text-white">Base Pricing</h3>
+          <h3 className="text-lg font-bold text-foreground">Base Pricing</h3>
         </div>
         
         <div className="space-y-2">
@@ -309,9 +309,9 @@ export default function AddRoom() {
             placeholder="e.g., 150.00"
             value={formData.baseRate}
             onChange={(e) => handleInputChange('baseRate', e.target.value)}
-            className="bg-gray-800/50 border-gray-600/50 text-white placeholder:text-gray-400 focus:border-cyan-500 focus:ring-cyan-500/20"
+            className="bg-secondary border-input text-foreground placeholder:text-muted-foreground focus:border-ring focus:ring-ring"
           />
-          <p className="text-xs text-gray-400">
+          <p className="text-xs text-muted-foreground">
             This is your standard nightly rate before any seasonal or weekly adjustments.
           </p>
         </div>
@@ -321,9 +321,9 @@ export default function AddRoom() {
       <div className="space-y-6">
         <div className="flex items-center gap-2">
           <Calendar className="w-5 h-5 text-cyan-500" />
-          <h3 className="text-lg font-bold text-white">Weekly Rate Multipliers</h3>
+          <h3 className="text-lg font-bold text-foreground">Weekly Rate Multipliers</h3>
         </div>
-        <p className="text-sm text-gray-400">
+        <p className="text-sm text-muted-foreground">
           Adjust rates for specific days of the week. 1.0 = base rate, 1.2 = 20% increase, 0.8 = 20% discount.
         </p>
         
@@ -339,12 +339,12 @@ export default function AddRoom() {
                   step="0.1"
                   value={rate.multiplier}
                   onChange={(e) => updateWeeklyRate(rate.dayOfWeek, parseFloat(e.target.value) || 1.0)}
-                  className="bg-gray-800/50 border-gray-600/50 text-white pr-8 focus:border-cyan-500 focus:ring-cyan-500/20"
+                  className="bg-secondary border-input text-foreground pr-8 focus:border-ring focus:ring-ring"
                 />
-                <Percent className="absolute right-2 top-1/2 -translate-y-1/2 w-3 h-3 text-gray-400" />
+                <Percent className="absolute right-2 top-1/2 -translate-y-1/2 w-3 h-3 text-muted-foreground" />
               </div>
               {formData.baseRate && (
-                <p className="text-xs text-gray-400">
+                <p className="text-xs text-muted-foreground">
                   ${(parseFloat(formData.baseRate) * rate.multiplier).toFixed(2)}
                 </p>
               )}
@@ -358,7 +358,7 @@ export default function AddRoom() {
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <Calendar className="w-5 h-5 text-orange-500" />
-            <h3 className="text-lg font-bold text-white">Seasonal Rates</h3>
+            <h3 className="text-lg font-bold text-foreground">Seasonal Rates</h3>
           </div>
           <Button
             type="button"
@@ -373,20 +373,20 @@ export default function AddRoom() {
         </div>
 
         {formData.seasonalRates.length === 0 ? (
-          <p className="text-sm text-gray-400 text-center py-8">
+          <p className="text-sm text-muted-foreground text-center py-8">
             No seasonal rates defined. Click "Add Season" to create special pricing periods.
           </p>
         ) : (
           <div className="space-y-4">
             {formData.seasonalRates.map(rate => (
-              <div key={rate.id} className="grid grid-cols-1 md:grid-cols-5 gap-4 p-4 bg-gray-800/30 rounded-lg border border-gray-600/30">
+              <div key={rate.id} className="grid grid-cols-1 md:grid-cols-5 gap-4 p-4 bg-secondary/50 rounded-lg border border-border">
                 <div className="space-y-1">
                   <Label className="text-xs">Season Name</Label>
                   <Input
                     placeholder="e.g., Summer Peak"
                     value={rate.name}
                     onChange={(e) => updateSeasonalRate(rate.id, 'name', e.target.value)}
-                    className="bg-gray-800/50 border-gray-600/50 text-white text-sm focus:border-cyan-500 focus:ring-cyan-500/20"
+                    className="bg-secondary border-input text-foreground text-sm focus:border-ring focus:ring-ring"
                   />
                 </div>
                 <div className="space-y-1">
@@ -395,7 +395,7 @@ export default function AddRoom() {
                     type="date"
                     value={rate.startDate}
                     onChange={(e) => updateSeasonalRate(rate.id, 'startDate', e.target.value)}
-                    className="bg-gray-800/50 border-gray-600/50 text-white text-sm focus:border-cyan-500 focus:ring-cyan-500/20"
+                    className="bg-secondary border-input text-foreground text-sm focus:border-ring focus:ring-ring"
                   />
                 </div>
                 <div className="space-y-1">
@@ -404,7 +404,7 @@ export default function AddRoom() {
                     type="date"
                     value={rate.endDate}
                     onChange={(e) => updateSeasonalRate(rate.id, 'endDate', e.target.value)}
-                    className="bg-gray-800/50 border-gray-600/50 text-white text-sm focus:border-cyan-500 focus:ring-cyan-500/20"
+                    className="bg-secondary border-input text-foreground text-sm focus:border-ring focus:ring-ring"
                   />
                 </div>
                 <div className="space-y-1">
@@ -416,7 +416,7 @@ export default function AddRoom() {
                     step="0.1"
                     value={rate.multiplier}
                     onChange={(e) => updateSeasonalRate(rate.id, 'multiplier', parseFloat(e.target.value) || 1.0)}
-                    className="bg-gray-800/50 border-gray-600/50 text-white text-sm focus:border-cyan-500 focus:ring-cyan-500/20"
+                    className="bg-secondary border-input text-foreground text-sm focus:border-ring focus:ring-ring"
                   />
                 </div>
                 <div className="flex items-end">
@@ -441,7 +441,7 @@ export default function AddRoom() {
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <Clock className="w-5 h-5 text-purple-500" />
-            <h3 className="text-lg font-bold text-white">Special Date Rates</h3>
+            <h3 className="text-lg font-bold text-foreground">Special Date Rates</h3>
           </div>
           <Button
             type="button"
@@ -454,25 +454,25 @@ export default function AddRoom() {
             Add Special Date
           </Button>
         </div>
-        <p className="text-sm text-gray-400">
+        <p className="text-sm text-muted-foreground">
           Set special rates for holidays, events, or specific dates.
         </p>
 
         {formData.specialRates.length === 0 ? (
-          <p className="text-sm text-gray-400 text-center py-8">
+          <p className="text-sm text-muted-foreground text-center py-8">
             No special dates defined. Click "Add Special Date" to create event-based pricing.
           </p>
         ) : (
           <div className="space-y-4">
             {formData.specialRates.map(rate => (
-              <div key={rate.id} className="grid grid-cols-1 md:grid-cols-4 gap-4 p-4 bg-gray-800/30 rounded-lg border border-gray-600/30">
+              <div key={rate.id} className="grid grid-cols-1 md:grid-cols-4 gap-4 p-4 bg-secondary/50 rounded-lg border border-border">
                 <div className="space-y-1">
                   <Label className="text-xs">Event Name</Label>
                   <Input
                     placeholder="e.g., New Year's Eve"
                     value={rate.name}
                     onChange={(e) => updateSpecialRate(rate.id, 'name', e.target.value)}
-                    className="bg-gray-800/50 border-gray-600/50 text-white text-sm focus:border-cyan-500 focus:ring-cyan-500/20"
+                    className="bg-secondary border-input text-foreground text-sm focus:border-ring focus:ring-ring"
                   />
                 </div>
                 <div className="space-y-1">
@@ -481,7 +481,7 @@ export default function AddRoom() {
                     type="date"
                     value={rate.date}
                     onChange={(e) => updateSpecialRate(rate.id, 'date', e.target.value)}
-                    className="bg-gray-800/50 border-gray-600/50 text-white text-sm focus:border-cyan-500 focus:ring-cyan-500/20"
+                    className="bg-secondary border-input text-foreground text-sm focus:border-ring focus:ring-ring"
                   />
                 </div>
                 <div className="space-y-1">
@@ -493,7 +493,7 @@ export default function AddRoom() {
                     step="0.1"
                     value={rate.multiplier}
                     onChange={(e) => updateSpecialRate(rate.id, 'multiplier', parseFloat(e.target.value) || 1.0)}
-                    className="bg-gray-800/50 border-gray-600/50 text-white text-sm focus:border-cyan-500 focus:ring-cyan-500/20"
+                    className="bg-secondary border-input text-foreground text-sm focus:border-ring focus:ring-ring"
                   />
                 </div>
                 <div className="flex items-end">
@@ -524,7 +524,7 @@ export default function AddRoom() {
               <Button
                 variant="ghost"
                 onClick={() => navigate('/hotel/rooms')}
-                className="hover:bg-white/10 text-gray-300 hover:text-white"
+                className="hover:bg-secondary/80 text-muted-foreground hover:text-foreground"
               >
                 <ArrowLeft className="w-5 h-5" />
               </Button>
@@ -532,7 +532,7 @@ export default function AddRoom() {
                 <h1 className="text-3xl font-bold bg-gradient-to-r from-cyan-600 to-emerald-600 bg-clip-text text-transparent">
                   Add New Room
                 </h1>
-                <p className="text-gray-400 mt-1">
+                <p className="text-muted-foreground mt-1">
                   Step {currentStep} of 2: {currentStep === 1 ? 'Room Details' : 'Pricing & Rates'}
                 </p>
               </div>
@@ -540,7 +540,7 @@ export default function AddRoom() {
           </div>
 
           {/* Progress Steps */}
-          <div className="bg-gray-800/30 backdrop-blur-xl border border-white/10 rounded-2xl p-6">
+          <div className="glass-card">
             <div className="flex items-center gap-6">
               <div className={cn(
                 "flex items-center gap-3 px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-300",
@@ -559,7 +559,7 @@ export default function AddRoom() {
                 "flex items-center gap-3 px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-300",
                 currentStep === 2 
                   ? "bg-gradient-to-r from-cyan-500/30 to-blue-500/30 text-cyan-200 border-2 border-cyan-400/50 shadow-lg shadow-cyan-500/20" 
-                  : "bg-gray-700/30 text-gray-400 border-2 border-gray-600/30"
+                  : "bg-gray-700/30 text-muted-foreground border-2 border-input"
               )}>
                 <DollarSign className="w-5 h-5" />
                 Pricing & Rates
@@ -568,7 +568,7 @@ export default function AddRoom() {
           </div>
 
           {/* Content */}
-          <div className="bg-gray-800/20 backdrop-blur-xl border border-white/10 rounded-2xl p-8">
+          <div className="glass-card p-8">
             <motion.div
               key={currentStep}
               initial={{ opacity: 0, x: currentStep === 2 ? 20 : -20 }}
@@ -581,11 +581,11 @@ export default function AddRoom() {
           </div>
 
           {/* Footer */}
-          <div className="flex items-center justify-between bg-gray-800/30 backdrop-blur-xl border border-white/10 rounded-2xl p-6">
+          <div className="flex items-center justify-between glass-card">
             <Button
               variant="ghost"
               onClick={() => navigate('/hotel/rooms')}
-              className="hover:bg-white/15 text-gray-300 hover:text-white px-6 py-3 rounded-xl transition-all duration-200"
+              className="hover:bg-secondary/80 text-muted-foreground hover:text-foreground px-6 py-3 rounded-xl transition-all duration-200"
             >
               Cancel
             </Button>
@@ -595,7 +595,7 @@ export default function AddRoom() {
                 <Button
                   variant="outline"
                   onClick={() => setCurrentStep(currentStep - 1)}
-                  className="border-2 border-gray-500/50 text-gray-300 hover:text-white hover:border-gray-400 px-6 py-3 rounded-xl transition-all duration-200"
+                  className="border-2 border-gray-500/50 text-muted-foreground hover:text-foreground hover:border-gray-400 px-6 py-3 rounded-xl transition-all duration-200"
                 >
                   Previous
                 </Button>
@@ -605,7 +605,7 @@ export default function AddRoom() {
                 <Button
                   onClick={() => setCurrentStep(currentStep + 1)}
                   disabled={!formData.number || !formData.type}
-                  className="gap-3 bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white font-semibold px-8 py-3 rounded-xl shadow-lg shadow-cyan-500/25 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="gap-3 bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-foreground font-semibold px-8 py-3 rounded-xl shadow-lg shadow-cyan-500/25 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   Next Step
                   <motion.div
@@ -619,7 +619,7 @@ export default function AddRoom() {
                 <Button
                   onClick={handleSave}
                   disabled={!formData.number || !formData.type || !formData.baseRate}
-                  className="gap-3 bg-gradient-to-r from-emerald-500 to-green-500 hover:from-emerald-600 hover:to-green-600 text-white font-semibold px-8 py-3 rounded-xl shadow-lg shadow-emerald-500/25 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="gap-3 bg-gradient-to-r from-emerald-500 to-green-500 hover:from-emerald-600 hover:to-green-600 text-foreground font-semibold px-8 py-3 rounded-xl shadow-lg shadow-emerald-500/25 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   <Save className="w-5 h-5" />
                   Save Room

@@ -146,7 +146,7 @@ export default function CheckOuts() {
       case 'in-progress': return 'bg-purple-500/20 text-purple-300 border-purple-400/30';
       case 'paid': return 'bg-green-500/20 text-green-300 border-green-400/30';
       case 'partial': return 'bg-orange-500/20 text-orange-300 border-orange-400/30';
-      default: return 'bg-gray-500/20 text-gray-300 border-gray-400/30';
+      default: return 'bg-gray-500/20 text-muted-foreground border-gray-400/30';
     }
   };
 
@@ -155,7 +155,7 @@ export default function CheckOuts() {
       case 'in-room': return <MapPin className="w-4 h-4 text-orange-400" />;
       case 'lobby': return <User className="w-4 h-4 text-blue-400" />;
       case 'departed': return <CheckCircle className="w-4 h-4 text-green-400" />;
-      default: return <Clock className="w-4 h-4 text-gray-400" />;
+      default: return <Clock className="w-4 h-4 text-muted-foreground" />;
     }
   };
 
@@ -175,75 +175,75 @@ export default function CheckOuts() {
             <h1 className="text-3xl font-bold bg-gradient-to-r from-cyan-600 to-emerald-600 bg-clip-text text-transparent">
               Today's Check-outs
             </h1>
-            <p className="text-gray-400 mt-1">Manage departures, final billing, and room inspections</p>
+            <p className="text-muted-foreground mt-1">Manage departures, final billing, and room inspections</p>
           </div>
           <div className="text-right">
-            <p className="text-sm text-gray-400">Today's Date</p>
-            <p className="text-lg font-semibold text-white">{new Date().toLocaleDateString()}</p>
+            <p className="text-sm text-muted-foreground">Today's Date</p>
+            <p className="text-lg font-semibold text-foreground">{new Date().toLocaleDateString()}</p>
           </div>
         </div>
 
         {/* Stats Overview */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
-          <div className="bg-gray-800/20 backdrop-blur-xl border border-white/10 rounded-2xl p-6">
+          <div className="bg-secondary backdrop-blur-xl border border-white/10 rounded-2xl p-6">
             <div className="flex items-center gap-3">
               <Calendar className="w-8 h-8 text-cyan-400" />
               <div>
-                <p className="text-2xl font-bold text-white">{stats.total}</p>
-                <p className="text-sm text-gray-400">Total Check-outs</p>
+                <p className="text-2xl font-bold text-foreground">{stats.total}</p>
+                <p className="text-sm text-muted-foreground">Total Check-outs</p>
               </div>
             </div>
           </div>
 
-          <div className="bg-gray-800/20 backdrop-blur-xl border border-white/10 rounded-2xl p-6">
+          <div className="bg-secondary backdrop-blur-xl border border-white/10 rounded-2xl p-6">
             <div className="flex items-center gap-3">
               <CheckCircle className="w-8 h-8 text-green-400" />
               <div>
-                <p className="text-2xl font-bold text-white">{stats.completed}</p>
-                <p className="text-sm text-gray-400">Completed</p>
+                <p className="text-2xl font-bold text-foreground">{stats.completed}</p>
+                <p className="text-sm text-muted-foreground">Completed</p>
               </div>
             </div>
           </div>
 
-          <div className="bg-gray-800/20 backdrop-blur-xl border border-white/10 rounded-2xl p-6">
+          <div className="bg-secondary backdrop-blur-xl border border-white/10 rounded-2xl p-6">
             <div className="flex items-center gap-3">
               <Clock className="w-8 h-8 text-blue-400" />
               <div>
-                <p className="text-2xl font-bold text-white">{stats.ready}</p>
-                <p className="text-sm text-gray-400">Ready</p>
+                <p className="text-2xl font-bold text-foreground">{stats.ready}</p>
+                <p className="text-sm text-muted-foreground">Ready</p>
               </div>
             </div>
           </div>
 
-          <div className="bg-gray-800/20 backdrop-blur-xl border border-white/10 rounded-2xl p-6">
+          <div className="bg-secondary backdrop-blur-xl border border-white/10 rounded-2xl p-6">
             <div className="flex items-center gap-3">
               <AlertCircle className="w-8 h-8 text-yellow-400" />
               <div>
-                <p className="text-2xl font-bold text-white">{stats.pending}</p>
-                <p className="text-sm text-gray-400">Pending</p>
+                <p className="text-2xl font-bold text-foreground">{stats.pending}</p>
+                <p className="text-sm text-muted-foreground">Pending</p>
               </div>
             </div>
           </div>
 
-          <div className="bg-gray-800/20 backdrop-blur-xl border border-white/10 rounded-2xl p-6">
+          <div className="bg-secondary backdrop-blur-xl border border-white/10 rounded-2xl p-6">
             <div className="flex items-center gap-3">
               <DollarSign className="w-8 h-8 text-emerald-400" />
               <div>
-                <p className="text-2xl font-bold text-white">{formatCurrency(stats.totalRevenue)}</p>
-                <p className="text-sm text-gray-400">Total Revenue</p>
+                <p className="text-2xl font-bold text-foreground">{formatCurrency(stats.totalRevenue)}</p>
+                <p className="text-sm text-muted-foreground">Total Revenue</p>
               </div>
             </div>
           </div>
         </div>
 
         {/* Search */}
-        <div className="bg-gray-800/30 backdrop-blur-xl border border-white/10 rounded-2xl p-6">
+        <div className="bg-secondary backdrop-blur-xl border border-white/10 rounded-2xl p-6">
           <div className="flex items-center gap-4">
             <Input
               placeholder="Search by booking, guest name, or room number..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="flex-1 bg-gray-800/50 border-gray-600/50 text-white placeholder:text-gray-400 focus:border-cyan-500"
+              className="flex-1 bg-secondary border-input text-foreground placeholder:text-muted-foreground focus:border-ring"
             />
           </div>
         </div>
@@ -258,7 +258,7 @@ export default function CheckOuts() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-gray-800/20 backdrop-blur-xl border border-white/10 rounded-2xl p-6"
+                className="bg-secondary backdrop-blur-xl border border-white/10 rounded-2xl p-6"
               >
                 <div className="grid grid-cols-1 lg:grid-cols-6 gap-6 items-center">
                   {/* Guest & Room Info */}
@@ -266,11 +266,11 @@ export default function CheckOuts() {
                     <div className="flex items-center gap-3 mb-2">
                       {getLocationIcon(checkout.guestLocation)}
                       <div>
-                        <h3 className="font-bold text-white">{checkout.guestName}</h3>
-                        <p className="text-sm text-gray-400">#{checkout.bookingNumber}</p>
+                        <h3 className="font-bold text-foreground">{checkout.guestName}</h3>
+                        <p className="text-sm text-muted-foreground">#{checkout.bookingNumber}</p>
                       </div>
                     </div>
-                    <div className="flex items-center gap-2 text-sm text-gray-300">
+                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
                       <MapPin className="w-4 h-4" />
                       Room {checkout.roomNumber} • {checkout.roomType}
                     </div>
@@ -279,7 +279,7 @@ export default function CheckOuts() {
 
                   {/* Payment Status */}
                   <div>
-                    <p className="text-sm text-gray-400 mb-2">Payment Status</p>
+                    <p className="text-sm text-muted-foreground mb-2">Payment Status</p>
                     <div className={cn(
                       "px-3 py-1 rounded-full text-sm font-medium w-fit border capitalize",
                       getStatusColor(checkout.paymentStatus)
@@ -287,7 +287,7 @@ export default function CheckOuts() {
                       {checkout.paymentStatus}
                     </div>
                     <div className="mt-2">
-                      <p className="text-lg font-bold text-white">{formatCurrency(checkout.totalAmount)}</p>
+                      <p className="text-lg font-bold text-foreground">{formatCurrency(checkout.totalAmount)}</p>
                       {checkout.additionalCharges > 0 && (
                         <p className="text-sm text-orange-400">+{formatCurrency(checkout.additionalCharges)} additional</p>
                       )}
@@ -296,7 +296,7 @@ export default function CheckOuts() {
 
                   {/* Inspection Status */}
                   <div>
-                    <p className="text-sm text-gray-400 mb-2">Room Inspection</p>
+                    <p className="text-sm text-muted-foreground mb-2">Room Inspection</p>
                     <div className={cn(
                       "px-3 py-1 rounded-full text-sm font-medium w-fit border capitalize",
                       getStatusColor(checkout.inspectionStatus)
@@ -340,7 +340,7 @@ export default function CheckOuts() {
 
                   {/* Overall Status */}
                   <div>
-                    <p className="text-sm text-gray-400 mb-2">Check-out Status</p>
+                    <p className="text-sm text-muted-foreground mb-2">Check-out Status</p>
                     <div className={cn(
                       "px-3 py-1 rounded-full text-sm font-medium w-fit border capitalize",
                       getStatusColor(checkout.checkOutStatus)
@@ -389,10 +389,10 @@ export default function CheckOuts() {
         </div>
 
         {filteredCheckouts.length === 0 && (
-          <div className="bg-gray-800/20 backdrop-blur-xl border border-white/10 rounded-2xl p-12 text-center">
+          <div className="bg-secondary backdrop-blur-xl border border-white/10 rounded-2xl p-12 text-center">
             <CheckCircle className="w-16 h-16 text-green-400 mx-auto mb-4" />
-            <h3 className="text-xl font-bold text-white mb-2">No Check-outs Today</h3>
-            <p className="text-gray-400">
+            <h3 className="text-xl font-bold text-foreground mb-2">No Check-outs Today</h3>
+            <p className="text-muted-foreground">
               All guests have successfully checked out or no departures are scheduled for today.
             </p>
           </div>

@@ -160,8 +160,8 @@ export default function Agreements() {
       case 'sent': return 'bg-blue-500/20 text-blue-300 border-blue-400/30';
       case 'draft': return 'bg-yellow-500/20 text-yellow-300 border-yellow-400/30';
       case 'expired': return 'bg-red-500/20 text-red-300 border-red-400/30';
-      case 'cancelled': return 'bg-gray-500/20 text-gray-300 border-gray-400/30';
-      default: return 'bg-gray-500/20 text-gray-300 border-gray-400/30';
+      case 'cancelled': return 'bg-gray-500/20 text-muted-foreground border-gray-400/30';
+      default: return 'bg-gray-500/20 text-muted-foreground border-gray-400/30';
     }
   };
 
@@ -172,7 +172,7 @@ export default function Agreements() {
       case 'cancellation_policy': return <AlertCircle className="w-4 h-4 text-orange-400" />;
       case 'special_agreement': return <FileCheck className="w-4 h-4 text-emerald-400" />;
       case 'liability_waiver': return <Shield className="w-4 h-4 text-red-400" />;
-      default: return <FileText className="w-4 h-4 text-gray-400" />;
+      default: return <FileText className="w-4 h-4 text-muted-foreground" />;
     }
   };
 
@@ -223,7 +223,7 @@ export default function Agreements() {
             <h1 className="text-3xl font-bold bg-gradient-to-r from-cyan-600 to-emerald-600 bg-clip-text text-transparent">
               Booking Agreements
             </h1>
-            <p className="text-gray-400 mt-1">Manage contracts, terms, and booking agreements</p>
+            <p className="text-muted-foreground mt-1">Manage contracts, terms, and booking agreements</p>
           </div>
           <div className="flex items-center gap-3">
             <Button variant="outline" className="gap-2">
@@ -239,84 +239,84 @@ export default function Agreements() {
 
         {/* Stats Overview */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6">
-          <div className="bg-gray-800/20 backdrop-blur-xl border border-white/10 rounded-2xl p-6">
+          <div className="bg-secondary backdrop-blur-xl border border-white/10 rounded-2xl p-6">
             <div className="flex items-center gap-3">
               <FileText className="w-8 h-8 text-cyan-400" />
               <div>
-                <p className="text-2xl font-bold text-white">{stats.total}</p>
-                <p className="text-sm text-gray-400">Total Agreements</p>
+                <p className="text-2xl font-bold text-foreground">{stats.total}</p>
+                <p className="text-sm text-muted-foreground">Total Agreements</p>
               </div>
             </div>
           </div>
 
-          <div className="bg-gray-800/20 backdrop-blur-xl border border-white/10 rounded-2xl p-6">
+          <div className="bg-secondary backdrop-blur-xl border border-white/10 rounded-2xl p-6">
             <div className="flex items-center gap-3">
               <Edit className="w-8 h-8 text-yellow-400" />
               <div>
-                <p className="text-2xl font-bold text-white">{stats.draft}</p>
-                <p className="text-sm text-gray-400">Draft</p>
+                <p className="text-2xl font-bold text-foreground">{stats.draft}</p>
+                <p className="text-sm text-muted-foreground">Draft</p>
               </div>
             </div>
           </div>
 
-          <div className="bg-gray-800/20 backdrop-blur-xl border border-white/10 rounded-2xl p-6">
+          <div className="bg-secondary backdrop-blur-xl border border-white/10 rounded-2xl p-6">
             <div className="flex items-center gap-3">
               <Clock className="w-8 h-8 text-blue-400" />
               <div>
-                <p className="text-2xl font-bold text-white">{stats.sent}</p>
-                <p className="text-sm text-gray-400">Sent</p>
+                <p className="text-2xl font-bold text-foreground">{stats.sent}</p>
+                <p className="text-sm text-muted-foreground">Sent</p>
               </div>
             </div>
           </div>
 
-          <div className="bg-gray-800/20 backdrop-blur-xl border border-white/10 rounded-2xl p-6">
+          <div className="bg-secondary backdrop-blur-xl border border-white/10 rounded-2xl p-6">
             <div className="flex items-center gap-3">
               <CheckCircle className="w-8 h-8 text-green-400" />
               <div>
-                <p className="text-2xl font-bold text-white">{stats.signed}</p>
-                <p className="text-sm text-gray-400">Signed</p>
+                <p className="text-2xl font-bold text-foreground">{stats.signed}</p>
+                <p className="text-sm text-muted-foreground">Signed</p>
               </div>
             </div>
           </div>
 
-          <div className="bg-gray-800/20 backdrop-blur-xl border border-white/10 rounded-2xl p-6">
+          <div className="bg-secondary backdrop-blur-xl border border-white/10 rounded-2xl p-6">
             <div className="flex items-center gap-3">
               <AlertCircle className="w-8 h-8 text-red-400" />
               <div>
-                <p className="text-2xl font-bold text-white">{stats.expired}</p>
-                <p className="text-sm text-gray-400">Expired</p>
+                <p className="text-2xl font-bold text-foreground">{stats.expired}</p>
+                <p className="text-sm text-muted-foreground">Expired</p>
               </div>
             </div>
           </div>
 
-          <div className="bg-gray-800/20 backdrop-blur-xl border border-white/10 rounded-2xl p-6">
+          <div className="bg-secondary backdrop-blur-xl border border-white/10 rounded-2xl p-6">
             <div className="flex items-center gap-3">
               <Gavel className="w-8 h-8 text-purple-400" />
               <div>
-                <p className="text-2xl font-bold text-white">{stats.signatureRate}%</p>
-                <p className="text-sm text-gray-400">Signature Rate</p>
+                <p className="text-2xl font-bold text-foreground">{stats.signatureRate}%</p>
+                <p className="text-sm text-muted-foreground">Signature Rate</p>
               </div>
             </div>
           </div>
         </div>
 
         {/* Filters & Search */}
-        <div className="bg-gray-800/30 backdrop-blur-xl border border-white/10 rounded-2xl p-6">
+        <div className="bg-secondary backdrop-blur-xl border border-white/10 rounded-2xl p-6">
           <div className="flex items-center gap-4 flex-wrap">
             <div className="relative flex-1 min-w-64">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
               <Input
                 placeholder="Search by booking, guest name, or template version..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-10 bg-gray-800/50 border-gray-600/50 text-white placeholder:text-gray-400 focus:border-cyan-500"
+                className="pl-10 bg-secondary border-input text-foreground placeholder:text-muted-foreground focus:border-ring"
               />
             </div>
             
             <select
               value={selectedStatus}
               onChange={(e) => setSelectedStatus(e.target.value)}
-              className="px-4 py-2 bg-gray-800/50 border border-gray-600/50 rounded-lg text-sm text-white focus:outline-none focus:ring-2 focus:ring-cyan-500/30 focus:border-cyan-500"
+              className="px-4 py-2 bg-secondary border border-input rounded-lg text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring/30 focus:border-ring"
             >
               {statusOptions.map(option => (
                 <option key={option.value} value={option.value}>
@@ -328,7 +328,7 @@ export default function Agreements() {
             <select
               value={selectedType}
               onChange={(e) => setSelectedType(e.target.value)}
-              className="px-4 py-2 bg-gray-800/50 border border-gray-600/50 rounded-lg text-sm text-white focus:outline-none focus:ring-2 focus:ring-cyan-500/30 focus:border-cyan-500"
+              className="px-4 py-2 bg-secondary border border-input rounded-lg text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring/30 focus:border-ring"
             >
               {typeOptions.map(option => (
                 <option key={option.value} value={option.value}>
@@ -354,7 +354,7 @@ export default function Agreements() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-gray-800/20 backdrop-blur-xl border border-white/10 rounded-2xl p-6"
+                className="bg-secondary backdrop-blur-xl border border-white/10 rounded-2xl p-6"
               >
                 <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 items-center">
                   {/* Agreement Info */}
@@ -362,18 +362,18 @@ export default function Agreements() {
                     <div className="flex items-center gap-3 mb-2">
                       {getTypeIcon(agreement.agreementType)}
                       <div>
-                        <h3 className="font-bold text-white">{getTypeDisplay(agreement.agreementType)}</h3>
-                        <p className="text-sm text-gray-400">#{agreement.bookingNumber} • {agreement.guestName}</p>
+                        <h3 className="font-bold text-foreground">{getTypeDisplay(agreement.agreementType)}</h3>
+                        <p className="text-sm text-muted-foreground">#{agreement.bookingNumber} • {agreement.guestName}</p>
                       </div>
                     </div>
                     {agreement.roomNumber && (
                       <p className="text-sm text-cyan-400 mb-1">Room {agreement.roomNumber}</p>
                     )}
-                    <p className="text-xs text-gray-400">Template: {agreement.templateVersion}</p>
+                    <p className="text-xs text-muted-foreground">Template: {agreement.templateVersion}</p>
                     {agreement.specialClauses && agreement.specialClauses.length > 0 && (
                       <div className="mt-2">
                         <p className="text-xs text-yellow-400">Special Clauses:</p>
-                        <ul className="text-xs text-gray-400 ml-2">
+                        <ul className="text-xs text-muted-foreground ml-2">
                           {agreement.specialClauses.map((clause, idx) => (
                             <li key={idx}>• {clause}</li>
                           ))}
@@ -384,7 +384,7 @@ export default function Agreements() {
 
                   {/* Status & Dates */}
                   <div>
-                    <p className="text-sm text-gray-400 mb-2">Status</p>
+                    <p className="text-sm text-muted-foreground mb-2">Status</p>
                     <div className={cn(
                       "px-3 py-1 rounded-full text-sm font-medium w-fit border capitalize mb-3",
                       getStatusColor(agreement.status)
@@ -401,11 +401,11 @@ export default function Agreements() {
 
                   {/* Timeline */}
                   <div>
-                    <p className="text-sm text-gray-400 mb-2">Timeline</p>
+                    <p className="text-sm text-muted-foreground mb-2">Timeline</p>
                     <div className="space-y-1 text-xs">
                       <div className="flex items-center gap-2">
                         <Calendar className="w-3 h-3 text-gray-500" />
-                        <span className="text-gray-400">Created: {formatDate(agreement.createdDate)}</span>
+                        <span className="text-muted-foreground">Created: {formatDate(agreement.createdDate)}</span>
                       </div>
                       {agreement.sentDate && (
                         <div className="flex items-center gap-2">
@@ -428,14 +428,14 @@ export default function Agreements() {
 
                   {/* Signature Info */}
                   <div>
-                    <p className="text-sm text-gray-400 mb-2">Signature</p>
+                    <p className="text-sm text-muted-foreground mb-2">Signature</p>
                     {agreement.signedBy ? (
                       <div className="flex items-center gap-2">
                         <User className="w-4 h-4 text-green-400" />
                         <span className="text-sm text-green-300">{agreement.signedBy}</span>
                       </div>
                     ) : (
-                      <p className="text-sm text-gray-400">Not signed</p>
+                      <p className="text-sm text-muted-foreground">Not signed</p>
                     )}
                   </div>
 
@@ -487,10 +487,10 @@ export default function Agreements() {
         </div>
 
         {filteredAgreements.length === 0 && (
-          <div className="bg-gray-800/20 backdrop-blur-xl border border-white/10 rounded-2xl p-12 text-center">
+          <div className="bg-secondary backdrop-blur-xl border border-white/10 rounded-2xl p-12 text-center">
             <FileText className="w-16 h-16 text-purple-400 mx-auto mb-4" />
-            <h3 className="text-xl font-bold text-white mb-2">No agreements found</h3>
-            <p className="text-gray-400 mb-6">
+            <h3 className="text-xl font-bold text-foreground mb-2">No agreements found</h3>
+            <p className="text-muted-foreground mb-6">
               Try adjusting your search criteria or create a new agreement.
             </p>
             <Button className="gap-2 bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600">
