@@ -99,7 +99,7 @@ export default function GuestManagement() {
                 variant="gradient" 
                 size="sm" 
                 className="gap-2"
-                onClick={() => navigate('/hotel/guests/add'))
+                onClick={() => navigate('/hotel/guests/add')}
               >
                 <UserPlus className="w-4 h-4" />
                 Add Customer

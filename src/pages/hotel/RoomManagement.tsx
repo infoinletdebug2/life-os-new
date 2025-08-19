@@ -194,7 +194,7 @@ export default function RoomManagement() {
               <Button 
                 variant="gradient" 
                 className="gap-2"
-                onClick={() => navigate('/hotel/rooms/add'))
+                onClick={() => navigate('/hotel/rooms/add')}
               >
                 <Plus className="w-4 h-4" />
                 Add Room

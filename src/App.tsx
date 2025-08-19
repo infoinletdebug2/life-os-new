@@ -83,6 +83,7 @@ function App() {
             <Route path="/hotel/guests/add" element={<AddCustomer />} />
 
             {/* Event Ticketing Routes */}
+            <Route path="/travel/event-ticketing" element={<Navigate to="/travel/event-ticketing/events" replace />} />
             <Route path="/travel/event-ticketing/events" element={<EventsPage />} />
             <Route path="/travel/event-ticketing/venues" element={<VenuesPage />} />
             <Route path="/travel/event-ticketing/categories" element={<CategoriesPage />} />
