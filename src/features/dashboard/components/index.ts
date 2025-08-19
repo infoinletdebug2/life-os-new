@@ -1,0 +1,10 @@
+// Dashboard components barrel export
+export { DashboardOverview } from './DashboardOverview'
+export { OccupancyChart } from './OccupancyChart'
+export { RevenueChart } from './RevenueChart'
+export { BookingStats } from './BookingStats'
+export { GuestStats } from './GuestStats'
+export { RoomStatusGrid } from './RoomStatusGrid'
+export { PerformanceMetrics } from './PerformanceMetrics'
+export { RecentBookings } from './RecentBookings'
+export { AlertsPanel } from './AlertsPanel'
