@@ -1,15 +1,90 @@
-import { UIBooking, ExtendedBookingStatusType, PaymentStatusType, BookingStats } from '@/types/hotel/booking/booking';
+// Local type definitions to avoid import issues
+interface UIBooking {
+  id: string;
+  bookingNumber: string;
+  guestName: string;
+  guestEmail: string;
+  guestPhone?: string;
+  roomNumber: string;
+  roomType: string;
+  roomCategory?: string;
+  checkIn: string;
+  checkOut: string;
+  nights: number;
+  guests: {
+    adults: number;
+    children: number;
+    infants?: number;
+  };
+  status: 'requested' | 'confirmed' | 'pending' | 'checked-in' | 'checked-out' | 'cancelled' | 'rejected';
+  totalAmount: number;
+  paidAmount: number;
+  paymentStatus: 'pending' | 'partial' | 'paid' | 'refunded' | 'failed';
+  paymentMethod?: string;
+  source: string;
+  createdAt: string;
+  updatedAt?: string;
+  notes?: string;
+  specialRequests?: string[];
+  checkInTime?: string;
+  checkOutTime?: string;
+  actualCheckIn?: string;
+  actualCheckOut?: string;
+}
+
+interface BookingStats {
+  total: number;
+  requested: number;
+  confirmed: number;
+  checkedIn: number;
+  checkedOut: number;
+  pending: number;
+  cancelled: number;
+  todayCheckIns: number;
+  todayCheckOuts: number;
+  tomorrowCheckIns: number;
+  tomorrowCheckOuts: number;
+  totalRevenue: number;
+  paidRevenue: number;
+  pendingRevenue: number;
+  occupancyRate: number;
+}
 
 // Calculate booking statistics from an array of bookings
 export function calculateBookingStats(bookings: UIBooking[]): BookingStats {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const tomorrow = new Date(today);
+  tomorrow.setDate(tomorrow.getDate() + 1);
+
   return {
     total: bookings.length,
     requested: bookings.filter(b => b.status === 'requested').length,
     confirmed: bookings.filter(b => b.status === 'confirmed').length,
     checkedIn: bookings.filter(b => b.status === 'checked-in').length,
+    checkedOut: bookings.filter(b => b.status === 'checked-out').length,
     pending: bookings.filter(b => b.status === 'pending').length,
+    cancelled: bookings.filter(b => b.status === 'cancelled').length,
+    todayCheckIns: bookings.filter(b => {
+      const checkIn = new Date(b.checkIn);
+      return checkIn.toDateString() === today.toDateString() && b.status === 'confirmed';
+    }).length,
+    todayCheckOuts: bookings.filter(b => {
+      const checkOut = new Date(b.checkOut);
+      return checkOut.toDateString() === today.toDateString() && b.status === 'checked-in';
+    }).length,
+    tomorrowCheckIns: bookings.filter(b => {
+      const checkIn = new Date(b.checkIn);
+      return checkIn.toDateString() === tomorrow.toDateString();
+    }).length,
+    tomorrowCheckOuts: bookings.filter(b => {
+      const checkOut = new Date(b.checkOut);
+      return checkOut.toDateString() === tomorrow.toDateString();
+    }).length,
     totalRevenue: bookings.reduce((sum, b) => sum + b.totalAmount, 0),
-    paidRevenue: bookings.reduce((sum, b) => sum + b.paidAmount, 0)
+    paidRevenue: bookings.reduce((sum, b) => sum + b.paidAmount, 0),
+    pendingRevenue: bookings.filter(b => b.paymentStatus === 'pending').reduce((sum, b) => sum + b.totalAmount, 0),
+    occupancyRate: 75 // This would be calculated based on actual room data
   };
 }
 

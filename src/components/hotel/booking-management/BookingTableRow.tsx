@@ -3,8 +3,40 @@ import { motion } from 'framer-motion';
 import { MoreHorizontal } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
-import { UIBooking } from '@/types/hotel/booking/booking';
-import { formatCurrency, formatDate, getStatusColor, getStatusIcon, getPaymentStatusColor } from '../utils';
+// Local UIBooking type definition
+interface UIBooking {
+  id: string;
+  bookingNumber: string;
+  guestName: string;
+  guestEmail: string;
+  guestPhone?: string;
+  roomNumber: string;
+  roomType: string;
+  roomCategory?: string;
+  checkIn: string;
+  checkOut: string;
+  nights: number;
+  guests: {
+    adults: number;
+    children: number;
+    infants?: number;
+  };
+  status: 'requested' | 'confirmed' | 'pending' | 'checked-in' | 'checked-out' | 'cancelled' | 'rejected';
+  totalAmount: number;
+  paidAmount: number;
+  paymentStatus: 'pending' | 'partial' | 'paid' | 'refunded' | 'failed';
+  paymentMethod?: string;
+  source: string;
+  createdAt: string;
+  updatedAt?: string;
+  notes?: string;
+  specialRequests?: string[];
+  checkInTime?: string;
+  checkOutTime?: string;
+  actualCheckIn?: string;
+  actualCheckOut?: string;
+}
+import { formatCurrency, formatDate, getStatusColor, getStatusIcon, getPaymentStatusColor } from './utils';
 import { BookingActionMenu } from './BookingActionMenu';
 
 interface BookingTableRowProps {

@@ -44,8 +44,8 @@ export default function RoomDetails() {
       <RoomManagementLayout>
         <div className="flex-1 flex items-center justify-center">
           <div className="text-center">
-            <h2 className="text-2xl font-bold text-white mb-4">Room Not Found</h2>
-            <p className="text-gray-400 mb-6">The requested room could not be found.</p>
+            <h2 className="text-2xl font-bold text-foreground mb-4">Room Not Found</h2>
+            <p className="text-muted-foreground mb-6">The requested room could not be found.</p>
             <Button onClick={() => navigate('/hotel/rooms')}>
               <ArrowLeft className="w-4 h-4 mr-2" />
               Back to Rooms
@@ -65,7 +65,7 @@ export default function RoomDetails() {
             <Button
               variant="ghost"
               onClick={() => navigate('/hotel/rooms')}
-              className="hover:bg-white/10 text-gray-300 hover:text-white"
+              className="hover:bg-secondary/80 text-muted-foreground hover:text-foreground"
             >
               <ArrowLeft className="w-5 h-5" />
             </Button>
@@ -73,7 +73,7 @@ export default function RoomDetails() {
               <h1 className="text-3xl font-bold bg-gradient-to-r from-cyan-600 to-emerald-600 bg-clip-text text-transparent">
                 Room {room.roomNumber} Details
               </h1>
-              <p className="text-gray-400 mt-1">
+              <p className="text-muted-foreground mt-1">
                 {room.type} • {room.category}
               </p>
             </div>
@@ -121,8 +121,8 @@ export default function RoomDetails() {
           {/* Left Column - Main Content */}
           <div className="lg:col-span-2 space-y-8">
             {/* Room Images */}
-            <div className="bg-gray-800/20 backdrop-blur-xl border border-white/10 rounded-2xl p-6">
-              <h3 className="text-xl font-bold text-white mb-6">Room Images</h3>
+            <div className="bg-secondary backdrop-blur-xl border border-white/10 rounded-2xl p-6">
+              <h3 className="text-xl font-bold text-foreground mb-6">Room Images</h3>
               <div className="space-y-4">
                 <img 
                   src={room.images[0]} 
@@ -145,63 +145,63 @@ export default function RoomDetails() {
             </div>
 
             {/* Room Information */}
-            <div className="bg-gray-800/20 backdrop-blur-xl border border-white/10 rounded-2xl p-6">
-              <h3 className="text-xl font-bold text-white mb-6">Room Information</h3>
+            <div className="bg-secondary backdrop-blur-xl border border-white/10 rounded-2xl p-6">
+              <h3 className="text-xl font-bold text-foreground mb-6">Room Information</h3>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
                 <div className="text-center p-4 bg-gray-700/30 rounded-xl">
                   <Home className="w-6 h-6 text-cyan-400 mx-auto mb-2" />
-                  <p className="text-2xl font-bold text-white">{room.area}m²</p>
-                  <p className="text-sm text-gray-400">Area</p>
+                  <p className="text-2xl font-bold text-foreground">{room.area}m²</p>
+                  <p className="text-sm text-muted-foreground">Area</p>
                 </div>
                 <div className="text-center p-4 bg-gray-700/30 rounded-xl">
                   <Users className="w-6 h-6 text-emerald-400 mx-auto mb-2" />
-                  <p className="text-2xl font-bold text-white">{room.maxOccupancy}</p>
-                  <p className="text-sm text-gray-400">Max Guests</p>
+                  <p className="text-2xl font-bold text-foreground">{room.maxOccupancy}</p>
+                  <p className="text-sm text-muted-foreground">Max Guests</p>
                 </div>
                 <div className="text-center p-4 bg-gray-700/30 rounded-xl">
                   <DollarSign className="w-6 h-6 text-yellow-400 mx-auto mb-2" />
-                  <p className="text-2xl font-bold text-white">{formatCurrency(room.currentRate)}</p>
-                  <p className="text-sm text-gray-400">Current Rate</p>
+                  <p className="text-2xl font-bold text-foreground">{formatCurrency(room.currentRate)}</p>
+                  <p className="text-sm text-muted-foreground">Current Rate</p>
                 </div>
                 <div className="text-center p-4 bg-gray-700/30 rounded-xl">
                   <Key className="w-6 h-6 text-purple-400 mx-auto mb-2" />
-                  <p className="text-2xl font-bold text-white">{room.floor}</p>
-                  <p className="text-sm text-gray-400">Floor</p>
+                  <p className="text-2xl font-bold text-foreground">{room.floor}</p>
+                  <p className="text-sm text-muted-foreground">Floor</p>
                 </div>
               </div>
               
               <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <h4 className="text-lg font-semibold text-white mb-3">Details</h4>
+                  <h4 className="text-lg font-semibold text-foreground mb-3">Details</h4>
                   <div className="space-y-2 text-sm">
                     <div className="flex justify-between">
-                      <span className="text-gray-400">Room Type</span>
-                      <span className="text-white font-medium">{room.type}</span>
+                      <span className="text-muted-foreground">Room Type</span>
+                      <span className="text-foreground font-medium">{room.type}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-gray-400">Category</span>
-                      <span className="text-white font-medium capitalize">{room.category}</span>
+                      <span className="text-muted-foreground">Category</span>
+                      <span className="text-foreground font-medium capitalize">{room.category}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-gray-400">View</span>
-                      <span className="text-white font-medium capitalize">{room.view}</span>
+                      <span className="text-muted-foreground">View</span>
+                      <span className="text-foreground font-medium capitalize">{room.view}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-gray-400">Bed Configuration</span>
-                      <span className="text-white font-medium">King Bed</span>
+                      <span className="text-muted-foreground">Bed Configuration</span>
+                      <span className="text-foreground font-medium">King Bed</span>
                     </div>
                   </div>
                 </div>
                 
                 <div>
-                  <h4 className="text-lg font-semibold text-white mb-3">Pricing</h4>
+                  <h4 className="text-lg font-semibold text-foreground mb-3">Pricing</h4>
                   <div className="space-y-2 text-sm">
                     <div className="flex justify-between">
-                      <span className="text-gray-400">Base Rate</span>
-                      <span className="text-white font-medium">{formatCurrency(room.baseRate)}</span>
+                      <span className="text-muted-foreground">Base Rate</span>
+                      <span className="text-foreground font-medium">{formatCurrency(room.baseRate)}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-gray-400">Current Rate</span>
+                      <span className="text-muted-foreground">Current Rate</span>
                       <span className="text-emerald-400 font-bold">{formatCurrency(room.currentRate)}</span>
                     </div>
                   </div>
@@ -210,8 +210,8 @@ export default function RoomDetails() {
             </div>
 
             {/* Amenities */}
-            <div className="bg-gray-800/20 backdrop-blur-xl border border-white/10 rounded-2xl p-6">
-              <h3 className="text-xl font-bold text-white mb-6">Amenities</h3>
+            <div className="bg-secondary backdrop-blur-xl border border-white/10 rounded-2xl p-6">
+              <h3 className="text-xl font-bold text-foreground mb-6">Amenities</h3>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                 {room.amenities.map((amenity) => {
                   const IconComponent = getAmenityIcon(amenity.icon);
@@ -221,7 +221,7 @@ export default function RoomDetails() {
                       className="flex items-center gap-3 p-3 bg-gradient-to-r from-white/5 to-white/10 rounded-lg border border-white/10"
                     >
                       <IconComponent className="w-5 h-5 text-cyan-400" />
-                      <span className="text-white font-medium">{amenity.name}</span>
+                      <span className="text-foreground font-medium">{amenity.name}</span>
                     </div>
                   );
                 })}
@@ -234,24 +234,24 @@ export default function RoomDetails() {
             {/* Current Occupancy */}
             {room.currentOccupant ? (
               <div className="bg-gradient-to-br from-blue-900/50 to-cyan-900/50 backdrop-blur-xl border border-blue-400/20 rounded-2xl p-6">
-                <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                <h3 className="text-lg font-bold text-foreground mb-4 flex items-center gap-2">
                   <Key className="w-5 h-5 text-blue-400" />
                   Current Guest
                 </h3>
                 <div className="space-y-3">
-                  <p className="text-white font-semibold text-lg">{room.currentOccupant.guestName}</p>
+                  <p className="text-foreground font-semibold text-lg">{room.currentOccupant.guestName}</p>
                   <div className="space-y-2 text-sm">
                     <div className="flex justify-between">
                       <span className="text-blue-200">Check-in</span>
-                      <span className="text-white font-medium">{room.currentOccupant.checkIn}</span>
+                      <span className="text-foreground font-medium">{room.currentOccupant.checkIn}</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-blue-200">Check-out</span>
-                      <span className="text-white font-medium">{room.currentOccupant.checkOut}</span>
+                      <span className="text-foreground font-medium">{room.currentOccupant.checkOut}</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-blue-200">Guests</span>
-                      <span className="text-white font-medium">
+                      <span className="text-foreground font-medium">
                         {room.currentOccupant.adults} adults, {room.currentOccupant.children} children
                       </span>
                     </div>
@@ -260,7 +260,7 @@ export default function RoomDetails() {
               </div>
             ) : (
               <div className="bg-gradient-to-br from-green-900/50 to-emerald-900/50 backdrop-blur-xl border border-green-400/20 rounded-2xl p-6">
-                <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                <h3 className="text-lg font-bold text-foreground mb-4 flex items-center gap-2">
                   <CheckCircle className="w-5 h-5 text-green-400" />
                   Available
                 </h3>
@@ -272,12 +272,12 @@ export default function RoomDetails() {
             )}
 
             {/* Housekeeping */}
-            <div className="bg-gray-800/20 backdrop-blur-xl border border-white/10 rounded-2xl p-6">
-              <h3 className="text-lg font-bold text-white mb-4">Housekeeping</h3>
+            <div className="bg-secondary backdrop-blur-xl border border-white/10 rounded-2xl p-6">
+              <h3 className="text-lg font-bold text-foreground mb-4">Housekeeping</h3>
               <div className="space-y-3">
                 <div className="flex justify-between items-center">
-                  <span className="text-gray-400">Last Cleaned</span>
-                  <span className="text-white font-medium">
+                  <span className="text-muted-foreground">Last Cleaned</span>
+                  <span className="text-foreground font-medium">
                     {new Date(room.lastCleaned || '').toLocaleDateString()}
                   </span>
                 </div>
@@ -294,12 +294,12 @@ export default function RoomDetails() {
             </div>
 
             {/* Maintenance */}
-            <div className="bg-gray-800/20 backdrop-blur-xl border border-white/10 rounded-2xl p-6">
-              <h3 className="text-lg font-bold text-white mb-4">Maintenance</h3>
+            <div className="bg-secondary backdrop-blur-xl border border-white/10 rounded-2xl p-6">
+              <h3 className="text-lg font-bold text-foreground mb-4">Maintenance</h3>
               <div className="space-y-3">
                 <div className="flex justify-between items-center">
-                  <span className="text-gray-400">Last Maintenance</span>
-                  <span className="text-white font-medium">
+                  <span className="text-muted-foreground">Last Maintenance</span>
+                  <span className="text-foreground font-medium">
                     {room.lastMaintenance ? new Date(room.lastMaintenance).toLocaleDateString() : 'N/A'}
                   </span>
                 </div>
@@ -318,7 +318,7 @@ export default function RoomDetails() {
             {/* Revenue Stats */}
             {room.revenue && (
               <div className="bg-gradient-to-br from-emerald-900/50 to-cyan-900/50 backdrop-blur-xl border border-emerald-400/20 rounded-2xl p-6">
-                <h3 className="text-lg font-bold text-white mb-4">Revenue Performance</h3>
+                <h3 className="text-lg font-bold text-foreground mb-4">Revenue Performance</h3>
                 <div className="space-y-4">
                   <div className="text-center p-3 bg-black/20 rounded-lg">
                     <p className="text-2xl font-bold text-emerald-400">{formatCurrency(room.revenue.mtd)}</p>
@@ -337,8 +337,8 @@ export default function RoomDetails() {
             )}
 
             {/* Actions */}
-            <div className="bg-gray-800/20 backdrop-blur-xl border border-white/10 rounded-2xl p-6">
-              <h3 className="text-lg font-bold text-white mb-4">Quick Actions</h3>
+            <div className="bg-secondary backdrop-blur-xl border border-white/10 rounded-2xl p-6">
+              <h3 className="text-lg font-bold text-foreground mb-4">Quick Actions</h3>
               <div className="space-y-3">
                 <Button variant="outline" className="w-full gap-2">
                   <CalendarDays className="w-4 h-4" />

@@ -1,5 +1,5 @@
 import { Calendar, Clock, CheckCircle, Users, DollarSign, CreditCard } from 'lucide-react';
-import { formatCurrency } from '../utils';
+import { formatCurrency } from './utils';
 
 interface BookingStatsOverviewProps {
   stats: {

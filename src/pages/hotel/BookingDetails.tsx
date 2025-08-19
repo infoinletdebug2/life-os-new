@@ -78,13 +78,13 @@ export default function BookingDetails() {
       case 'checked-in':
         return 'bg-green-500/20 text-green-300 border-green-400/30';
       case 'checked-out':
-        return 'bg-gray-500/20 text-gray-300 border-gray-400/30';
+        return 'bg-gray-500/20 text-muted-foreground border-gray-400/30';
       case 'pending':
         return 'bg-yellow-500/20 text-yellow-300 border-yellow-400/30';
       case 'cancelled':
         return 'bg-red-500/20 text-red-300 border-red-400/30';
       default:
-        return 'bg-gray-500/20 text-gray-300 border-gray-400/30';
+        return 'bg-gray-500/20 text-muted-foreground border-gray-400/30';
     }
   };
 
@@ -114,7 +114,7 @@ export default function BookingDetails() {
       case 'refunded':
         return 'bg-purple-500/20 text-purple-300 border-purple-400/30';
       default:
-        return 'bg-gray-500/20 text-gray-300 border-gray-400/30';
+        return 'bg-gray-500/20 text-muted-foreground border-gray-400/30';
     }
   };
 
@@ -156,7 +156,7 @@ export default function BookingDetails() {
             <Button
               variant="ghost"
               onClick={() => navigate('/hotel/bookings')}
-              className="hover:bg-white/10 text-gray-300 hover:text-white"
+              className="hover:bg-secondary/80 text-muted-foreground hover:text-foreground"
             >
               <ArrowLeft className="w-5 h-5" />
             </Button>
@@ -164,7 +164,7 @@ export default function BookingDetails() {
               <h1 className="text-3xl font-bold bg-gradient-to-r from-cyan-600 to-emerald-600 bg-clip-text text-transparent">
                 Booking #{booking.bookingNumber}
               </h1>
-              <p className="text-gray-400 mt-1">
+              <p className="text-muted-foreground mt-1">
                 Created on {formatDateTime(booking.dates.createdAt)}
               </p>
             </div>
@@ -191,9 +191,9 @@ export default function BookingDetails() {
 
         {/* Status and Quick Actions */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="bg-gray-800/20 backdrop-blur-xl border border-white/10 rounded-2xl p-6">
+          <div className="bg-secondary backdrop-blur-xl border border-white/10 rounded-2xl p-6">
             <div className="flex items-center justify-between mb-4">
-              <h3 className="text-lg font-bold text-white">Booking Status</h3>
+              <h3 className="text-lg font-bold text-foreground">Booking Status</h3>
               <div className={cn(
                 "flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium border",
                 getStatusColor(booking.status)
@@ -222,9 +222,9 @@ export default function BookingDetails() {
             </div>
           </div>
 
-          <div className="bg-gray-800/20 backdrop-blur-xl border border-white/10 rounded-2xl p-6">
+          <div className="bg-secondary backdrop-blur-xl border border-white/10 rounded-2xl p-6">
             <div className="flex items-center justify-between mb-4">
-              <h3 className="text-lg font-bold text-white">Payment Status</h3>
+              <h3 className="text-lg font-bold text-foreground">Payment Status</h3>
               <div className={cn(
                 "px-3 py-1 rounded-full text-sm font-medium border capitalize",
                 getPaymentStatusColor(booking.payment.paymentStatus)
@@ -234,36 +234,36 @@ export default function BookingDetails() {
             </div>
             <div className="space-y-2">
               <div className="flex justify-between text-sm">
-                <span className="text-gray-400">Total:</span>
+                <span className="text-muted-foreground">Total:</span>
                 <span className="text-emerald-400 font-bold">{formatCurrency(booking.payment.totalAmount)}</span>
               </div>
               <div className="flex justify-between text-sm">
-                <span className="text-gray-400">Paid:</span>
-                <span className="text-white">{formatCurrency(booking.payment.paidAmount)}</span>
+                <span className="text-muted-foreground">Paid:</span>
+                <span className="text-foreground">{formatCurrency(booking.payment.paidAmount)}</span>
               </div>
               {booking.payment.paidAmount < booking.payment.totalAmount && (
                 <div className="flex justify-between text-sm">
-                  <span className="text-gray-400">Remaining:</span>
+                  <span className="text-muted-foreground">Remaining:</span>
                   <span className="text-red-400">{formatCurrency(booking.payment.totalAmount - booking.payment.paidAmount)}</span>
                 </div>
               )}
             </div>
           </div>
 
-          <div className="bg-gray-800/20 backdrop-blur-xl border border-white/10 rounded-2xl p-6">
-            <h3 className="text-lg font-bold text-white mb-4">Quick Info</h3>
+          <div className="bg-secondary backdrop-blur-xl border border-white/10 rounded-2xl p-6">
+            <h3 className="text-lg font-bold text-foreground mb-4">Quick Info</h3>
             <div className="space-y-2 text-sm">
               <div className="flex justify-between">
-                <span className="text-gray-400">Nights:</span>
-                <span className="text-white">{booking.dates.nights}</span>
+                <span className="text-muted-foreground">Nights:</span>
+                <span className="text-foreground">{booking.dates.nights}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-gray-400">Guests:</span>
-                <span className="text-white">{booking.guests.adults + booking.guests.children}</span>
+                <span className="text-muted-foreground">Guests:</span>
+                <span className="text-foreground">{booking.guests.adults + booking.guests.children}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-gray-400">Source:</span>
-                <span className="text-white">{booking.details.source}</span>
+                <span className="text-muted-foreground">Source:</span>
+                <span className="text-foreground">{booking.details.source}</span>
               </div>
             </div>
           </div>
@@ -272,45 +272,45 @@ export default function BookingDetails() {
         {/* Main Content */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Guest Information */}
-          <div className="bg-gray-800/20 backdrop-blur-xl border border-white/10 rounded-2xl p-8">
+          <div className="bg-secondary backdrop-blur-xl border border-white/10 rounded-2xl p-8">
             <div className="flex items-center gap-2 mb-6">
               <Users className="w-5 h-5 text-cyan-400" />
-              <h3 className="text-xl font-bold text-white">Guest Information</h3>
+              <h3 className="text-xl font-bold text-foreground">Guest Information</h3>
             </div>
             
             <div className="space-y-4">
               <div>
-                <h4 className="font-semibold text-white text-lg">{booking.guest.name}</h4>
-                <div className="flex items-center gap-2 mt-2 text-gray-300">
+                <h4 className="font-semibold text-foreground text-lg">{booking.guest.name}</h4>
+                <div className="flex items-center gap-2 mt-2 text-muted-foreground">
                   <Mail className="w-4 h-4" />
                   <span>{booking.guest.email}</span>
                 </div>
-                <div className="flex items-center gap-2 mt-1 text-gray-300">
+                <div className="flex items-center gap-2 mt-1 text-muted-foreground">
                   <Phone className="w-4 h-4" />
                   <span>{booking.guest.phone}</span>
                 </div>
               </div>
 
               <div className="pt-4 border-t border-white/10">
-                <div className="flex items-start gap-2 text-gray-300">
+                <div className="flex items-start gap-2 text-muted-foreground">
                   <MapPin className="w-4 h-4 mt-0.5" />
                   <div>
                     <p>{booking.guest.address}</p>
-                    <p className="text-sm text-gray-400 mt-1">{booking.guest.country}</p>
+                    <p className="text-sm text-muted-foreground mt-1">{booking.guest.country}</p>
                   </div>
                 </div>
               </div>
 
               <div className="pt-4 border-t border-white/10">
-                <h5 className="font-medium text-white mb-2">Guest Count</h5>
+                <h5 className="font-medium text-foreground mb-2">Guest Count</h5>
                 <div className="flex items-center gap-4">
                   <div className="text-center">
-                    <p className="text-2xl font-bold text-white">{booking.guests.adults}</p>
-                    <p className="text-xs text-gray-400">Adults</p>
+                    <p className="text-2xl font-bold text-foreground">{booking.guests.adults}</p>
+                    <p className="text-xs text-muted-foreground">Adults</p>
                   </div>
                   <div className="text-center">
-                    <p className="text-2xl font-bold text-white">{booking.guests.children}</p>
-                    <p className="text-xs text-gray-400">Children</p>
+                    <p className="text-2xl font-bold text-foreground">{booking.guests.children}</p>
+                    <p className="text-xs text-muted-foreground">Children</p>
                   </div>
                 </div>
               </div>
@@ -318,10 +318,10 @@ export default function BookingDetails() {
           </div>
 
           {/* Room Information */}
-          <div className="bg-gray-800/20 backdrop-blur-xl border border-white/10 rounded-2xl p-8">
+          <div className="bg-secondary backdrop-blur-xl border border-white/10 rounded-2xl p-8">
             <div className="flex items-center gap-2 mb-6">
               <Calendar className="w-5 h-5 text-emerald-400" />
-              <h3 className="text-xl font-bold text-white">Room & Stay Details</h3>
+              <h3 className="text-xl font-bold text-foreground">Room & Stay Details</h3>
             </div>
             
             <div className="space-y-6">
@@ -332,27 +332,27 @@ export default function BookingDetails() {
                   className="w-20 h-20 object-cover rounded-xl"
                 />
                 <div>
-                  <h4 className="font-bold text-white text-lg">Room #{booking.room.number}</h4>
-                  <p className="text-gray-300">{booking.room.type}</p>
-                  <p className="text-sm text-gray-400">Floor {booking.room.floor}</p>
+                  <h4 className="font-bold text-foreground text-lg">Room #{booking.room.number}</h4>
+                  <p className="text-muted-foreground">{booking.room.type}</p>
+                  <p className="text-sm text-muted-foreground">Floor {booking.room.floor}</p>
                 </div>
                 <div className="ml-auto text-right">
                   <p className="font-bold text-emerald-400">{formatCurrency(booking.room.rate)}</p>
-                  <p className="text-xs text-gray-400">per night</p>
+                  <p className="text-xs text-muted-foreground">per night</p>
                 </div>
               </div>
 
               <div className="space-y-3">
                 <div>
-                  <h5 className="font-medium text-white mb-2">Check-in</h5>
-                  <p className="text-gray-300">{formatDate(booking.dates.checkIn)}</p>
-                  <p className="text-sm text-gray-400">3:00 PM standard</p>
+                  <h5 className="font-medium text-foreground mb-2">Check-in</h5>
+                  <p className="text-muted-foreground">{formatDate(booking.dates.checkIn)}</p>
+                  <p className="text-sm text-muted-foreground">3:00 PM standard</p>
                 </div>
                 
                 <div>
-                  <h5 className="font-medium text-white mb-2">Check-out</h5>
-                  <p className="text-gray-300">{formatDate(booking.dates.checkOut)}</p>
-                  <p className="text-sm text-gray-400">11:00 AM standard</p>
+                  <h5 className="font-medium text-foreground mb-2">Check-out</h5>
+                  <p className="text-muted-foreground">{formatDate(booking.dates.checkOut)}</p>
+                  <p className="text-sm text-muted-foreground">11:00 AM standard</p>
                 </div>
                 
                 <div className="pt-3 border-t border-white/10">
@@ -366,24 +366,24 @@ export default function BookingDetails() {
         </div>
 
         {/* Payment Details */}
-        <div className="bg-gray-800/20 backdrop-blur-xl border border-white/10 rounded-2xl p-8">
+        <div className="bg-secondary backdrop-blur-xl border border-white/10 rounded-2xl p-8">
           <div className="flex items-center gap-2 mb-6">
             <CreditCard className="w-5 h-5 text-green-400" />
-            <h3 className="text-xl font-bold text-white">Payment Details</h3>
+            <h3 className="text-xl font-bold text-foreground">Payment Details</h3>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="space-y-4">
               <div>
-                <h5 className="font-medium text-gray-300 mb-2">Payment Breakdown</h5>
+                <h5 className="font-medium text-muted-foreground mb-2">Payment Breakdown</h5>
                 <div className="space-y-2">
                   <div className="flex justify-between">
-                    <span className="text-gray-400">Room Rate ({booking.dates.nights} nights):</span>
-                    <span className="text-white">{formatCurrency(booking.room.rate * booking.dates.nights)}</span>
+                    <span className="text-muted-foreground">Room Rate ({booking.dates.nights} nights):</span>
+                    <span className="text-foreground">{formatCurrency(booking.room.rate * booking.dates.nights)}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-gray-400">Taxes & Fees:</span>
-                    <span className="text-white">{formatCurrency(booking.payment.totalAmount - (booking.room.rate * booking.dates.nights))}</span>
+                    <span className="text-muted-foreground">Taxes & Fees:</span>
+                    <span className="text-foreground">{formatCurrency(booking.payment.totalAmount - (booking.room.rate * booking.dates.nights))}</span>
                   </div>
                   <div className="border-t border-white/10 pt-2">
                     <div className="flex justify-between font-bold">
@@ -397,19 +397,19 @@ export default function BookingDetails() {
 
             <div className="space-y-4">
               <div>
-                <h5 className="font-medium text-gray-300 mb-2">Payment Info</h5>
+                <h5 className="font-medium text-muted-foreground mb-2">Payment Info</h5>
                 <div className="space-y-2 text-sm">
                   <div className="flex justify-between">
-                    <span className="text-gray-400">Method:</span>
-                    <span className="text-white">{booking.payment.paymentMethod}</span>
+                    <span className="text-muted-foreground">Method:</span>
+                    <span className="text-foreground">{booking.payment.paymentMethod}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-gray-400">Deposit:</span>
-                    <span className="text-white">{formatCurrency(booking.payment.depositAmount)}</span>
+                    <span className="text-muted-foreground">Deposit:</span>
+                    <span className="text-foreground">{formatCurrency(booking.payment.depositAmount)}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-gray-400">Last Payment:</span>
-                    <span className="text-white">{formatDateTime(booking.payment.lastPayment)}</span>
+                    <span className="text-muted-foreground">Last Payment:</span>
+                    <span className="text-foreground">{formatDateTime(booking.payment.lastPayment)}</span>
                   </div>
                 </div>
               </div>
@@ -430,27 +430,27 @@ export default function BookingDetails() {
 
         {/* Special Requests & Notes */}
         {(booking.details.specialRequests || booking.details.notes) && (
-          <div className="bg-gray-800/20 backdrop-blur-xl border border-white/10 rounded-2xl p-8">
+          <div className="bg-secondary backdrop-blur-xl border border-white/10 rounded-2xl p-8">
             <div className="flex items-center gap-2 mb-6">
               <FileText className="w-5 h-5 text-purple-400" />
-              <h3 className="text-xl font-bold text-white">Additional Information</h3>
+              <h3 className="text-xl font-bold text-foreground">Additional Information</h3>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {booking.details.specialRequests && (
                 <div>
-                  <h5 className="font-medium text-gray-300 mb-2">Special Requests</h5>
+                  <h5 className="font-medium text-muted-foreground mb-2">Special Requests</h5>
                   <div className="bg-gray-700/30 rounded-lg p-4">
-                    <p className="text-gray-300">{booking.details.specialRequests}</p>
+                    <p className="text-muted-foreground">{booking.details.specialRequests}</p>
                   </div>
                 </div>
               )}
               
               {booking.details.notes && (
                 <div>
-                  <h5 className="font-medium text-gray-300 mb-2">Internal Notes</h5>
+                  <h5 className="font-medium text-muted-foreground mb-2">Internal Notes</h5>
                   <div className="bg-gray-700/30 rounded-lg p-4">
-                    <p className="text-gray-300">{booking.details.notes}</p>
+                    <p className="text-muted-foreground">{booking.details.notes}</p>
                   </div>
                 </div>
               )}

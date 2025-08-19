@@ -139,7 +139,7 @@ export default function AddCustomer() {
               <Button
                 variant="ghost"
                 onClick={() => navigate('/hotel/guests')}
-                className="hover:bg-white/10 text-gray-300 hover:text-white"
+                className="hover:bg-secondary/80 text-muted-foreground hover:text-foreground"
               >
                 <ArrowLeft className="w-5 h-5" />
               </Button>
@@ -147,7 +147,7 @@ export default function AddCustomer() {
                 <h1 className="text-3xl font-bold bg-gradient-to-r from-cyan-600 to-emerald-600 bg-clip-text text-transparent">
                   Add New Customer
                 </h1>
-                <p className="text-gray-400 mt-1">
+                <p className="text-muted-foreground mt-1">
                   Create a comprehensive customer profile
                 </p>
               </div>
@@ -155,7 +155,7 @@ export default function AddCustomer() {
           </div>
 
           {/* Content */}
-          <div className="bg-gray-800/20 backdrop-blur-xl border border-white/10 rounded-2xl p-8">
+          <div className="bg-secondary backdrop-blur-xl border border-white/10 rounded-2xl p-8">
             <div className="space-y-10">
               {/* Personal Information */}
               <motion.div 
@@ -168,7 +168,7 @@ export default function AddCustomer() {
                   <div className="p-2 bg-cyan-500/20 rounded-lg">
                     <User className="w-5 h-5 text-cyan-400" />
                   </div>
-                  <h3 className="text-xl font-bold text-white">Personal Information</h3>
+                  <h3 className="text-xl font-bold text-foreground">Personal Information</h3>
                 </div>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -179,7 +179,7 @@ export default function AddCustomer() {
                       placeholder="Enter first name"
                       value={formData.firstName}
                       onChange={(e) => handleInputChange('firstName', e.target.value)}
-                      className="bg-gray-800/50 border-gray-600/50 text-white placeholder:text-gray-400 focus:border-cyan-500 focus:ring-cyan-500/20"
+                      className="bg-secondary border-input text-foreground placeholder:text-muted-foreground focus:border-ring focus:ring-ring/20"
                     />
                   </div>
                   
@@ -190,7 +190,7 @@ export default function AddCustomer() {
                       placeholder="Enter last name"
                       value={formData.lastName}
                       onChange={(e) => handleInputChange('lastName', e.target.value)}
-                      className="bg-gray-800/50 border-gray-600/50 text-white placeholder:text-gray-400 focus:border-cyan-500 focus:ring-cyan-500/20"
+                      className="bg-secondary border-input text-foreground placeholder:text-muted-foreground focus:border-ring focus:ring-ring/20"
                     />
                   </div>
 
@@ -202,7 +202,7 @@ export default function AddCustomer() {
                       placeholder="customer@example.com"
                       value={formData.email}
                       onChange={(e) => handleInputChange('email', e.target.value)}
-                      className="bg-gray-800/50 border-gray-600/50 text-white placeholder:text-gray-400 focus:border-cyan-500 focus:ring-cyan-500/20"
+                      className="bg-secondary border-input text-foreground placeholder:text-muted-foreground focus:border-ring focus:ring-ring/20"
                     />
                   </div>
 
@@ -214,7 +214,7 @@ export default function AddCustomer() {
                       placeholder="+1 (555) 123-4567"
                       value={formData.phone}
                       onChange={(e) => handleInputChange('phone', e.target.value)}
-                      className="bg-gray-800/50 border-gray-600/50 text-white placeholder:text-gray-400 focus:border-cyan-500 focus:ring-cyan-500/20"
+                      className="bg-secondary border-input text-foreground placeholder:text-muted-foreground focus:border-ring focus:ring-ring/20"
                     />
                   </div>
 
@@ -225,7 +225,7 @@ export default function AddCustomer() {
                       type="date"
                       value={formData.dateOfBirth}
                       onChange={(e) => handleInputChange('dateOfBirth', e.target.value)}
-                      className="bg-gray-800/50 border-gray-600/50 text-white placeholder:text-gray-400 focus:border-cyan-500 focus:ring-cyan-500/20"
+                      className="bg-secondary border-input text-foreground placeholder:text-muted-foreground focus:border-ring focus:ring-ring/20"
                     />
                   </div>
 
@@ -236,7 +236,7 @@ export default function AddCustomer() {
                       placeholder="e.g., American, Canadian"
                       value={formData.nationality}
                       onChange={(e) => handleInputChange('nationality', e.target.value)}
-                      className="bg-gray-800/50 border-gray-600/50 text-white placeholder:text-gray-400 focus:border-cyan-500 focus:ring-cyan-500/20"
+                      className="bg-secondary border-input text-foreground placeholder:text-muted-foreground focus:border-ring focus:ring-ring/20"
                     />
                   </div>
                 </div>
@@ -253,7 +253,7 @@ export default function AddCustomer() {
                   <div className="p-2 bg-yellow-500/20 rounded-lg">
                     <Star className="w-5 h-5 text-yellow-400" />
                   </div>
-                  <h3 className="text-xl font-bold text-white">Customer Details</h3>
+                  <h3 className="text-xl font-bold text-foreground">Customer Details</h3>
                 </div>
                 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -263,7 +263,7 @@ export default function AddCustomer() {
                       id="customerType"
                       value={formData.customerType}
                       onChange={(e) => handleInputChange('customerType', e.target.value)}
-                      className="w-full px-3 py-2 bg-gray-800/50 border border-gray-600/50 rounded-lg text-sm text-white focus:outline-none focus:ring-2 focus:ring-cyan-500/30 focus:border-cyan-500"
+                      className="w-full px-3 py-2 bg-secondary border border-input rounded-lg text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring/30 focus:border-ring"
                     >
                       {customerTypes.map(type => (
                         <option key={type.value} value={type.value}>
@@ -279,7 +279,7 @@ export default function AddCustomer() {
                       id="loyaltyTier"
                       value={formData.loyaltyTier}
                       onChange={(e) => handleInputChange('loyaltyTier', e.target.value)}
-                      className="w-full px-3 py-2 bg-gray-800/50 border border-gray-600/50 rounded-lg text-sm text-white focus:outline-none focus:ring-2 focus:ring-cyan-500/30 focus:border-cyan-500"
+                      className="w-full px-3 py-2 bg-secondary border border-input rounded-lg text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring/30 focus:border-ring"
                     >
                       {loyaltyTiers.map(tier => (
                         <option key={tier.value} value={tier.value}>
@@ -297,7 +297,7 @@ export default function AddCustomer() {
                         placeholder="Enter company name"
                         value={formData.company}
                         onChange={(e) => handleInputChange('company', e.target.value)}
-                        className="bg-gray-800/50 border-gray-600/50 text-white placeholder:text-gray-400 focus:border-cyan-500 focus:ring-cyan-500/20"
+                        className="bg-secondary border-input text-foreground placeholder:text-muted-foreground focus:border-ring focus:ring-ring/20"
                       />
                     </div>
                   )}
@@ -315,7 +315,7 @@ export default function AddCustomer() {
                   <div className="p-2 bg-green-500/20 rounded-lg">
                     <MapPin className="w-5 h-5 text-green-400" />
                   </div>
-                  <h3 className="text-xl font-bold text-white">Address Information</h3>
+                  <h3 className="text-xl font-bold text-foreground">Address Information</h3>
                 </div>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -326,7 +326,7 @@ export default function AddCustomer() {
                       placeholder="123 Main Street, Apt 4B"
                       value={formData.address.street}
                       onChange={(e) => handleInputChange('address.street', e.target.value)}
-                      className="bg-gray-800/50 border-gray-600/50 text-white placeholder:text-gray-400 focus:border-cyan-500 focus:ring-cyan-500/20"
+                      className="bg-secondary border-input text-foreground placeholder:text-muted-foreground focus:border-ring focus:ring-ring/20"
                     />
                   </div>
 
@@ -337,7 +337,7 @@ export default function AddCustomer() {
                       placeholder="Enter city"
                       value={formData.address.city}
                       onChange={(e) => handleInputChange('address.city', e.target.value)}
-                      className="bg-gray-800/50 border-gray-600/50 text-white placeholder:text-gray-400 focus:border-cyan-500 focus:ring-cyan-500/20"
+                      className="bg-secondary border-input text-foreground placeholder:text-muted-foreground focus:border-ring focus:ring-ring/20"
                     />
                   </div>
 
@@ -348,7 +348,7 @@ export default function AddCustomer() {
                       placeholder="Enter state or province"
                       value={formData.address.state}
                       onChange={(e) => handleInputChange('address.state', e.target.value)}
-                      className="bg-gray-800/50 border-gray-600/50 text-white placeholder:text-gray-400 focus:border-cyan-500 focus:ring-cyan-500/20"
+                      className="bg-secondary border-input text-foreground placeholder:text-muted-foreground focus:border-ring focus:ring-ring/20"
                     />
                   </div>
 
@@ -359,7 +359,7 @@ export default function AddCustomer() {
                       placeholder="12345"
                       value={formData.address.zipCode}
                       onChange={(e) => handleInputChange('address.zipCode', e.target.value)}
-                      className="bg-gray-800/50 border-gray-600/50 text-white placeholder:text-gray-400 focus:border-cyan-500 focus:ring-cyan-500/20"
+                      className="bg-secondary border-input text-foreground placeholder:text-muted-foreground focus:border-ring focus:ring-ring/20"
                     />
                   </div>
 
@@ -369,7 +369,7 @@ export default function AddCustomer() {
                       id="country"
                       value={formData.address.country}
                       onChange={(e) => handleInputChange('address.country', e.target.value)}
-                      className="w-full px-3 py-2 bg-gray-800/50 border border-gray-600/50 rounded-lg text-sm text-white focus:outline-none focus:ring-2 focus:ring-cyan-500/30 focus:border-cyan-500"
+                      className="w-full px-3 py-2 bg-secondary border border-input rounded-lg text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring/30 focus:border-ring"
                     >
                       {countries.map(country => (
                         <option key={country} value={country}>
@@ -392,7 +392,7 @@ export default function AddCustomer() {
                   <div className="p-2 bg-red-500/20 rounded-lg">
                     <Heart className="w-5 h-5 text-red-400" />
                   </div>
-                  <h3 className="text-xl font-bold text-white">Room Preferences</h3>
+                  <h3 className="text-xl font-bold text-foreground">Room Preferences</h3>
                 </div>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -402,7 +402,7 @@ export default function AddCustomer() {
                       id="roomType"
                       value={formData.preferences.roomType}
                       onChange={(e) => handleInputChange('preferences.roomType', e.target.value)}
-                      className="w-full px-3 py-2 bg-gray-800/50 border border-gray-600/50 rounded-lg text-sm text-white focus:outline-none focus:ring-2 focus:ring-cyan-500/30 focus:border-cyan-500"
+                      className="w-full px-3 py-2 bg-secondary border border-input rounded-lg text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring/30 focus:border-ring"
                     >
                       <option value="">No preference</option>
                       <option value="standard">Standard Room</option>
@@ -418,7 +418,7 @@ export default function AddCustomer() {
                       id="bedType"
                       value={formData.preferences.bedType}
                       onChange={(e) => handleInputChange('preferences.bedType', e.target.value)}
-                      className="w-full px-3 py-2 bg-gray-800/50 border border-gray-600/50 rounded-lg text-sm text-white focus:outline-none focus:ring-2 focus:ring-cyan-500/30 focus:border-cyan-500"
+                      className="w-full px-3 py-2 bg-secondary border border-input rounded-lg text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring/30 focus:border-ring"
                     >
                       <option value="">No preference</option>
                       <option value="single">Single Bed</option>
@@ -435,7 +435,7 @@ export default function AddCustomer() {
                       id="floorLevel"
                       value={formData.preferences.floorLevel}
                       onChange={(e) => handleInputChange('preferences.floorLevel', e.target.value)}
-                      className="w-full px-3 py-2 bg-gray-800/50 border border-gray-600/50 rounded-lg text-sm text-white focus:outline-none focus:ring-2 focus:ring-cyan-500/30 focus:border-cyan-500"
+                      className="w-full px-3 py-2 bg-secondary border border-input rounded-lg text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring/30 focus:border-ring"
                     >
                       <option value="">No preference</option>
                       <option value="low">Low floors (1-3)</option>
@@ -450,7 +450,7 @@ export default function AddCustomer() {
                       id="smokingPreference"
                       value={formData.preferences.smokingPreference}
                       onChange={(e) => handleInputChange('preferences.smokingPreference', e.target.value)}
-                      className="w-full px-3 py-2 bg-gray-800/50 border border-gray-600/50 rounded-lg text-sm text-white focus:outline-none focus:ring-2 focus:ring-cyan-500/30 focus:border-cyan-500"
+                      className="w-full px-3 py-2 bg-secondary border border-input rounded-lg text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring/30 focus:border-ring"
                     >
                       <option value="non-smoking">Non-smoking</option>
                       <option value="smoking">Smoking allowed</option>
@@ -464,7 +464,7 @@ export default function AddCustomer() {
                       placeholder="e.g., Vegetarian, Gluten-free, Allergies"
                       value={formData.preferences.dietaryRestrictions}
                       onChange={(e) => handleInputChange('preferences.dietaryRestrictions', e.target.value)}
-                      className="bg-gray-800/50 border-gray-600/50 text-white placeholder:text-gray-400 focus:border-cyan-500 focus:ring-cyan-500/20"
+                      className="bg-secondary border-input text-foreground placeholder:text-muted-foreground focus:border-ring focus:ring-ring/20"
                     />
                   </div>
 
@@ -475,7 +475,7 @@ export default function AddCustomer() {
                       placeholder="Any special requests or accommodation needs..."
                       value={formData.preferences.specialRequests}
                       onChange={(e) => handleInputChange('preferences.specialRequests', e.target.value)}
-                      className="bg-gray-800/50 border-gray-600/50 text-white placeholder:text-gray-400 focus:border-cyan-500 focus:ring-cyan-500/20 min-h-[100px]"
+                      className="bg-secondary border-input text-foreground placeholder:text-muted-foreground focus:border-ring focus:ring-ring/20 min-h-[100px]"
                     />
                   </div>
                 </div>
@@ -492,7 +492,7 @@ export default function AddCustomer() {
                   <div className="p-2 bg-orange-500/20 rounded-lg">
                     <Phone className="w-5 h-5 text-orange-400" />
                   </div>
-                  <h3 className="text-xl font-bold text-white">Emergency Contact</h3>
+                  <h3 className="text-xl font-bold text-foreground">Emergency Contact</h3>
                 </div>
                 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -503,7 +503,7 @@ export default function AddCustomer() {
                       placeholder="Full name"
                       value={formData.emergencyContact.name}
                       onChange={(e) => handleInputChange('emergencyContact.name', e.target.value)}
-                      className="bg-gray-800/50 border-gray-600/50 text-white placeholder:text-gray-400 focus:border-cyan-500 focus:ring-cyan-500/20"
+                      className="bg-secondary border-input text-foreground placeholder:text-muted-foreground focus:border-ring focus:ring-ring/20"
                     />
                   </div>
 
@@ -514,7 +514,7 @@ export default function AddCustomer() {
                       placeholder="e.g., Spouse, Parent, Friend"
                       value={formData.emergencyContact.relationship}
                       onChange={(e) => handleInputChange('emergencyContact.relationship', e.target.value)}
-                      className="bg-gray-800/50 border-gray-600/50 text-white placeholder:text-gray-400 focus:border-cyan-500 focus:ring-cyan-500/20"
+                      className="bg-secondary border-input text-foreground placeholder:text-muted-foreground focus:border-ring focus:ring-ring/20"
                     />
                   </div>
 
@@ -526,7 +526,7 @@ export default function AddCustomer() {
                       placeholder="+1 (555) 123-4567"
                       value={formData.emergencyContact.phone}
                       onChange={(e) => handleInputChange('emergencyContact.phone', e.target.value)}
-                      className="bg-gray-800/50 border-gray-600/50 text-white placeholder:text-gray-400 focus:border-cyan-500 focus:ring-cyan-500/20"
+                      className="bg-secondary border-input text-foreground placeholder:text-muted-foreground focus:border-ring focus:ring-ring/20"
                     />
                   </div>
                 </div>
@@ -543,7 +543,7 @@ export default function AddCustomer() {
                   <div className="p-2 bg-purple-500/20 rounded-lg">
                     <Building className="w-5 h-5 text-purple-400" />
                   </div>
-                  <h3 className="text-xl font-bold text-white">Internal Notes</h3>
+                  <h3 className="text-xl font-bold text-foreground">Internal Notes</h3>
                 </div>
                 
                 <div className="space-y-2">
@@ -553,7 +553,7 @@ export default function AddCustomer() {
                     placeholder="Internal notes for staff reference (not visible to customer)..."
                     value={formData.internalNotes}
                     onChange={(e) => handleInputChange('internalNotes', e.target.value)}
-                    className="bg-gray-800/50 border-gray-600/50 text-white placeholder:text-gray-400 focus:border-cyan-500 focus:ring-cyan-500/20 min-h-[120px]"
+                    className="bg-secondary border-input text-foreground placeholder:text-muted-foreground focus:border-ring focus:ring-ring/20 min-h-[120px]"
                   />
                 </div>
               </motion.div>
@@ -561,18 +561,18 @@ export default function AddCustomer() {
           </div>
 
           {/* Footer */}
-          <div className="flex items-center justify-between bg-gray-800/30 backdrop-blur-xl border border-white/10 rounded-2xl p-6">
+          <div className="flex items-center justify-between bg-secondary backdrop-blur-xl border border-white/10 rounded-2xl p-6">
             <Button
               variant="ghost"
               onClick={() => navigate('/hotel/guests')}
-              className="hover:bg-white/15 text-gray-300 hover:text-white px-6 py-3 rounded-xl transition-all duration-200"
+              className="hover:bg-secondary/80 text-muted-foreground hover:text-foreground px-6 py-3 rounded-xl transition-all duration-200"
             >
               Cancel
             </Button>
             
             <Button
               onClick={handleSave}
-              className="gap-3 bg-gradient-to-r from-emerald-500 to-green-500 hover:from-emerald-600 hover:to-green-600 text-white font-semibold px-8 py-3 rounded-xl shadow-lg shadow-emerald-500/25 transition-all duration-200"
+              className="gap-3 bg-gradient-to-r from-emerald-500 to-green-500 hover:from-emerald-600 hover:to-green-600 text-foreground font-semibold px-8 py-3 rounded-xl shadow-lg shadow-emerald-500/25 transition-all duration-200"
             >
               <Save className="w-5 h-5" />
               Save Customer

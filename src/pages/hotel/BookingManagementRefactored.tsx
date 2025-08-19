@@ -137,7 +137,7 @@ export default function BookingManagementRefactored() {
           statusOptions={statusOptions}
           paymentOptions={paymentOptions}
         />
-        <div className="bg-gray-800/20 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden">
+        <div className="bg-secondary backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden">
           <BookingTableContainer 
             bookings={filteredBookings} 
             onBookingsUpdate={setBookings}

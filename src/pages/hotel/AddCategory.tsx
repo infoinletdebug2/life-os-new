@@ -16,6 +16,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
+import { Card, CardContent } from '@/components/ui/card';
 import { cn } from '@/lib/utils';
 
 const colorOptions = [
@@ -63,7 +64,7 @@ export default function AddCategory() {
             <Button
               variant="ghost"
               onClick={() => navigate('/hotel/rooms/categories')}
-              className="hover:bg-white/10 text-gray-300 hover:text-white"
+              className="hover:bg-secondary/80 text-muted-foreground hover:text-foreground"
             >
               <ArrowLeft className="w-5 h-5" />
             </Button>
@@ -71,7 +72,7 @@ export default function AddCategory() {
               <h1 className="text-3xl font-bold bg-gradient-to-r from-cyan-600 to-emerald-600 bg-clip-text text-transparent">
                 Add New Category
               </h1>
-              <p className="text-gray-400 mt-1">
+              <p className="text-muted-foreground mt-1">
                 Create a new room category for better organization
               </p>
             </div>
@@ -79,7 +80,8 @@ export default function AddCategory() {
         </div>
 
         {/* Form Content */}
-        <div className="bg-gray-800/20 backdrop-blur-xl border border-white/10 rounded-2xl p-8">
+        <Card className="glass-card">
+          <CardContent className="p-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -90,7 +92,7 @@ export default function AddCategory() {
             <div className="space-y-6">
               <div className="flex items-center gap-2 mb-6">
                 <Grid3X3 className="w-5 h-5 text-cyan-400" />
-                <h3 className="text-lg font-bold text-white">Basic Information</h3>
+                <h3 className="text-lg font-bold text-foreground">Basic Information</h3>
               </div>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -101,7 +103,7 @@ export default function AddCategory() {
                     placeholder="e.g., Premium Deluxe"
                     value={formData.name}
                     onChange={(e) => handleInputChange('name', e.target.value)}
-                    className="bg-gray-800/50 border-gray-600/50 text-white placeholder:text-gray-400 focus:border-cyan-500 focus:ring-cyan-500/20"
+                    className="bg-secondary border-input text-foreground placeholder:text-muted-foreground focus:border-ring focus:ring-ring"
                   />
                 </div>
                 
@@ -111,7 +113,7 @@ export default function AddCategory() {
                     id="priority"
                     value={formData.priority}
                     onChange={(e) => handleInputChange('priority', e.target.value)}
-                    className="w-full px-3 py-2 bg-gray-800/50 border border-gray-600/50 rounded-lg text-sm text-white focus:outline-none focus:ring-2 focus:ring-cyan-500/30 focus:border-cyan-500"
+                    className="w-full px-3 py-2 bg-secondary border border-input rounded-lg text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring/30 focus:border-ring"
                   >
                     {priorityOptions.map(option => (
                       <option key={option.value} value={option.value}>
@@ -129,7 +131,7 @@ export default function AddCategory() {
                   placeholder="Describe the category and its positioning..."
                   value={formData.description}
                   onChange={(e) => handleInputChange('description', e.target.value)}
-                  className="bg-gray-800/50 border-gray-600/50 text-white placeholder:text-gray-400 focus:border-cyan-500 focus:ring-cyan-500/20 min-h-[100px]"
+                  className="bg-secondary border-input text-foreground placeholder:text-muted-foreground focus:border-ring focus:ring-ring min-h-[100px]"
                 />
               </div>
             </div>
@@ -138,7 +140,7 @@ export default function AddCategory() {
             <div className="space-y-6">
               <div className="flex items-center gap-2 mb-6">
                 <Palette className="w-5 h-5 text-purple-400" />
-                <h3 className="text-lg font-bold text-white">Visual Settings</h3>
+                <h3 className="text-lg font-bold text-foreground">Visual Settings</h3>
               </div>
               
               <div className="space-y-4">
@@ -153,13 +155,13 @@ export default function AddCategory() {
                         "w-12 h-12 rounded-xl border-2 transition-all duration-200 hover:scale-110",
                         formData.color === color 
                           ? "border-white scale-110 shadow-lg" 
-                          : "border-gray-600 hover:border-gray-400"
+                          : "border-input hover:border-gray-400"
                       )}
                       style={{ backgroundColor: color }}
                     />
                   ))}
                 </div>
-                <p className="text-sm text-gray-400">
+                <p className="text-sm text-muted-foreground">
                   This color will be used for category badges and visual identification
                 </p>
               </div>
@@ -169,7 +171,7 @@ export default function AddCategory() {
             <div className="space-y-6">
               <div className="flex items-center gap-2 mb-6">
                 <DollarSign className="w-5 h-5 text-emerald-400" />
-                <h3 className="text-lg font-bold text-white">Pricing Range</h3>
+                <h3 className="text-lg font-bold text-foreground">Pricing Range</h3>
               </div>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -183,7 +185,7 @@ export default function AddCategory() {
                     placeholder="100"
                     value={formData.minPrice}
                     onChange={(e) => handleInputChange('minPrice', e.target.value)}
-                    className="bg-gray-800/50 border-gray-600/50 text-white placeholder:text-gray-400 focus:border-cyan-500 focus:ring-cyan-500/20"
+                    className="bg-secondary border-input text-foreground placeholder:text-muted-foreground focus:border-ring focus:ring-ring"
                   />
                 </div>
                 <div className="space-y-2">
@@ -196,11 +198,11 @@ export default function AddCategory() {
                     placeholder="300"
                     value={formData.maxPrice}
                     onChange={(e) => handleInputChange('maxPrice', e.target.value)}
-                    className="bg-gray-800/50 border-gray-600/50 text-white placeholder:text-gray-400 focus:border-cyan-500 focus:ring-cyan-500/20"
+                    className="bg-secondary border-input text-foreground placeholder:text-muted-foreground focus:border-ring focus:ring-ring"
                   />
                 </div>
               </div>
-              <p className="text-sm text-gray-400">
+              <p className="text-sm text-muted-foreground">
                 Set the expected price range for rooms in this category
               </p>
             </div>
@@ -209,7 +211,7 @@ export default function AddCategory() {
             <div className="space-y-6">
               <div className="flex items-center gap-2 mb-6">
                 <Target className="w-5 h-5 text-orange-400" />
-                <h3 className="text-lg font-bold text-white">Target Audience & Features</h3>
+                <h3 className="text-lg font-bold text-foreground">Target Audience & Features</h3>
               </div>
               
               <div className="space-y-4">
@@ -220,7 +222,7 @@ export default function AddCategory() {
                     value={formData.targetAudience}
                     onChange={(e) => handleInputChange('targetAudience', e.target.value)}
                     placeholder="e.g., Business Travelers, Luxury Guests, Families"
-                    className="bg-gray-800/50 border-gray-600/50 text-white placeholder:text-gray-400 focus:border-cyan-500 focus:ring-cyan-500/20"
+                    className="bg-secondary border-input text-foreground placeholder:text-muted-foreground focus:border-ring focus:ring-ring"
                   />
                 </div>
 
@@ -231,7 +233,7 @@ export default function AddCategory() {
                     value={formData.features}
                     onChange={(e) => handleInputChange('features', e.target.value)}
                     placeholder="Premium Amenities, Enhanced Service, Superior Comfort"
-                    className="bg-gray-800/50 border-gray-600/50 text-white placeholder:text-gray-400 focus:border-cyan-500 focus:ring-cyan-500/20"
+                    className="bg-secondary border-input text-foreground placeholder:text-muted-foreground focus:border-ring focus:ring-ring"
                   />
                 </div>
               </div>
@@ -241,7 +243,7 @@ export default function AddCategory() {
             <div className="space-y-6">
               <div className="flex items-center gap-2 mb-6">
                 <Star className="w-5 h-5 text-yellow-400" />
-                <h3 className="text-lg font-bold text-white">Preview</h3>
+                <h3 className="text-lg font-bold text-foreground">Preview</h3>
               </div>
               
               {formData.name && (
@@ -257,12 +259,12 @@ export default function AddCategory() {
                       <Grid3X3 className="w-5 h-5" style={{ color: formData.color }} />
                     </div>
                     <div>
-                      <h4 className="text-lg font-bold text-white">{formData.name}</h4>
-                      <span className="text-xs text-gray-400">Priority {formData.priority}</span>
+                      <h4 className="text-lg font-bold text-foreground">{formData.name}</h4>
+                      <span className="text-xs text-muted-foreground">Priority {formData.priority}</span>
                     </div>
                   </div>
                   {formData.description && (
-                    <p className="text-gray-300 text-sm mb-4">{formData.description}</p>
+                    <p className="text-muted-foreground text-sm mb-4">{formData.description}</p>
                   )}
                   <div className="flex items-center gap-2">
                     {formData.minPrice && formData.maxPrice && (
@@ -286,14 +288,15 @@ export default function AddCategory() {
               )}
             </div>
           </motion.div>
-        </div>
+          </CardContent>
+        </Card>
 
         {/* Footer */}
-        <div className="flex items-center justify-between bg-gray-800/30 backdrop-blur-xl border border-white/10 rounded-2xl p-6">
+        <div className="flex items-center justify-between glass-card">
           <Button
             variant="ghost"
             onClick={() => navigate('/hotel/rooms/categories')}
-            className="hover:bg-white/15 text-gray-300 hover:text-white px-6 py-3 rounded-xl transition-all duration-200"
+            className="hover:bg-secondary/80 text-muted-foreground hover:text-foreground px-6 py-3 rounded-xl transition-all duration-200"
           >
             Cancel
           </Button>
@@ -301,7 +304,7 @@ export default function AddCategory() {
           <Button
             onClick={handleSave}
             disabled={!formData.name || !formData.minPrice || !formData.maxPrice}
-            className="gap-3 bg-gradient-to-r from-emerald-500 to-green-500 hover:from-emerald-600 hover:to-green-600 text-white font-semibold px-8 py-3 rounded-xl shadow-lg shadow-emerald-500/25 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="gap-3 bg-gradient-to-r from-emerald-500 to-green-500 hover:from-emerald-600 hover:to-green-600 text-foreground font-semibold px-8 py-3 rounded-xl shadow-lg shadow-emerald-500/25 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             <Save className="w-5 h-5" />
             Save Category

@@ -101,7 +101,7 @@ export default function NewBooking() {
   const renderStep1 = () => (
     <div className="space-y-8">
       <div>
-        <h3 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
+        <h3 className="text-lg font-bold text-foreground mb-6 flex items-center gap-2">
           <Users className="w-5 h-5 text-cyan-400" />
           Guest Information
         </h3>
@@ -114,21 +114,21 @@ export default function NewBooking() {
               placeholder="John Smith"
               value={formData.guestName}
               onChange={(e) => handleInputChange('guestName', e.target.value)}
-              className="bg-gray-800/50 border-gray-600/50 text-white placeholder:text-gray-400 focus:border-cyan-500 focus:ring-cyan-500/20"
+              className="bg-secondary border-input text-foreground placeholder:text-muted-foreground focus:border-ring focus:ring-ring/20"
             />
           </div>
           
           <div className="space-y-2">
             <Label htmlFor="guestEmail">Email Address *</Label>
             <div className="relative">
-              <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+              <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
               <Input
                 id="guestEmail"
                 type="email"
                 placeholder="john.smith@email.com"
                 value={formData.guestEmail}
                 onChange={(e) => handleInputChange('guestEmail', e.target.value)}
-                className="pl-10 bg-gray-800/50 border-gray-600/50 text-white placeholder:text-gray-400 focus:border-cyan-500 focus:ring-cyan-500/20"
+                className="pl-10 bg-secondary border-input text-foreground placeholder:text-muted-foreground focus:border-ring focus:ring-ring/20"
               />
             </div>
           </div>
@@ -136,13 +136,13 @@ export default function NewBooking() {
           <div className="space-y-2">
             <Label htmlFor="guestPhone">Phone Number</Label>
             <div className="relative">
-              <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+              <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
               <Input
                 id="guestPhone"
                 placeholder="+1 (555) 123-4567"
                 value={formData.guestPhone}
                 onChange={(e) => handleInputChange('guestPhone', e.target.value)}
-                className="pl-10 bg-gray-800/50 border-gray-600/50 text-white placeholder:text-gray-400 focus:border-cyan-500 focus:ring-cyan-500/20"
+                className="pl-10 bg-secondary border-input text-foreground placeholder:text-muted-foreground focus:border-ring focus:ring-ring/20"
               />
             </div>
           </div>
@@ -154,7 +154,7 @@ export default function NewBooking() {
               placeholder="United States"
               value={formData.guestCountry}
               onChange={(e) => handleInputChange('guestCountry', e.target.value)}
-              className="bg-gray-800/50 border-gray-600/50 text-white placeholder:text-gray-400 focus:border-cyan-500 focus:ring-cyan-500/20"
+              className="bg-secondary border-input text-foreground placeholder:text-muted-foreground focus:border-ring focus:ring-ring/20"
             />
           </div>
         </div>
@@ -162,13 +162,13 @@ export default function NewBooking() {
         <div className="mt-4 space-y-2">
           <Label htmlFor="guestAddress">Address</Label>
           <div className="relative">
-            <MapPin className="absolute left-3 top-3 w-4 h-4 text-gray-400" />
+            <MapPin className="absolute left-3 top-3 w-4 h-4 text-muted-foreground" />
             <Textarea
               id="guestAddress"
               placeholder="Full address including street, city, state, postal code"
               value={formData.guestAddress}
               onChange={(e) => handleInputChange('guestAddress', e.target.value)}
-              className="pl-10 bg-gray-800/50 border-gray-600/50 text-white placeholder:text-gray-400 focus:border-cyan-500 focus:ring-cyan-500/20 min-h-[80px]"
+              className="pl-10 bg-secondary border-input text-foreground placeholder:text-muted-foreground focus:border-ring focus:ring-ring/20 min-h-[80px]"
             />
           </div>
         </div>
@@ -179,7 +179,7 @@ export default function NewBooking() {
   const renderStep2 = () => (
     <div className="space-y-8">
       <div>
-        <h3 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
+        <h3 className="text-lg font-bold text-foreground mb-6 flex items-center gap-2">
           <Calendar className="w-5 h-5 text-emerald-400" />
           Booking Details
         </h3>
@@ -200,7 +200,7 @@ export default function NewBooking() {
                   }));
                 }
               }}
-              className="bg-gray-800/50 border-gray-600/50 text-white focus:border-cyan-500 focus:ring-cyan-500/20"
+              className="bg-secondary border-input text-foreground focus:border-ring focus:ring-ring/20"
             />
           </div>
           
@@ -219,7 +219,7 @@ export default function NewBooking() {
                   }));
                 }
               }}
-              className="bg-gray-800/50 border-gray-600/50 text-white focus:border-cyan-500 focus:ring-cyan-500/20"
+              className="bg-secondary border-input text-foreground focus:border-ring focus:ring-ring/20"
             />
           </div>
 
@@ -232,7 +232,7 @@ export default function NewBooking() {
               max="10"
               value={formData.adults}
               onChange={(e) => handleInputChange('adults', parseInt(e.target.value) || 1)}
-              className="bg-gray-800/50 border-gray-600/50 text-white focus:border-cyan-500 focus:ring-cyan-500/20"
+              className="bg-secondary border-input text-foreground focus:border-ring focus:ring-ring/20"
             />
           </div>
 
@@ -245,7 +245,7 @@ export default function NewBooking() {
               max="10"
               value={formData.children}
               onChange={(e) => handleInputChange('children', parseInt(e.target.value) || 0)}
-              className="bg-gray-800/50 border-gray-600/50 text-white focus:border-cyan-500 focus:ring-cyan-500/20"
+              className="bg-secondary border-input text-foreground focus:border-ring focus:ring-ring/20"
             />
           </div>
         </div>
@@ -267,7 +267,7 @@ export default function NewBooking() {
             placeholder="Any special requests or preferences..."
             value={formData.specialRequests}
             onChange={(e) => handleInputChange('specialRequests', e.target.value)}
-            className="bg-gray-800/50 border-gray-600/50 text-white placeholder:text-gray-400 focus:border-cyan-500 focus:ring-cyan-500/20 min-h-[80px]"
+            className="bg-secondary border-input text-foreground placeholder:text-muted-foreground focus:border-ring focus:ring-ring/20 min-h-[80px]"
           />
         </div>
       </div>
@@ -277,7 +277,7 @@ export default function NewBooking() {
   const renderStep3 = () => (
     <div className="space-y-8">
       <div>
-        <h3 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
+        <h3 className="text-lg font-bold text-foreground mb-6 flex items-center gap-2">
           <Search className="w-5 h-5 text-purple-400" />
           Room Selection
         </h3>
@@ -300,25 +300,25 @@ export default function NewBooking() {
                     "p-6 rounded-xl border cursor-pointer transition-all duration-200",
                     formData.selectedRoom?.id === room.id
                       ? "bg-cyan-500/20 border-cyan-400/50 ring-2 ring-cyan-400/30"
-                      : "bg-gray-800/30 border-gray-600/50 hover:border-gray-500/50 hover:bg-gray-700/30"
+                      : "bg-secondary border-input hover:border-gray-500/50 hover:bg-gray-700/30"
                   )}
                 >
                   <div className="flex items-center justify-between mb-3">
-                    <h4 className="font-bold text-white">Room #{room.number}</h4>
+                    <h4 className="font-bold text-foreground">Room #{room.number}</h4>
                     <div className="text-right">
                       <p className="font-bold text-emerald-400">${room.rate}</p>
-                      <p className="text-xs text-gray-400">per night</p>
+                      <p className="text-xs text-muted-foreground">per night</p>
                     </div>
                   </div>
-                  <p className="text-gray-300 text-sm mb-2">{room.type}</p>
-                  <p className="text-gray-400 text-xs">
+                  <p className="text-muted-foreground text-sm mb-2">{room.type}</p>
+                  <p className="text-muted-foreground text-xs">
                     Max {room.maxOccupancy} guests
                   </p>
                   {formData.selectedRoom?.id === room.id && calculateNights() > 0 && (
                     <div className="mt-3 pt-3 border-t border-cyan-400/30">
                       <p className="text-cyan-200 text-sm">
                         Total: <span className="font-bold">${calculateTotal(formData.checkIn, formData.checkOut, room.rate)}</span>
-                        <span className="text-xs text-gray-400 ml-1">
+                        <span className="text-xs text-muted-foreground ml-1">
                           ({calculateNights()} nights)
                         </span>
                       </p>
@@ -335,36 +335,36 @@ export default function NewBooking() {
   const renderStep4 = () => (
     <div className="space-y-8">
       <div>
-        <h3 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
+        <h3 className="text-lg font-bold text-foreground mb-6 flex items-center gap-2">
           <CreditCard className="w-5 h-5 text-green-400" />
           Payment & Final Details
         </h3>
         
         {formData.selectedRoom && (
-          <div className="bg-gray-800/30 rounded-xl p-6 mb-6">
-            <h4 className="font-bold text-white mb-4">Booking Summary</h4>
+          <div className="bg-secondary rounded-xl p-6 mb-6">
+            <h4 className="font-bold text-foreground mb-4">Booking Summary</h4>
             <div className="space-y-2 text-sm">
               <div className="flex justify-between">
-                <span className="text-gray-400">Guest:</span>
-                <span className="text-white">{formData.guestName}</span>
+                <span className="text-muted-foreground">Guest:</span>
+                <span className="text-foreground">{formData.guestName}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-gray-400">Room:</span>
-                <span className="text-white">#{formData.selectedRoom.number} - {formData.selectedRoom.type}</span>
+                <span className="text-muted-foreground">Room:</span>
+                <span className="text-foreground">#{formData.selectedRoom.number} - {formData.selectedRoom.type}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-gray-400">Dates:</span>
-                <span className="text-white">{formData.checkIn} to {formData.checkOut}</span>
+                <span className="text-muted-foreground">Dates:</span>
+                <span className="text-foreground">{formData.checkIn} to {formData.checkOut}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-gray-400">Nights:</span>
-                <span className="text-white">{calculateNights()}</span>
+                <span className="text-muted-foreground">Nights:</span>
+                <span className="text-foreground">{calculateNights()}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-gray-400">Guests:</span>
-                <span className="text-white">{formData.adults + formData.children}</span>
+                <span className="text-muted-foreground">Guests:</span>
+                <span className="text-foreground">{formData.adults + formData.children}</span>
               </div>
-              <div className="border-t border-gray-600 pt-2 mt-4">
+              <div className="border-t border-input pt-2 mt-4">
                 <div className="flex justify-between font-bold">
                   <span className="text-emerald-400">Total Amount:</span>
                   <span className="text-emerald-400">${formData.totalAmount}</span>
@@ -381,7 +381,7 @@ export default function NewBooking() {
               id="paymentMethod"
               value={formData.paymentMethod}
               onChange={(e) => handleInputChange('paymentMethod', e.target.value)}
-              className="w-full px-3 py-2 bg-gray-800/50 border border-gray-600/50 rounded-lg text-sm text-white focus:outline-none focus:ring-2 focus:ring-cyan-500/30 focus:border-cyan-500"
+              className="w-full px-3 py-2 bg-secondary border border-input rounded-lg text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring/30 focus:border-ring"
             >
               <option value="card">Credit Card</option>
               <option value="cash">Cash</option>
@@ -396,7 +396,7 @@ export default function NewBooking() {
               id="source"
               value={formData.source}
               onChange={(e) => handleInputChange('source', e.target.value)}
-              className="w-full px-3 py-2 bg-gray-800/50 border border-gray-600/50 rounded-lg text-sm text-white focus:outline-none focus:ring-2 focus:ring-cyan-500/30 focus:border-cyan-500"
+              className="w-full px-3 py-2 bg-secondary border border-input rounded-lg text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring/30 focus:border-ring"
             >
               <option value="direct">Direct</option>
               <option value="phone">Phone</option>
@@ -410,7 +410,7 @@ export default function NewBooking() {
           <div className="space-y-2">
             <Label htmlFor="depositAmount">Deposit Amount</Label>
             <div className="relative">
-              <DollarSign className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+              <DollarSign className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
               <Input
                 id="depositAmount"
                 type="number"
@@ -420,7 +420,7 @@ export default function NewBooking() {
                 placeholder="0.00"
                 value={formData.depositAmount}
                 onChange={(e) => handleInputChange('depositAmount', parseFloat(e.target.value) || 0)}
-                className="pl-10 bg-gray-800/50 border-gray-600/50 text-white placeholder:text-gray-400 focus:border-cyan-500 focus:ring-cyan-500/20"
+                className="pl-10 bg-secondary border-input text-foreground placeholder:text-muted-foreground focus:border-ring focus:ring-ring/20"
               />
             </div>
           </div>
@@ -431,7 +431,7 @@ export default function NewBooking() {
               id="paymentStatus"
               value={formData.paymentStatus}
               onChange={(e) => handleInputChange('paymentStatus', e.target.value)}
-              className="w-full px-3 py-2 bg-gray-800/50 border border-gray-600/50 rounded-lg text-sm text-white focus:outline-none focus:ring-2 focus:ring-cyan-500/30 focus:border-cyan-500"
+              className="w-full px-3 py-2 bg-secondary border border-input rounded-lg text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring/30 focus:border-ring"
             >
               <option value="pending">Pending</option>
               <option value="partial">Partial</option>
@@ -447,7 +447,7 @@ export default function NewBooking() {
             placeholder="Internal notes about this booking..."
             value={formData.notes}
             onChange={(e) => handleInputChange('notes', e.target.value)}
-            className="bg-gray-800/50 border-gray-600/50 text-white placeholder:text-gray-400 focus:border-cyan-500 focus:ring-cyan-500/20 min-h-[80px]"
+            className="bg-secondary border-input text-foreground placeholder:text-muted-foreground focus:border-ring focus:ring-ring/20 min-h-[80px]"
           />
         </div>
       </div>
@@ -463,7 +463,7 @@ export default function NewBooking() {
             <Button
               variant="ghost"
               onClick={() => navigate('/hotel/bookings')}
-              className="hover:bg-white/10 text-gray-300 hover:text-white"
+              className="hover:bg-secondary/80 text-muted-foreground hover:text-foreground"
             >
               <ArrowLeft className="w-5 h-5" />
             </Button>
@@ -471,7 +471,7 @@ export default function NewBooking() {
               <h1 className="text-3xl font-bold bg-gradient-to-r from-cyan-600 to-emerald-600 bg-clip-text text-transparent">
                 New Booking
               </h1>
-              <p className="text-gray-400 mt-1">
+              <p className="text-muted-foreground mt-1">
                 Step {currentStep} of 4: {
                   currentStep === 1 ? 'Guest Information' :
                   currentStep === 2 ? 'Booking Details' :
@@ -483,7 +483,7 @@ export default function NewBooking() {
         </div>
 
         {/* Progress Steps */}
-        <div className="bg-gray-800/30 backdrop-blur-xl border border-white/10 rounded-2xl p-6">
+        <div className="bg-secondary backdrop-blur-xl border border-white/10 rounded-2xl p-6">
           <div className="flex items-center gap-6">
             {[
               { step: 1, label: 'Guest Info', icon: Users },
@@ -498,7 +498,7 @@ export default function NewBooking() {
                     ? "bg-gradient-to-r from-cyan-500/30 to-blue-500/30 text-cyan-200 border-2 border-cyan-400/50 shadow-lg shadow-cyan-500/20" 
                     : currentStep > step
                     ? "bg-gradient-to-r from-green-500/30 to-emerald-500/30 text-green-200 border-2 border-green-400/50 shadow-lg shadow-green-500/20"
-                    : "bg-gray-700/30 text-gray-400 border-2 border-gray-600/30"
+                    : "bg-gray-700/30 text-muted-foreground border-2 border-input"
                 )}>
                   <Icon className="w-5 h-5" />
                   {label}
@@ -515,7 +515,7 @@ export default function NewBooking() {
         </div>
 
         {/* Content */}
-        <div className="bg-gray-800/20 backdrop-blur-xl border border-white/10 rounded-2xl p-8">
+        <div className="bg-secondary backdrop-blur-xl border border-white/10 rounded-2xl p-8">
           <motion.div
             key={currentStep}
             initial={{ opacity: 0, x: 20 }}
@@ -531,11 +531,11 @@ export default function NewBooking() {
         </div>
 
         {/* Footer */}
-        <div className="flex items-center justify-between bg-gray-800/30 backdrop-blur-xl border border-white/10 rounded-2xl p-6">
+        <div className="flex items-center justify-between bg-secondary backdrop-blur-xl border border-white/10 rounded-2xl p-6">
           <Button
             variant="ghost"
             onClick={() => navigate('/hotel/bookings')}
-            className="hover:bg-white/15 text-gray-300 hover:text-white px-6 py-3 rounded-xl transition-all duration-200"
+            className="hover:bg-secondary/80 text-muted-foreground hover:text-foreground px-6 py-3 rounded-xl transition-all duration-200"
           >
             Cancel
           </Button>
@@ -545,7 +545,7 @@ export default function NewBooking() {
               <Button
                 variant="outline"
                 onClick={() => setCurrentStep(currentStep - 1)}
-                className="border-2 border-gray-500/50 text-gray-300 hover:text-white hover:border-gray-400 px-6 py-3 rounded-xl transition-all duration-200"
+                className="border-2 border-gray-500/50 text-muted-foreground hover:text-foreground hover:border-gray-400 px-6 py-3 rounded-xl transition-all duration-200"
               >
                 Previous
               </Button>
@@ -559,7 +559,7 @@ export default function NewBooking() {
                   (currentStep === 2 && (!formData.checkIn || !formData.checkOut)) ||
                   (currentStep === 3 && !formData.selectedRoom)
                 }
-                className="gap-3 bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white font-semibold px-8 py-3 rounded-xl shadow-lg shadow-cyan-500/25 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="gap-3 bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-foreground font-semibold px-8 py-3 rounded-xl shadow-lg shadow-cyan-500/25 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 Next Step
                 <motion.div
@@ -573,7 +573,7 @@ export default function NewBooking() {
               <Button
                 onClick={handleSave}
                 disabled={!formData.selectedRoom}
-                className="gap-3 bg-gradient-to-r from-emerald-500 to-green-500 hover:from-emerald-600 hover:to-green-600 text-white font-semibold px-8 py-3 rounded-xl shadow-lg shadow-emerald-500/25 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="gap-3 bg-gradient-to-r from-emerald-500 to-green-500 hover:from-emerald-600 hover:to-green-600 text-foreground font-semibold px-8 py-3 rounded-xl shadow-lg shadow-emerald-500/25 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <Save className="w-5 h-5" />
                 Create Booking

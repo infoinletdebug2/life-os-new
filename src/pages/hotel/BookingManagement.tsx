@@ -205,7 +205,7 @@ export default function BookingManagement() {
       case 'checked-in':
         return 'bg-green-500/20 text-green-300 border-green-400/30';
       case 'checked-out':
-        return 'bg-gray-500/20 text-gray-300 border-gray-400/30';
+        return 'bg-gray-500/20 text-muted-foreground border-gray-400/30';
       case 'pending':
         return 'bg-yellow-500/20 text-yellow-300 border-yellow-400/30';
       case 'cancelled':
@@ -215,7 +215,7 @@ export default function BookingManagement() {
       case 'rejected':
         return 'bg-red-500/20 text-red-300 border-red-400/30';
       default:
-        return 'bg-gray-500/20 text-gray-300 border-gray-400/30';
+        return 'bg-gray-500/20 text-muted-foreground border-gray-400/30';
     }
   };
 
@@ -251,7 +251,7 @@ export default function BookingManagement() {
       case 'refunded':
         return 'bg-purple-500/20 text-purple-300 border-purple-400/30';
       default:
-        return 'bg-gray-500/20 text-gray-300 border-gray-400/30';
+        return 'bg-gray-500/20 text-muted-foreground border-gray-400/30';
     }
   };
 
@@ -387,7 +387,7 @@ export default function BookingManagement() {
             <h1 className="text-3xl font-bold bg-gradient-to-r from-cyan-600 to-emerald-600 bg-clip-text text-transparent">
               All Bookings
             </h1>
-            <p className="text-gray-400 mt-1">
+            <p className="text-muted-foreground mt-1">
               Manage all reservations and bookings
             </p>
           </div>
@@ -413,94 +413,94 @@ export default function BookingManagement() {
 
         {/* Stats Overview */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6">
-          <div className="bg-gray-800/20 backdrop-blur-xl border border-white/10 rounded-2xl p-6">
+          <div className="bg-secondary backdrop-blur-xl border border-white/10 rounded-2xl p-6">
             <div className="flex items-center gap-3">
               <Calendar className="w-8 h-8 text-cyan-400" />
               <div>
-                <p className="text-2xl font-bold text-white">{stats.total}</p>
-                <p className="text-sm text-gray-400">Total Bookings</p>
+                <p className="text-2xl font-bold text-foreground">{stats.total}</p>
+                <p className="text-sm text-muted-foreground">Total Bookings</p>
               </div>
             </div>
           </div>
 
-          <div className="bg-gray-800/20 backdrop-blur-xl border border-white/10 rounded-2xl p-6">
+          <div className="bg-secondary backdrop-blur-xl border border-white/10 rounded-2xl p-6">
             <div className="flex items-center gap-3">
               <Clock className="w-8 h-8 text-orange-400" />
               <div>
-                <p className="text-2xl font-bold text-white">{stats.requested}</p>
-                <p className="text-sm text-gray-400">Requests</p>
+                <p className="text-2xl font-bold text-foreground">{stats.requested}</p>
+                <p className="text-sm text-muted-foreground">Requests</p>
               </div>
             </div>
           </div>
 
-          <div className="bg-gray-800/20 backdrop-blur-xl border border-white/10 rounded-2xl p-6">
+          <div className="bg-secondary backdrop-blur-xl border border-white/10 rounded-2xl p-6">
             <div className="flex items-center gap-3">
               <CheckCircle className="w-8 h-8 text-blue-400" />
               <div>
-                <p className="text-2xl font-bold text-white">{stats.confirmed}</p>
-                <p className="text-sm text-gray-400">Confirmed</p>
+                <p className="text-2xl font-bold text-foreground">{stats.confirmed}</p>
+                <p className="text-sm text-muted-foreground">Confirmed</p>
               </div>
             </div>
           </div>
 
-          <div className="bg-gray-800/20 backdrop-blur-xl border border-white/10 rounded-2xl p-6">
+          <div className="bg-secondary backdrop-blur-xl border border-white/10 rounded-2xl p-6">
             <div className="flex items-center gap-3">
               <Users className="w-8 h-8 text-green-400" />
               <div>
-                <p className="text-2xl font-bold text-white">{stats.checkedIn}</p>
-                <p className="text-sm text-gray-400">Checked In</p>
+                <p className="text-2xl font-bold text-foreground">{stats.checkedIn}</p>
+                <p className="text-sm text-muted-foreground">Checked In</p>
               </div>
             </div>
           </div>
 
-          <div className="bg-gray-800/20 backdrop-blur-xl border border-white/10 rounded-2xl p-6">
+          <div className="bg-secondary backdrop-blur-xl border border-white/10 rounded-2xl p-6">
             <div className="flex items-center gap-3">
               <Clock className="w-8 h-8 text-yellow-400" />
               <div>
-                <p className="text-2xl font-bold text-white">{stats.pending}</p>
-                <p className="text-sm text-gray-400">Pending</p>
+                <p className="text-2xl font-bold text-foreground">{stats.pending}</p>
+                <p className="text-sm text-muted-foreground">Pending</p>
               </div>
             </div>
           </div>
 
-          <div className="bg-gray-800/20 backdrop-blur-xl border border-white/10 rounded-2xl p-6">
+          <div className="bg-secondary backdrop-blur-xl border border-white/10 rounded-2xl p-6">
             <div className="flex items-center gap-3">
               <DollarSign className="w-8 h-8 text-emerald-400" />
               <div>
-                <p className="text-2xl font-bold text-white">{formatCurrency(stats.totalRevenue)}</p>
-                <p className="text-sm text-gray-400">Total Revenue</p>
+                <p className="text-2xl font-bold text-foreground">{formatCurrency(stats.totalRevenue)}</p>
+                <p className="text-sm text-muted-foreground">Total Revenue</p>
               </div>
             </div>
           </div>
 
-          <div className="bg-gray-800/20 backdrop-blur-xl border border-white/10 rounded-2xl p-6">
+          <div className="bg-secondary backdrop-blur-xl border border-white/10 rounded-2xl p-6">
             <div className="flex items-center gap-3">
               <CreditCard className="w-8 h-8 text-purple-400" />
               <div>
-                <p className="text-2xl font-bold text-white">{formatCurrency(stats.paidRevenue)}</p>
-                <p className="text-sm text-gray-400">Paid Amount</p>
+                <p className="text-2xl font-bold text-foreground">{formatCurrency(stats.paidRevenue)}</p>
+                <p className="text-sm text-muted-foreground">Paid Amount</p>
               </div>
             </div>
           </div>
         </div>
 
         {/* Filters & Search */}
-        <div className="bg-gray-800/30 backdrop-blur-xl border border-white/10 rounded-2xl p-6">
+        <div className="bg-secondary backdrop-blur-xl border border-white/10 rounded-2xl p-6">
           <div className="flex items-center gap-4 flex-wrap">
             <div className="relative flex-1 min-w-64">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
               <Input
                 placeholder="Search bookings, guests, rooms..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-10 bg-gray-800/50 border-gray-600/50 text-white placeholder:text-gray-400 focus:border-cyan-500"
+                className="pl-10 bg-secondary border-input text-foreground placeholder:text-muted-foreground focus:border-ring"
               />
             </div>
             
             <select
               value={selectedStatus}
               onChange={(e) => setSelectedStatus(e.target.value)}
-              className="px-4 py-2 bg-gray-800/50 border border-gray-600/50 rounded-lg text-sm text-white focus:outline-none focus:ring-2 focus:ring-cyan-500/30 focus:border-cyan-500"
+              className="px-4 py-2 bg-secondary border border-input rounded-lg text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring/30 focus:border-ring"
             >
               {statusOptions.map(option => (
                 <option key={option.value} value={option.value}>
@@ -512,7 +512,7 @@ export default function BookingManagement() {
             <select
               value={selectedPayment}
               onChange={(e) => setSelectedPayment(e.target.value)}
-              className="px-4 py-2 bg-gray-800/50 border border-gray-600/50 rounded-lg text-sm text-white focus:outline-none focus:ring-2 focus:ring-cyan-500/30 focus:border-cyan-500"
+              className="px-4 py-2 bg-secondary border border-input rounded-lg text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring/30 focus:border-ring"
             >
               {paymentOptions.map(option => (
                 <option key={option.value} value={option.value}>
@@ -529,19 +529,19 @@ export default function BookingManagement() {
         </div>
 
         {/* Bookings Table */}
-        <div className="bg-gray-800/20 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden">
+        <div className="bg-secondary backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead className="bg-gray-700/30 border-b border-white/10">
                 <tr>
-                  <th className="text-left p-4 text-sm font-semibold text-gray-300">Booking</th>
-                  <th className="text-left p-4 text-sm font-semibold text-gray-300">Guest</th>
-                  <th className="text-left p-4 text-sm font-semibold text-gray-300">Room</th>
-                  <th className="text-left p-4 text-sm font-semibold text-gray-300">Dates</th>
-                  <th className="text-left p-4 text-sm font-semibold text-gray-300">Status</th>
-                  <th className="text-left p-4 text-sm font-semibold text-gray-300">Payment</th>
-                  <th className="text-left p-4 text-sm font-semibold text-gray-300">Amount</th>
-                  <th className="text-left p-4 text-sm font-semibold text-gray-300">Actions</th>
+                  <th className="text-left p-4 text-sm font-semibold text-muted-foreground">Booking</th>
+                  <th className="text-left p-4 text-sm font-semibold text-muted-foreground">Guest</th>
+                  <th className="text-left p-4 text-sm font-semibold text-muted-foreground">Room</th>
+                  <th className="text-left p-4 text-sm font-semibold text-muted-foreground">Dates</th>
+                  <th className="text-left p-4 text-sm font-semibold text-muted-foreground">Status</th>
+                  <th className="text-left p-4 text-sm font-semibold text-muted-foreground">Payment</th>
+                  <th className="text-left p-4 text-sm font-semibold text-muted-foreground">Amount</th>
+                  <th className="text-left p-4 text-sm font-semibold text-muted-foreground">Actions</th>
                 </tr>
               </thead>
               <tbody>
@@ -553,31 +553,31 @@ export default function BookingManagement() {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -20 }}
                       transition={{ delay: index * 0.05 }}
-                      className="border-b border-white/5 hover:bg-white/5 cursor-pointer transition-colors"
+                      className="border-b border-white/5 hover:bg-secondary/80 cursor-pointer transition-colors"
                       onClick={() => handleBookingClick(booking)}
                     >
                       <td className="p-4">
                         <div className="space-y-1">
-                          <p className="font-bold text-white">#{booking.bookingNumber}</p>
-                          <p className="text-xs text-gray-400">{formatDate(booking.createdAt)}</p>
+                          <p className="font-bold text-foreground">#{booking.bookingNumber}</p>
+                          <p className="text-xs text-muted-foreground">{formatDate(booking.createdAt)}</p>
                         </div>
                       </td>
                       <td className="p-4">
                         <div className="space-y-1">
-                          <p className="font-semibold text-white">{booking.guestName}</p>
-                          <p className="text-xs text-gray-400">{booking.guestEmail}</p>
+                          <p className="font-semibold text-foreground">{booking.guestName}</p>
+                          <p className="text-xs text-muted-foreground">{booking.guestEmail}</p>
                         </div>
                       </td>
                       <td className="p-4">
                         <div className="space-y-1">
-                          <p className="font-semibold text-white">#{booking.roomNumber}</p>
-                          <p className="text-xs text-gray-400">{booking.roomType}</p>
+                          <p className="font-semibold text-foreground">#{booking.roomNumber}</p>
+                          <p className="text-xs text-muted-foreground">{booking.roomType}</p>
                         </div>
                       </td>
                       <td className="p-4">
                         <div className="space-y-1">
-                          <p className="text-sm text-white">{formatDate(booking.checkIn)} - {formatDate(booking.checkOut)}</p>
-                          <p className="text-xs text-gray-400">{booking.nights} nights • {booking.guests.adults + booking.guests.children} guests</p>
+                          <p className="text-sm text-foreground">{formatDate(booking.checkIn)} - {formatDate(booking.checkOut)}</p>
+                          <p className="text-xs text-muted-foreground">{booking.nights} nights • {booking.guests.adults + booking.guests.children} guests</p>
                         </div>
                       </td>
                       <td className="p-4">
@@ -601,7 +601,7 @@ export default function BookingManagement() {
                         <div className="space-y-1">
                           <p className="font-bold text-emerald-400">{formatCurrency(booking.totalAmount)}</p>
                           {booking.paidAmount < booking.totalAmount && (
-                            <p className="text-xs text-gray-400">Paid: {formatCurrency(booking.paidAmount)}</p>
+                            <p className="text-xs text-muted-foreground">Paid: {formatCurrency(booking.paidAmount)}</p>
                           )}
                         </div>
                       </td>
@@ -614,13 +614,13 @@ export default function BookingManagement() {
                               e.stopPropagation();
                               setActionDropdownOpen(actionDropdownOpen === booking.id ? null : booking.id);
                             }}
-                            className="text-gray-400 hover:text-gray-300"
+                            className="text-muted-foreground hover:text-muted-foreground"
                           >
                             <MoreHorizontal className="w-4 h-4" />
                           </Button>
 
                           {actionDropdownOpen === booking.id && (
-                            <div className="absolute right-0 top-8 w-52 bg-gray-800/95 backdrop-blur-xl border border-white/10 rounded-lg shadow-xl z-50">
+                            <div className="absolute right-0 top-8 w-52 bg-secondary backdrop-blur-xl border border-white/10 rounded-lg shadow-xl z-50">
                               <div className="p-2 space-y-1">
                                 {booking.status === 'requested' && (
                                   <>

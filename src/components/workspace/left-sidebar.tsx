@@ -2,8 +2,9 @@ import { useState } from 'react';
 import { useIntl } from 'react-intl';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { cn } from '@/lib/utils';
-import { ChevronDown, ChevronRight, Shield, User, BarChart3, Bed, Calendar, Users, Settings, Star, CreditCard, Plus, Tag, Grid3X3, Eye, CheckCircle, Clock, FileText, DollarSign, CalendarDays, MapPin, Layers, Ticket } from 'lucide-react';
+import { ChevronDown, ChevronRight, Shield, User, BarChart3, Bed, Calendar, Users, Settings, Star, CreditCard, Plus, Tag, Grid3X3, CalendarDays, MapPin, Layers, Ticket, Sun, Moon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useTheme } from '@/contexts/ThemeContext';
 
 interface MenuItem {
   id: string;
@@ -39,8 +40,9 @@ export function LeftSidebar({ isCollapsed }: LeftSidebarProps) {
   const intl = useIntl();
   const navigate = useNavigate();
   const location = useLocation();
+  const { theme, toggleTheme } = useTheme();
   const [expandedSections, setExpandedSections] = useState<string[]>(['admin', 'user']);
-  const [expandedHotelSections, setExpandedHotelSections] = useState<string[]>(['rooms', 'bookings']);
+  const [expandedHotelSections, setExpandedHotelSections] = useState<string[]>(['rooms']);
   const [selectedItem, setSelectedItem] = useState<string>('');
 
   // Room management sub-menu items
@@ -51,16 +53,6 @@ export function LeftSidebar({ isCollapsed }: LeftSidebarProps) {
     { id: 'room-categories', label: 'Categories', icon: Grid3X3, path: '/hotel/rooms/categories' },
   ];
 
-  // Booking management sub-menu items
-  const bookingSubMenuItems = [
-    { id: 'booking-overview', label: 'All Bookings', icon: Calendar, path: '/hotel/bookings' },
-    { id: 'new-booking', label: 'New Booking', icon: Plus, path: '/hotel/bookings/new' },
-    { id: 'reservations', label: 'Reservations', icon: Clock, path: '/hotel/bookings/reservations' },
-    { id: 'check-ins', label: 'Check-ins', icon: CheckCircle, path: '/hotel/bookings/check-ins' },
-    { id: 'check-outs', label: 'Check-outs', icon: CheckCircle, path: '/hotel/bookings/check-outs' },
-    { id: 'agreements', label: 'Agreements', icon: FileText, path: '/hotel/bookings/agreements' },
-    { id: 'payments', label: 'Payments', icon: DollarSign, path: '/hotel/bookings/payments' },
-  ];
 
   // Hotel management menu items
   const hotelMenuItems = [
@@ -77,9 +69,7 @@ export function LeftSidebar({ isCollapsed }: LeftSidebarProps) {
       id: 'bookings', 
       label: 'Booking Management', 
       icon: Calendar, 
-      path: '/hotel/bookings',
-      hasSubMenu: true,
-      subMenu: bookingSubMenuItems
+      path: '/hotel/bookings'
     },
     { id: 'guests', label: 'Customer Management', icon: Users, path: '/hotel/guests' },
     { id: 'reviews', label: 'Reviews & Ratings', icon: Star, path: '/hotel/reviews' },
@@ -153,8 +143,8 @@ export function LeftSidebar({ isCollapsed }: LeftSidebarProps) {
             className={cn(
               "flex-1 flex items-center gap-3 px-3 py-2 text-sm rounded-lg transition-all duration-200",
               (isSelected || (item.id === 'rooms' && isRoomRoute) || (item.id === 'bookings' && isBookingRoute))
-                ? "bg-primary text-primary-foreground shadow-md"
-                : "hover:bg-accent hover:text-accent-foreground"
+                ? "bg-cyan-500/20 dark:bg-primary text-cyan-700 dark:text-primary-foreground shadow-md border border-cyan-500/30"
+                : "text-gray-700 dark:text-white hover:bg-gray-100 dark:hover:bg-accent hover:text-gray-900 dark:hover:text-accent-foreground"
             )}
           >
             {/* new */}
@@ -177,14 +167,6 @@ export function LeftSidebar({ isCollapsed }: LeftSidebarProps) {
               title="Create new"
             >
               <Plus className="w-3 h-3" />
-            </button>
-          )}
-          {!item.hasSubMenu && !item.createPath && (
-            <button
-              onClick={() => navigate(item.path)}
-              className="p-2 text-xs text-muted-foreground hover:text-foreground transition-colors"
-            >
-              <Eye className="w-3 h-3" />
             </button>
           )}
         </div>
@@ -222,12 +204,24 @@ export function LeftSidebar({ isCollapsed }: LeftSidebarProps) {
   if (isCollapsed) return null;
 
   return (
-    <div className="w-64 glass backdrop-blur-xl flex flex-col animate-fadeInLeft">
+    <div className="w-64 glass backdrop-blur-xl flex flex-col animate-fadeInLeft bg-white/5 dark:bg-gray-900/50 border-r border-gray-200/20 dark:border-white/5">
       {/* Header */}
-      <div className="p-4 border-b border-white/5">
-        <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider">
+      <div className="p-4 border-b border-gray-200/20 dark:border-white/5 flex items-center justify-between">
+        <h3 className="text-sm font-semibold text-gray-600 dark:text-muted-foreground uppercase tracking-wider">
           {isHotelRoute ? 'Hotel Management' : isEventTicketingRoute ? 'Event Ticketing' : 'System Controls'}
         </h3>
+        <Button
+          variant="ghost"
+          size="sm"
+          onClick={toggleTheme}
+          className="h-6 w-6 p-0"
+        >
+          {theme === 'dark' ? (
+            <Sun className="h-3 w-3 text-yellow-500" />
+          ) : (
+            <Moon className="h-3 w-3 text-gray-700" />
+          )}
+        </Button>
       </div>
 
       {/* Content */}
